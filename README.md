@@ -19,3 +19,11 @@ All information regarding React including Documentation found here:
 https://facebook.github.io/react-native/docs/getting-started
 
 I heavily advise getting to grips with the docs.
+
+Differences between this and other projects you may have come across:
+
+- There is a screens folder containing all our scenes, like home and settings. You may be more familiar with putting them directly in the components folder, but understand that a screen encompasses multiple components. 
+
+- The database will only be initialized and then used as an import where needed, within the dbconfig file.
+
+- This Project requires that you read through the project hierarchy and understand the different aspects. The only thing you should ignore is node_modules and .idea folders.

@@ -1,0 +1,1 @@
+// Contains all reducers within scope and combines them with redux

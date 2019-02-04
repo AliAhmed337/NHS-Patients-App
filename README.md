@@ -7,7 +7,7 @@ Steps for this project to work (should work on both mac and windows):
 
 1. Install the latest version of node @ https://nodejs.org/
 2. We need the expo client so go to terminal and type: npm install -g expo-cli
-3. Clone this repository
+3. Clone the DEVELOPMENT BRANCH repository - not this one
 4. Install Expo app on your phone
 4. In terminal travel to the directory in terminal where this project is located
 5. Type npm start to spin up a development server

@@ -7,12 +7,13 @@ Steps for this project to work (should work on both mac and windows):
 
 1. Install the latest version of node @ https://nodejs.org/
 2. We need the expo client so go to terminal and type: npm install -g expo-cli
-3. Clone this repository
+3. Clone this repository (imo use github desktop)
 4. Install Expo app on your phone
-4. In terminal travel to the directory in terminal where this project is located
-5. Type npm start to spin up a development server
-6. Should be presented with a QR code that you can scan using the app
-7. You now can make changes and see live updates to the application
+5. In terminal travel to the directory in terminal where this project is located
+6. Type npm install to get all the dependencies for the project
+7. Type npm start to spin up a development server
+8. Should be presented with a QR code that you can scan using the app
+9. You now can make changes and see live updates to the application
 
 All information regarding React including Documentation found here:
 

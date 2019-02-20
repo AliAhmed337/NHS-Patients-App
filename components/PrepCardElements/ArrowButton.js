@@ -63,4 +63,4 @@ const styles = {
 	}
 };
 
-export default ArrowButton;
+export { ArrowButton };

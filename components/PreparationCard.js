@@ -1,30 +1,35 @@
 import React from 'react';
 import { View } from 'react-native';
+import { PreparationCardContainer, PreparationCardSection, Button, ArrowButton } from './PrepCardElements';
 
-const PreparationCard = (props) => {
+const PreparationCard = ({ appointment }) => {
+	//const {} break down details of the appointment later
+	
+	//added temporary styling to see if it works
 	return (
-		<View style={styles.cardStyle}>
-			{props.children}
+		// TO DO: top level- leads to the details of the specific prep step
+		// TO DO: bottom level - expands for more info on the topic/keywords etc. 
+		<View style= {{ flex: 1 }}>
+
+		<PreparationCardContainer>
+			<PreparationCardSection>
+				<ArrowButton />
+			</PreparationCardSection>
+
+			<PreparationCardSection>
+				<Button>more info(add link?)</Button>
+			</PreparationCardSection>
+		</PreparationCardContainer>
+
 		</View>
 	);
+
 };
 
-const styles = {
-	cardStyle: {
-		borderWidth: 2,
-		borderRadius: 5, 
-		borderColor: '#13452A',
-		//borderBottomWidth: 0,
-
-		shadowColor: '#000',
-    	shadowOffset: { width: 0, height: 2 },
-   		shadowOpacity: 0.1,
-    	shadowRadius: 6,
-
-    	marginLeft: 5,
-    	marginRight: 5,
-    	marginTop: 10,
-		elevation: 4
+styles = {
+	topLevelStyle: {
+		flexDirection: 'column',
+		justifyContent: 'space-around'
 	}
 };
 

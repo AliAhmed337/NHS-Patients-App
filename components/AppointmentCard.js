@@ -7,6 +7,10 @@ export const AppointmentCard = ({appointment}) => {
     const {appointmentType, startTime, location} = appointment;
     const appointmentDate = moment(startTime);
     
+    const doNothing = () => {
+
+    };
+
     return (
         <View>
             <View>
@@ -21,11 +25,11 @@ export const AppointmentCard = ({appointment}) => {
             </View>
 
             <View>
-                <Button title="Preparation checklist" onPress = {}/>
+                <Button title="Preparation checklist" onPress = {doNothing}/>
             </View>
 
             <View>
-                <Button title="What to expect" onPress = {}/>
+                <Button title="What to expect" onPress = {doNothing}/>
             </View>
 
             <Text>
@@ -34,11 +38,8 @@ export const AppointmentCard = ({appointment}) => {
             </Text>
 
             <View>
-                <Button title="Cancel or change appointment" onPress = {}/>
+                <Button title="Cancel or change appointment" onPress = {doNothing}/>
             </View>
-            
-                
-            
         </View>
     );
 }

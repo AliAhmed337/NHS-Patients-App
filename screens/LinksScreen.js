@@ -1,7 +1,6 @@
 import React from 'react';
 import { ScrollView, StyleSheet, Button } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
-import { AppointmentCard } from '../components/AppointmentCard';
 
 export default class LinksScreen extends React.Component {
   static navigationOptions = {
@@ -22,27 +21,6 @@ export default class LinksScreen extends React.Component {
     );
   }
 }
-
-const appointments = {
-  first: {
-    appointmentType: 'Heart CT Scan ',
-    startTime: "2019-03-04T16:35:01",
-    location: 'St Thomas Hospital',
-  },
-
-  second: {
-    appointmentType: 'Digital Rectal Exam ',
-    startTime: "2019-08-02T10:40",
-    location: 'St James Hospital',
-  },
-
-  third: {
-    appointmentType: 'Appendix CT Scan ',
-    startTime: "2021-09-11T18:10",
-    location: 'Northwick Park Hospital',
-  },
-    
-};
 
 const styles = StyleSheet.create({
   container: {

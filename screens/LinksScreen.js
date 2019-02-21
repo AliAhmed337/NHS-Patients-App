@@ -16,7 +16,6 @@ export default class LinksScreen extends React.Component {
         <AppointmentCard appointment = {appointments.first}/>
         <AppointmentCard appointment = {appointments.second}/>
         <AppointmentCard appointment = {appointments.third}/>
-        <Button title="a VERY SPECIAL THING" onPress={() => this.props.navigation.navigate('Preparation')}/> 
       </ScrollView>
     );
   }

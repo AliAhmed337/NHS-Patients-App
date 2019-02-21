@@ -7,6 +7,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Button,
 } from 'react-native';
 import { WebBrowser } from 'expo';
 import { AppointmentCard } from '../components/AppointmentCard';
@@ -24,6 +25,8 @@ export default class HomeScreen extends React.Component {
           <AppointmentCard appointment = {appointments.first}/>
           <AppointmentCard appointment = {appointments.second}/>
           <AppointmentCard appointment = {appointments.third}/>
+          <Button title="a VERY SPECIAL THING" onPress={() => this.props.navigation.navigate('Preparation')}/> 
+
         </ScrollView>
     );
   }

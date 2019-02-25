@@ -50,7 +50,7 @@ export default styles = StyleSheet.create({
 
     appointmentTypeText: {
         fontSize: 25,
-        fontWeight: '650',
+        fontWeight: '700',
         color: 'white',
     },
 

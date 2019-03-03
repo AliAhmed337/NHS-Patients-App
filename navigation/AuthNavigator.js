@@ -1,8 +1,9 @@
 import AuthenticationScreen from '../screens/AuthenticationScreen';
 
-const AuthStack = createStackNavigator({
+export default AuthStack = createStackNavigator({
     AuthMain: AuthenticationScreen,
-  });
+    QRAuth: QRAuthenticationScreen
+  }); 
 
   
 

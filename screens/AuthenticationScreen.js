@@ -10,11 +10,15 @@ export default class AuthenticationScreen extends React.Component {
     };
 
     render(){
-
+        const {navigate} = this.props.navigation;
         return (
-
-
-
+            <View>
+                <Text>To begin, scan your appointment code {"\n"}
+                    will be included alongside your {"\n"}
+                    confirmation letter</Text>
+                <Button name='md-qr-scanner'> Scan QR </Button>
+               <Button onPress={() => navigate('ManualAuth')}>Enter Details Manually</Button>
+            </View>
         )
     }
 }

@@ -6,12 +6,13 @@ import HomeScreen from '../screens/HomeScreen';
 import AuthenticationScreen from '../screens/AuthenticationScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import PreparationScreen from '../screens/PreparationScreen';
-import CameraScreen from '../screens/ManualAuthenticationScreen';
+import ManualAuthenticationScreen from '../screens/ManualAuthenticationScreen';
 
 const HomeStack = createStackNavigator({
   Home: AuthenticationScreen,
   Preparation: PreparationScreen,
-    Camera: CameraScreen,
+    ManualAuth: ManualAuthenticationScreen,
+
 
 });
 

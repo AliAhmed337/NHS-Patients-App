@@ -7,27 +7,60 @@ import {
   Text,
   TouchableOpacity,
   View,
-  Button,
 } from 'react-native';
 import { WebBrowser } from 'expo';
-import { AppointmentCard } from '../components/AppointmentCard';
 
 import { MonoText } from '../components/StyledText';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
-    title: 'Home',
+    header: null,
   };
 
   render() {
     return (
+      <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <AppointmentCard appointment = {appointments.first}/>
-          <AppointmentCard appointment = {appointments.second}/>
-          <AppointmentCard appointment = {appointments.third}/>
-          <Button title="a VERY SPECIAL THING" onPress={() => this.props.navigation.navigate('Preparation')}/> 
+          <View style={styles.welcomeContainer}>
+            <Image
+              source={
+                __DEV__
+                  ? require('../assets/images/robot-dev.png')
+                  : require('../assets/images/robot-prod.png')
+              }
+              style={styles.welcomeImage}
+            />
+          </View>
 
+          <View style={styles.getStartedContainer}>
+            {this._maybeRenderDevelopmentModeWarning()}
+
+            <Text style={styles.getStartedText}>Get started by opening</Text>
+
+            <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
+              <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
+            </View>
+
+            <Text style={styles.getStartedText}>
+              Change this text and your app will automatically reload.
+            </Text>
+          </View>
+
+          <View style={styles.helpContainer}>
+            <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
+              <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
+            </TouchableOpacity>
+          </View>
         </ScrollView>
+
+        <View style={styles.tabBarInfoContainer}>
+          <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
+
+          <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
+            <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
+          </View>
+        </View>
+      </View>
     );
   }
 
@@ -64,27 +97,6 @@ export default class HomeScreen extends React.Component {
     );
   };
 }
-
-const appointments = {
-  first: {
-    appointmentType: 'Heart CT Scan ',
-    startTime: "2019-03-04T16:35:01",
-    location: 'St Thomas Hospital',
-  },
-
-  second: {
-    appointmentType: 'Digital Rectal Exam ',
-    startTime: "2019-08-02T10:40",
-    location: 'St James Hospital',
-  },
-
-  third: {
-    appointmentType: 'Appendix CT Scan ',
-    startTime: "2021-09-11T18:10",
-    location: 'Northwick Park Hospital',
-  },
-    
-};
 
 const styles = StyleSheet.create({
   container: {

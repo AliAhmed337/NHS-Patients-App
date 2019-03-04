@@ -1,11 +1,13 @@
+import { createStackNavigator } from 'react-navigation';
 import AuthenticationScreen from '../screens/AuthenticationScreen';
 import QRAuthenticationScreen from '../screens/QRAuthenticationScreen';
 
-export default AuthStack = createStackNavigator({
+const AuthStack = createStackNavigator({
     AuthMain: AuthenticationScreen,
     QRAuth: QRAuthenticationScreen,
-  }); 
+  });
 
+export default AuthStack;
   
 
 

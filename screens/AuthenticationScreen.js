@@ -22,7 +22,3 @@ export default class AuthenticationScreen extends React.Component {
         )
     }
 }
-
-
-
-

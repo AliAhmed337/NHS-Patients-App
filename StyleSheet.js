@@ -6,10 +6,10 @@ export default styles = StyleSheet.create({
     appointmentCardContainer: {
         borderWidth: 2,
         borderColor: '#34856D',
-        shadowColor: '#000',
-        shadowOffset: {width: 5, height: 10},
-        shadowOpacity: 0.4,
-        shadowRadius: 2,
+        // shadowColor: '#000',
+        // shadowOffset: {width: 5, height: 10},
+        // shadowOpacity: 0.4,
+        // shadowRadius: 2,
         elevation: 1,
         marginLeft: 15,
         marginRight: 15,
@@ -50,7 +50,7 @@ export default styles = StyleSheet.create({
 
     appointmentTypeText: {
         fontSize: 25,
-        fontWeight: '650',
+        fontWeight: '700',
         color: 'white',
     },
 

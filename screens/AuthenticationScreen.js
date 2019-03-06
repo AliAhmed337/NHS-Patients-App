@@ -29,7 +29,7 @@ export default class AuthenticationScreen extends React.Component {
                    which will be included alongside your {"\n"}
                     confirmation letter.</Text>
                 <View style={{paddingBottom: 30}} >
-                <Button  width='80%' backgroundColor='#007dff' color='#ffffff' name='md-qr-scanner'>Scan your appointment code</Button>
+                <Button  width='80%' backgroundColor='#007dff' color='#ffffff' name='md-qr-scanner' onPress={() => navigate('QRAuth')}>Scan your appointment code</Button>
                 </View>
                 <View>
                <Button  width='80%' name ='ios-paper' backgroundColor='#007dff' color= '#ffffff' onPress={() => navigate('ManualAuth')}>Enter Details Manually</Button>

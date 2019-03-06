@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Alert } from 'react-native';
+import { Text, View, StyleSheet, Alert, ActivityIndicator } from 'react-native';
 import { Constants, BarCodeScanner, Permissions } from 'expo';
 
 export default class QRAuth extends Component {
@@ -23,15 +23,16 @@ export default class QRAuth extends Component {
       'Scan successful!',
       JSON.stringify(data)
     );
+    this.props.navigation.navigate('Main');
   };
 
   render() {
     return (
       <View style={styles.container}>
         {this.state.hasCameraPermission === null ?
-          <Text>Requesting for camera permission</Text> :
+          <ActivityIndicator/> :
           this.state.hasCameraPermission === false ?
-            <Text>Camera permission is not granted</Text> :
+            this.props.navigation.navigate('Auth') :
             <BarCodeScanner
               onBarCodeRead={this._handleBarCodeRead}
               style={{ height: 200, width: 200 }}

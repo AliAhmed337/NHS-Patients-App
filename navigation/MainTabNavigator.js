@@ -3,17 +3,12 @@ import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import AuthenticationScreen from '../screens/AuthenticationScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import PreparationScreen from '../screens/PreparationScreen';
-import ManualAuthenticationScreen from '../screens/ManualAuthenticationScreen';
 
 const HomeStack = createStackNavigator({
-  Home: AuthenticationScreen,
+  Home: HomeScreen,
   Preparation: PreparationScreen,
-    ManualAuth: ManualAuthenticationScreen,
-
-
 });
 
 HomeStack.navigationOptions = {

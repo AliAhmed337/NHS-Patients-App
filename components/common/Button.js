@@ -9,7 +9,7 @@ const Button = (props) => {
 
     return (
 
-        <TouchableOpacity style={[styles.buttonBody, {backgroundColor: props.backgroundColor}]} onPress = {props.onPress} width = {props.width} height={props.height}>
+        <TouchableOpacity style={[styles.buttonBody, {backgroundColor: props.backgroundColor}, {width: props.width},{height:props.height}]} onPress = {props.onPress} >
             <Ionicons name={props.name} size={props.size} color={props.color}></Ionicons>
             <Text style={[styles.buttonText,{color: props.color}]}>{props.children}</Text>
         </TouchableOpacity>
@@ -20,12 +20,12 @@ const Button = (props) => {
 
 const styles = ({
     buttonBody: {
-        width: '100%',
-        padding: 15,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 8,
 
+        padding: 20,
+        alignItems: 'center',
+        borderRadius: 0,
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
     },
     buttonText: {
         fontSize: 18,

@@ -16,7 +16,7 @@ export default class AuthenticationScreen extends React.Component {
                 <Text>To begin, scan your appointment code {"\n"}
                     will be included alongside your {"\n"}
                     confirmation letter</Text>
-                <Button name='md-qr-scanner'> Scan QR </Button>
+                <Button onPress={() => navigate('QRAuth')} name='md-qr-scanner'> Scan QR </Button>
                <Button onPress={() => navigate('ManualAuth')}>Enter Details Manually</Button>
             </View>
         )

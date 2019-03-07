@@ -1,1 +1,6 @@
-// Contains all reducers within scope and combines them with redux
+import { combineReducers } from "redux";
+import AppointmentsReducer from './AppointmentsReducer';
+
+export default combineReducers({
+    appointmentsRed: AppointmentsReducer
+});

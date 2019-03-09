@@ -1,12 +1,16 @@
 import React from 'react';
 import {
+  View,
   Image,
   Platform,
   ScrollView,
   StyleSheet,
   Text,
-  ActivityIndicator
+  ActivityIndicator,
+  FlatList
 } from 'react-native';
+import { connect } from 'react-redux';
+import { requestAppointments } from "../actions";
 import { WebBrowser } from 'expo';
 import { AppointmentCard } from '../components/AppointmentCard';
 import { Button, ThemeProvider } from 'react-native-elements';

@@ -7,6 +7,7 @@ import {
 } from './types';
 
 export const passphraseChanged = (text) => {
+    console.log('changing passphrase');
     return {
         type: PASSPHRASE_CHANGED,
         payload: text
@@ -14,11 +15,14 @@ export const passphraseChanged = (text) => {
 };
 
 export const verifyUser = (passphrase) => {
+    console.log('attempting to verify user with passphrase: ' + passphrase);
     return dispatch => {
         dispatch({type: VERIFY_USER});
-        tempFakeVerify(passphrase)
-        .then(verifySuccess(dispatch, user))
-        .catch(verifyFail(dispatch))
+        tempFakeVerify(passphrase) ? 
+        verifySuccess(dispatch, passphrase) : verifyFail(dispatch);
+        // Below is the more likely implementation once Auth
+        //.then(verifySuccess(dispatch, passphrase))
+        //.catch(verifyFail(dispatch))
     };
 };
 
@@ -28,6 +32,7 @@ const tempFakeVerify = (passphrase) => {
 }
 
 const verifySuccess = (dispatch, user) => {
+    console.log('successfully verified apparently, user should be: ' + user);
     dispatch({type: CLEAR_APPOINTMENTS})
     dispatch({
         type: USER_VERIFY_SUCCESS,

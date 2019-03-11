@@ -15,7 +15,8 @@ export const requestAppointments = () => {
         fetch(url, {headers: {'Cache-Control': 'no-cache'}})
         .then((response) => response.json())
         .then((responseJson) => {
-            dispatch({type: APPOINTMENTS_RETRIEVED, payload: responseJson});
+            console.log('Appointments retrieved');
+            dispatch({type: APPOINTMENTS_RETRIEVED, payload: responseJson.appointments});
         })
         .catch((error) => console.error(error));
     }

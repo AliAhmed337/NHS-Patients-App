@@ -14,7 +14,15 @@ import { Button, ThemeProvider } from 'react-native-elements';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
-    title: 'Home',
+      title: 'Upcoming Appointments',
+
+      headerStyle: {
+          backgroundColor: '#007dff',
+      },
+      headerTitleStyle: {
+          fontWeight: 'bold',
+          color: '#ffffff',
+      },
   };
 
   render() {
@@ -24,7 +32,8 @@ export default class HomeScreen extends React.Component {
           <AppointmentCard appointment = {appointments.second}/>
           <AppointmentCard appointment = {appointments.third}/>
           <ThemeProvider>
-            <Button title="a VERY SPECIAL THING" type="outline" onPress={() => this.props.navigation.navigate('Preparation')}/> 
+            <Button title="a VERY SPECIAL THING" type="outline" onPress={() => this.props.navigation.navigate('Preparation')}/>
+              <Button title="a VERY SPECIAL THING 2" type="outline" onPress={() => this.props.navigation.navigate('Expect')}/>
           </ThemeProvider>
 
         </ScrollView>

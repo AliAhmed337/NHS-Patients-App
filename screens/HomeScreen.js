@@ -12,7 +12,7 @@ import {
 import { connect } from 'react-redux';
 import { requestAppointments } from "../actions";
 import { WebBrowser } from 'expo';
-import { AppointmentCard } from '../components/AppointmentCard';
+import AppointmentCard from '../components/AppointmentCard';
 import { Button, ThemeProvider } from 'react-native-elements';
 
 class HomeScreen extends React.Component {
@@ -34,8 +34,8 @@ class HomeScreen extends React.Component {
             data = {appointments}
             keyExtractor = {item => item.id}
             refreshing = {false}
-            onRefresh = {this._handleRefresh()}
-            renderItem = {this._renderAppointment()}          
+            onRefresh = {() => this._handleRefresh()}
+            renderItem = {this._renderAppointment}          
           />
         
           <ThemeProvider>
@@ -45,11 +45,14 @@ class HomeScreen extends React.Component {
     );
   }
 
-  _renderAppointment = ({item}) => {
+  _renderAppointment = ({item}) => (
     <AppointmentCard id = {item.id} appointment = {item}/>
-  }
+  )
+    
+  
 
   _handleRefresh() {
+    console.log('we are refreshing');
     const {requestAppointments} = this.props;
     requestAppointments();
   }

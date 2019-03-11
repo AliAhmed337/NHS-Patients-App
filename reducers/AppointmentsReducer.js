@@ -11,9 +11,11 @@ export default (state = INITIAL_STATE, action) => {
 
     switch (action.type) {
         case APPOINTMENTS_REQUESTED:
+        console.log('appointments are being retrieved');
             return {...state, loading: true};
         
         case APPOINTMENTS_RETRIEVED:
+        console.log('Appointments have been retrieved: ' + action.payload);
             return {
                 ...state, 
                 appointments: action.payload, 

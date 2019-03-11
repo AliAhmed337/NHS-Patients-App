@@ -16,10 +16,11 @@ export default (state = INITIAL_STATE, action) => {
 
     switch (action.type) {
         case PASSPHRASE_CHANGED:
+        console.log('passphrase is now: ' + state.passphrase);
             return {...state, passphrase: action.payload};
         
         case VERIFY_USER:
-            return {...state, loading: true, error: ''}
+            return {...state, loading: true, error: ''};
 
         case USER_VERIFY_SUCCESS:
             return {

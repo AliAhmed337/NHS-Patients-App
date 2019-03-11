@@ -5,10 +5,12 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import PreparationScreen from '../screens/PreparationScreen';
+import WhatToExpectScreen from '../screens/WhatToExpectScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
   Preparation: PreparationScreen,
+    Expect: WhatToExpectScreen,
 });
 
 HomeStack.navigationOptions = {

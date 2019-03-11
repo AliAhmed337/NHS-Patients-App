@@ -11,7 +11,7 @@ import ContactModal from "./ContactModal";
 import DialogBox from './ContactDialogBox'
 import Button from "./common/Button"
 
-export const AppointmentCard = ({appointment}) => {
+export const AppointmentCard = ({appointment},{navigation}) => {
 
     const {appointmentType, startTime, location} = appointment;
     const appointmentDate = moment(startTime);
@@ -19,7 +19,7 @@ export const AppointmentCard = ({appointment}) => {
 
     const doNothing = () => {
 
-    };
+    }
 
         return (
             <AppointmentContainer>
@@ -34,25 +34,35 @@ export const AppointmentCard = ({appointment}) => {
                 </AppointmentHeader>
 
                 <AppointmentBody>
-                    <AppointmentDetail>
-                        <Ionicons name="md-pin" size={30} color="black"></Ionicons>
-                        <Text onPress={() => Linking.openURL('http://google.com')}>{location}</Text>
-                    </AppointmentDetail>
-                    <AppointmentDetail>
-                        <Ionicons name="ios-clock" size={30} color="black"></Ionicons>
-                        <Text>{appointmentDate.format('MMMM Do YYYY, h:mm a')}</Text>
-                    </AppointmentDetail>
-
-                    <View>
-                        <Button onPress={doNothing} name="md-checkbox" backgroundColor='#14B866'>Preparation checklist</Button>
+                    <View style={[{paddingBottom: 10}, {paddingTop: 10}]}>
+                        <AppointmentDetail>
+                            <Ionicons name="md-pin" size={15} color="black"></Ionicons>
+                            <Text style={{paddingLeft: 30}}
+                                  onPress={() => Linking.openURL('http://google.com')}>{location}</Text>
+                        </AppointmentDetail>
+                    </View>
+                    <View style={[{paddingBottom: 10}, {paddingTop: 10}]}>
+                        <AppointmentDetail>
+                            <Ionicons name="ios-clock" size={15} color="black"></Ionicons>
+                            <Text style={{paddingLeft: 30}}>{appointmentDate.format('MMMM Do YYYY, h:mm a')}</Text>
+                        </AppointmentDetail>
+                    </View>
+                    <View style={{paddingBottom: 10}}>
+                        <Button style={{paddingBottom: 20}} size={30} padding={10} width='100%' color='#ffffff'
+                                onPress={doNothing} name="md-checkbox" backgroundColor='#00a753'>Preparation
+                            checklist</Button>
+                    </View>
+                    <View style={{paddingBottom: 10}}>
+                        <Button padding={10} size={30} width='100%' color='#000000'
+                                onPress={() => navigation.navigate('Expect')} name="md-information-circle"
+                                backgroundColor='#d3d3d3'>What to Expect</Button>
                     </View>
 
-                    <View>
-                        <Button onPress={doNothing} name="md-information-circle" backgroundColor='#B1B9B5' color = 'red'>What to Expect</Button>
-                    </View>
-
+                    <Text style={{fontWeight: 'bold'}}>
+                        Can't make it to your appointment?
+                    </Text>
                     <Text>
-                        Can't make it to your appointment? It's important to
+                        It's important to
                         let us know so we can offer your slot to somebody else:
                     </Text>
 
@@ -62,5 +72,9 @@ export const AppointmentCard = ({appointment}) => {
                 </AppointmentBody>
             </AppointmentContainer>
         );
+
+
 }
+
+export default AppointmentCard;
 

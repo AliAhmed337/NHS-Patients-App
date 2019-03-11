@@ -3,6 +3,7 @@ import React from 'react';
 import App from '../App';
 import renderer from 'react-test-renderer';
 import NavigationTestUtils from 'react-navigation/NavigationTestUtils';
+import AppointmentCard from 'components/AppointmentCard'
 
 describe('App snapshot', () => {
   jest.useFakeTimers();
@@ -19,4 +20,9 @@ describe('App snapshot', () => {
     const tree = renderer.create(<App skipLoadingScreen />).toJSON();
     expect(tree).toMatchSnapshot();
   });
+});
+
+test('renders correctly', () => {
+    const tree = renderer.create(<AppointmentCard/>).toJSON();
+    expect(tree).toMatchSnapshot();
 });

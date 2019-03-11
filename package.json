@@ -5,10 +5,10 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "eject": "expo eject",
-    "test": "node ./node_modules/jest/bin/jest.js --watchAll"
+    "test": "jest"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "react-native"
   },
   "dependencies": {
     "@expo/samples": "2.1.1",
@@ -18,7 +18,8 @@
     "react-native-elements": "1.1.0",
     "react-navigation": "^3.0.9",
     "react-native-dialog": "^5.5.0",
-    "react-native-modal": "^7.0.2"
+    "react-native-modal": "^7.0.2",
+    "react-test-renderer": "latest"
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0",

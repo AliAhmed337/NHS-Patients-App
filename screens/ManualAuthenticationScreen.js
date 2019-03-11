@@ -26,9 +26,9 @@ class ManualAuthenticationScreen extends React.Component {
             <TextInput
                 placeholder = "example: gooseberry1034"
                 style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-                onChangeText={(text) => this._onPassphraseChange(text)}
+                onChangeText={this._onPassphraseChange.bind(this)}
                 value={this.props.passphrase}/>
-            <Button onPress = {this._onSubmitPress()}>{this.props.loading ? <ActivityIndicator/> : 'Submit'}</Button>
+            <Button onPress = {this._onSubmitPress.bind(this)}>{this.props.loading ? <ActivityIndicator/> : 'Submit'}</Button>
                 <Text>You'll find this on your appointment confirmation {"\n"}
                     letter or text message</Text>
             </View>
@@ -37,7 +37,8 @@ class ManualAuthenticationScreen extends React.Component {
 
     render(){
         const {navigate} = this.props.navigation;
-        return(this.props.user && this.props.user.exists ? navigate('Main') : this._renderForm());        
+        console.log(this.props.user ? true : false);
+        return(this.props.user ? navigate('Main') : this._renderForm());        
     }
 }
 

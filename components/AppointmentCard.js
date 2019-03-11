@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TouchableOpacity} from 'react-native';
+import { Text, View, TouchableOpacity, Platform} from 'react-native';
 import moment from 'moment';
 import styles from '../StyleSheet';
 import { Ionicons } from '@expo/vector-icons';
@@ -29,49 +29,55 @@ export default class AppointmentCard extends React.Component {
     }
 
     _renderCollapsed() {
+        console.log('rendering the collapsed version');
         const {appointmentType, startTime} = this.props.appointment;
+        console.log(appointmentType.name + ' ' + startTime);
         const appointmentDate = moment(startTime);
-        const {appointmentTypeText} = styles;
+        const {appointmentTypeText, appointmentTitleText} = styles;
 
         return (
-            <TouchableOpacity onPress={this._toggleExpand()}>
-                <AppointmentContainer>
+            <AppointmentContainer>
+                <TouchableOpacity onPress={() => this._toggleExpand()}>
                     <AppointmentHeader>
                         <AppointmentTitle>
                             <Text style={appointmentTitleText}>{appointmentDate.format('MMMM Do YYYY, h:mm a')}</Text>
-                            <Text style={appointmentTypeText}>{appointmentType}</Text>
+                            <Text style={appointmentTypeText}>{appointmentType.name}</Text>
                         </AppointmentTitle>
-                        <Ionicons name="arrow-down" size={30} color="white"></Ionicons>
+                        <Ionicons name= {Platform.OS === 'ios' ? 'ios-arrow-down' : 'md-arrow-dropdown'} size={30} color="white"></Ionicons>
                     </AppointmentHeader>
-                </AppointmentContainer>
-            </TouchableOpacity>
+                </TouchableOpacity>
+            </AppointmentContainer>
         );
         
 
     }
 
     _renderExpanded() {
+        console.log('Rendering expanded version');
         const {appointmentType, startTime, location} = this.props.appointment;
         const appointmentDate = moment(startTime);
         const {appointmentTypeText, appointmentTitleText, appointmentTimerText} = styles;
 
         return (
-            <TouchableOpacity onPress={this._toggleExpand()}>
-                <AppointmentContainer>
+            <AppointmentContainer>
+                <TouchableOpacity onPress={() => this._toggleExpand()}>
                     <AppointmentHeader>
                         <AppointmentTitle>
                             <Text style={appointmentTitleText}>Appointment details:</Text>
-                            <Text style={appointmentTypeText}>{appointmentType}</Text>
+                            <Text style={appointmentTypeText}>{appointmentType.name}</Text>
                         </AppointmentTitle>
                         <AppointmentTimer>
                             <Text style={appointmentTimerText}>{appointmentDate.fromNow()}</Text>
                         </AppointmentTimer>
                     </AppointmentHeader>
+                </TouchableOpacity>
 
                     <AppointmentBody>
                         <AppointmentDetail>
                             <Ionicons name="md-pin" size={30} color="black"></Ionicons>
-                            <Text onPress={() => Linking.openURL('http://google.com')}>{location}</Text>
+                            <Text onPress={() => Linking.openURL(
+                                Platform === 'ios' ? location.maps.appleMapsURL : location.maps.googleMapsURL
+                                )}>{location.name}</Text>
                         </AppointmentDetail>
                         <AppointmentDetail>
                             <Ionicons name="ios-clock" size={30} color="black"></Ionicons>
@@ -79,11 +85,11 @@ export default class AppointmentCard extends React.Component {
                         </AppointmentDetail>
 
                         <View>
-                            <Button onPress={doNothing} name="md-checkbox" backgroundColor='#14B866'>Preparation checklist</Button>
+                            <Button onPress={this._doNothing} name="md-checkbox" backgroundColor='#14B866'>Preparation checklist</Button>
                         </View>
 
                         <View>
-                            <Button onPress={doNothing} name="md-information-circle" backgroundColor='#B1B9B5' color = 'red'>What to Expect</Button>
+                            <Button onPress={this._doNothing} name="md-information-circle" backgroundColor='#B1B9B5' color = 'red'>What to Expect</Button>
                         </View>
 
                         <Text>
@@ -95,13 +101,13 @@ export default class AppointmentCard extends React.Component {
                             <DialogBox/>
                         </View>
                     </AppointmentBody>
-                </AppointmentContainer>
-            </TouchableOpacity>
+            </AppointmentContainer>
         );
     }
 
     render() {
-        this.state.expanded ? _renderExpanded : _renderCollapsed;
+        console.log('are we expanded: ' + this.state.expanded);
+        return this.state.expanded ? this._renderExpanded() : this._renderCollapsed();
 }
 
         

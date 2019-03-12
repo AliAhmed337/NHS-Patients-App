@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform } from 'react-native';
+import { Platform, View } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator, createMaterialTopTabNavigator,
   createAppContainer,
   createSwitchNavigator,
@@ -8,11 +8,11 @@ import TabBarIcon from '../components/TabBarIcon';
 import PreparationScreen from '../screens/PreparationScreen';
 import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import { Icon } from 'react-native-elements';
 import DietScreen from '../screens/DietScreen';
 import MenuScreen from '../screens/MenuScreen';
 import TimeLineTestScreen from '../screens/TimeLineTestScreen';
 import GridMenuTest from '../screens/GridMenuTest';
-//import PreparationScreen from '../screens/PreparationScreen';
 import WhatToExpectScreen from '../screens/WhatToExpectScreen';
 
 export default class MainTabNavigator extends React.Component{
@@ -21,26 +21,6 @@ export default class MainTabNavigator extends React.Component{
   }
 }
 
-
-const HomeStack = createStackNavigator({
-  Home: HomeScreen,
-  //Preparation: PreparationScreen,
-  Expect: WhatToExpectScreen,
-});
-
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
-    />
-  ),
-};
 
 const SettingsStack = createStackNavigator({
   Settings: SettingsScreen,
@@ -104,9 +84,18 @@ const DashboardStackNavigator = createStackNavigator({
   }
 })
 
+
+
 const AppDrawerNavigator = createDrawerNavigator({
   Preparation: DashboardStackNavigator,
 })
+
+
+
+const HomeStack = createStackNavigator({
+  Home: HomeScreen,
+  Expect: WhatToExpectScreen,
+});
 
 const AppSwitchNavigator = createSwitchNavigator({
   Home: { screen: HomeStack },
@@ -117,5 +106,40 @@ const AppSwitchNavigator = createSwitchNavigator({
 
 const AppContainer = createAppContainer(AppSwitchNavigator);
 
+const PreparationStack = createStackNavigator({
+  Preparation: PreparationScreen,
+});
+
+HomeStack.navigationOptions = {
+  tabBarVisible: false,
+  swipeEnabled: false, 
+};
+
+HomeStack.navigationOptions = {
+  tabBarLabel: 'Home',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-information-circle${focused ? '' : '-outline'}`
+          : 'md-information-circle'
+      }
+    />
+  ),
+};
+
+PreparationStack.navigationOptions = {
+  tabBarLabel: 'Preparation',
+  tabBarVisible: true,
+  swipeEnabled: true, 
+  title: 'Preparation',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-settings' : 'md-settings'}
+    />
+  ),
+};
 
 

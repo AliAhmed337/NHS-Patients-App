@@ -47,7 +47,7 @@ class HomeScreen extends React.Component {
           />
         
           <ThemeProvider>
-            <Button title="a VERY SPECIAL THING" type="outline" onPress={() => this.props.navigation.navigate('Preparation')}/>
+            <Button title="a VERY SPECIAL THING" type="outline"/>
               <Button title="a VERY SPECIAL THING 2" type="outline" onPress={() => this.props.navigation.navigate('Expect')}/>
           </ThemeProvider>
       </View>

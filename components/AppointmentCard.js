@@ -117,6 +117,3 @@ export default class AppointmentCard extends React.Component {
         return this.state.expanded ? this._renderExpanded() : this._renderCollapsed();
   }
 }
-
-export default AppointmentCard;
-

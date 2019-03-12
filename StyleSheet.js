@@ -40,7 +40,9 @@ export default styles = StyleSheet.create({
 
     appointmentDetailContainer: {
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingBottom: 10,
+        paddingTop: 10,
     },
 
     appointmentTitleText: {

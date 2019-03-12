@@ -1,18 +1,21 @@
 import React from 'react';
 import {
+  View,
   Image,
   Platform,
   ScrollView,
   StyleSheet,
   Text,
-  TouchableOpacity,
-  View,
+  ActivityIndicator,
+  FlatList
 } from 'react-native';
+import { connect } from 'react-redux';
+import { requestAppointments } from "../actions";
 import { WebBrowser } from 'expo';
-import { AppointmentCard } from '../components/AppointmentCard';
+import AppointmentCard from '../components/AppointmentCard';
 import { Button, ThemeProvider } from 'react-native-elements';
 
-export default class HomeScreen extends React.Component {
+class HomeScreen extends React.Component {
   static navigationOptions = {
       title: 'Upcoming Appointments',
 
@@ -25,75 +28,44 @@ export default class HomeScreen extends React.Component {
       },
   };
 
+  componentDidMount() {
+    const {requestAppointments} = this.props;
+    requestAppointments();
+  }
+
   render() {
+    const { appointments, loading } = this.props;
     return (
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <AppointmentCard appointment = {appointments.first}/>
-          <AppointmentCard appointment = {appointments.second}/>
-          <AppointmentCard appointment = {appointments.third}/>
+      loading ? <ActivityIndicator/> :
+      <View>
+          <FlatList
+            data = {appointments}
+            keyExtractor = {item => item.id}
+            refreshing = {false}
+            onRefresh = {() => this._handleRefresh()}
+            renderItem = {this._renderAppointment}          
+          />
+        
           <ThemeProvider>
             <Button title="a VERY SPECIAL THING" type="outline" onPress={() => this.props.navigation.navigate('Preparation')}/>
               <Button title="a VERY SPECIAL THING 2" type="outline" onPress={() => this.props.navigation.navigate('Expect')}/>
           </ThemeProvider>
-
-        </ScrollView>
+      </View>
     );
   }
 
-  _maybeRenderDevelopmentModeWarning() {
-    if (__DEV__) {
-      const learnMoreButton = (
-        <Text onPress={this._handleLearnMorePress} style={styles.helpLinkText}>
-          Learn more
-        </Text>
-      );
-
-      return (
-        <Text style={styles.developmentModeText}>
-          Development mode is enabled, your app will be slower but you can use useful development
-          tools. {learnMoreButton}
-        </Text>
-      );
-    } else {
-      return (
-        <Text style={styles.developmentModeText}>
-          You are not in development mode, your app will run at full speed.
-        </Text>
-      );
-    }
-  }
-
-  _handleLearnMorePress = () => {
-    WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
-  };
-
-  _handleHelpPress = () => {
-    WebBrowser.openBrowserAsync(
-      'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
-    );
-  };
-}
-
-const appointments = {
-  first: {
-    appointmentType: 'Heart CT Scan ',
-    startTime: "2019-03-04T16:35:01",
-    location: 'St Thomas Hospital',
-  },
-
-  second: {
-    appointmentType: 'Digital Rectal Exam ',
-    startTime: "2019-08-02T10:40",
-    location: 'St James Hospital',
-  },
-
-  third: {
-    appointmentType: 'Appendix CT Scan ',
-    startTime: "2021-09-11T18:10",
-    location: 'Northwick Park Hospital',
-  },
+  _renderAppointment = ({item}) => (
+    <AppointmentCard id = {item.id} appointment = {item}/>
+  )
     
-};
+  
+
+  _handleRefresh() {
+    console.log('we are refreshing');
+    const {requestAppointments} = this.props;
+    requestAppointments();
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -183,3 +155,10 @@ const styles = StyleSheet.create({
     color: '#2e78b7',
   },
 });
+
+const mapStateToProps = ({ appointmentsRed }) => {
+  const { appointments, loading } = appointmentsRed;
+  return { appointments, loading };
+}
+
+export default connect(mapStateToProps, {requestAppointments})(HomeScreen);

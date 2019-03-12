@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Button, TouchableOpacity } from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
-import MenuPopUpBox from '../components/MenuPopUpBox';
 import Dialog, {
   DialogTitle,
   DialogContent,

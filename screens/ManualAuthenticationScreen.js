@@ -21,16 +21,28 @@ class ManualAuthenticationScreen extends React.Component {
 
     _renderForm(){
         return (
-            <View>
-                <Text>Enter your passphrase:</Text>
+            <View style={{alignItems: 'center', paddingTop: 20,}}>
+                <Text style={{fontSize: 30, textAlign: 'center', 
+                fontFamily: 'sans-serif',paddingBottom: 30, 
+                paddingTop: 30, fontWeight: 'bold'}}>
+                    Enter your passphrase:
+                </Text>
             <TextInput
                 placeholder = "example: gooseberry1034"
-                style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+                style={{textAlign: 'center',height: 40, width: 300, borderColor: 'gray', borderWidth: 1}}
                 onChangeText={this._onPassphraseChange.bind(this)}
                 value={this.props.passphrase}/>
-            <Button onPress = {this._onSubmitPress.bind(this)}>{this.props.loading ? <ActivityIndicator/> : 'Submit'}</Button>
-                <Text>You'll find this on your appointment confirmation {"\n"}
-                    letter or text message</Text>
+            <View style={{paddingBottom: 30, paddingTop: 30}}>
+                <Button size={30}  padding={20} name = 'md-arrow-dropright-circle' width='80%' backgroundColor='#007dff' color='#ffffff' 
+                    onPress = {this._onSubmitPress.bind(this)}>
+                        {this.props.loading ? <ActivityIndicator/> : 'Submit'}
+                </Button>        
+            </View>
+                <Text style={{fontSize: 15, textAlign: 'center', fontFamily: 'sans-serif',
+                    paddingBottom: 30, paddingTop: 10, fontWeight: 'bold'}}>
+                        You'll find this on your appointment confirmation {"\n"}
+                        letter or text message
+                </Text>
             </View>
         );
     }

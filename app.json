@@ -26,6 +26,11 @@
       "package": "com.dominicswaine.hospitalappointments",
       "versionCode": 1
     },
+
+    "ios": {
+      "bundleIdentifier": "com.dominicswaine.hospitalappointments"
+    },
+    
     "githubUrl": "https://github.com/JayMacpherson/medapp-nhs"
   }
 }

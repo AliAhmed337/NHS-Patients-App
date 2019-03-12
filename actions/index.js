@@ -1,1 +1,2 @@
-// This file contains all actions within this scope and exports them
+export * from './AppointmentsActions';
+export * from './ManualAuthActions';

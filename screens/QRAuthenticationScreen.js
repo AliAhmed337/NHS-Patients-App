@@ -1,8 +1,20 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Alert } from 'react-native';
+import { Text, View, StyleSheet, Alert, ActivityIndicator, Vibration} from 'react-native';
 import { Constants, BarCodeScanner, Permissions } from 'expo';
 
 export default class QRAuth extends Component {
+    static navigationOptions = {
+        title: 'Scan QR Code',
+
+        headerStyle: {
+            backgroundColor: '#007dff',
+        },
+        headerTitleStyle: {
+            fontWeight: 'bold',
+            color: '#ffffff',
+        },
+    };
+
   state = {
     hasCameraPermission: null
   };
@@ -23,18 +35,20 @@ export default class QRAuth extends Component {
       'Scan successful!',
       JSON.stringify(data)
     );
+      Vibration.vibrate(100);
+    this.props.navigation.navigate('Main');
   };
 
   render() {
     return (
       <View style={styles.container}>
         {this.state.hasCameraPermission === null ?
-          <Text>Requesting for camera permission</Text> :
+          <ActivityIndicator/> :
           this.state.hasCameraPermission === false ?
-            <Text>Camera permission is not granted</Text> :
+            this.props.navigation.navigate('Auth') :
             <BarCodeScanner
               onBarCodeRead={this._handleBarCodeRead}
-              style={{ height: 200, width: 200 }}
+              style={[StyleSheet.absoluteFill]}
             />
         }
       </View>

@@ -11,7 +11,7 @@ import WhatToExpectScreen from '../screens/WhatToExpectScreen';
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
   Preparation: PreparationScreen,
-    Expect: WhatToExpectScreen,
+  Expect: WhatToExpectScreen,
 });
 
 HomeStack.navigationOptions = {
@@ -24,20 +24,6 @@ HomeStack.navigationOptions = {
           ? `ios-information-circle${focused ? '' : '-outline'}`
           : 'md-information-circle'
       }
-    />
-  ),
-};
-
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
-});
-
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
     />
   ),
 };
@@ -58,6 +44,5 @@ SettingsStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   HomeStack,
-  LinksStack,
   SettingsStack,
 });

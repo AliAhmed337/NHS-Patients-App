@@ -29,8 +29,7 @@ class ManualAuthenticationScreen extends React.Component {
     _renderForm(){
         return (
             <View style={{alignItems: 'center', paddingTop: 20,}}>
-                <Text style={{fontSize: 30, textAlign: 'center', 
-                fontFamily: 'sans-serif',paddingBottom: 30, 
+                <Text style={{fontSize: 30, textAlign: 'center',paddingBottom: 30, 
                 paddingTop: 30, fontWeight: 'bold'}}>
                     Enter your passphrase:
                 </Text>
@@ -45,7 +44,7 @@ class ManualAuthenticationScreen extends React.Component {
                         {this.props.loading ? <ActivityIndicator/> : 'Submit'}
                 </Button>        
             </View>
-                <Text style={{fontSize: 15, textAlign: 'center', fontFamily: 'sans-serif',
+                <Text style={{fontSize: 15, textAlign: 'center',
                     paddingBottom: 30, paddingTop: 10, fontWeight: 'bold'}}>
                         You'll find this on your appointment confirmation {"\n"}
                         letter or text message

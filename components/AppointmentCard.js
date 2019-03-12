@@ -7,7 +7,6 @@ import {
     AppointmentHeader,AppointmentBody, AppointmentDetail,
     AppointmentTimer,AppointmentTitle, AppointmentContainer
 } from './appointment_elements';
-import ContactModal from "./ContactModal";
 import DialogBox from './ContactDialogBox'
 import Button from "./common/Button"
 

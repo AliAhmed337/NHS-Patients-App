@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Button, TouchableOpacity } from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
+import MenuPopUpBox from '../components/MenuPopUpBox';
+import Dialog, {
+  DialogTitle,
+  DialogContent,
+  DialogFooter,
+  DialogButton,
+  SlideAnimation
+} from 'react-native-popup-dialog';
 
   const styles = StyleSheet.create({
     gridView: {
@@ -48,7 +56,8 @@ export default class GridMenuTest extends Component {
     constructor(){
         super()
         this.state={
-            showMe: false
+            clicked: false,
+            item: ''
         }
     }
 
@@ -77,35 +86,44 @@ export default class GridMenuTest extends Component {
     ];
 
     return (
+      <View style={{ flex: 1 }}>
       <FlatGrid
         itemDimension={130}
         items={items}
         style={styles.gridView}
-        renderItem={({ item, index }) => (
+        renderItem={({ item }) => (
             <View style={{flex: 1}}>
             <View>
             <TouchableOpacity 
-                style={[styles.itemContainer, { backgroundColor: item.code }]} 
-              
+                style={[styles.itemContainer, { backgroundColor: item.code }]}
+                onPress={() => this.setState({ clicked: true, item })}
             >
                 <Text style={styles.itemName}>{item.name}</Text>
                 <Text style={styles.itemCode}>{item.code}</Text>
             </TouchableOpacity>
             </View>
-         
-                    <TouchableOpacity>
-                        <Text style={styles.openText} onPress={() => {
-                            this.setState({
-                                showMe: true
-                            })
-                        }}>{item.code}</Text>
-                    </TouchableOpacity>
          </View>
         )}
-
-    
       />
-
+       <View>
+        <Dialog
+          onDismiss={() => {
+            this.setState({ clicked: false, item: '' });
+          }}
+          onTouchOutside={() => {
+            this.setState({ clicked: false, item: '' });
+          }}
+          visible={this.state.clicked}
+          dialogTitle={<DialogTitle title={this.state.item.name} />}
+          dialogAnimation={new SlideAnimation({ slideFrom: 'bottom' })}
+        >
+          <DialogContent>
+            <Text>Slide Animation</Text>
+          </DialogContent>
+        </Dialog>
+      </View>
+      
+      </View>
     );
   }
 }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Button, TouchableOpacity } from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
-import Modal from "react-native-modal";
 
   const styles = StyleSheet.create({
     gridView: {
@@ -93,22 +92,7 @@ export default class GridMenuTest extends Component {
                 <Text style={styles.itemCode}>{item.code}</Text>
             </TouchableOpacity>
             </View>
-            <Modal visible={this.state.showMe}>
-                    <View style={styles.modalView}>
-                        <Text>{item.name}</Text>
-                        <TouchableOpacity onPress={() =>{
-                        this.setState({
-                            showMe: false
-                        })
-                        }}>
-                        <Text style={styles.closeText} onPress={() => {
-                            this.setState({
-                                showMe: false
-                            })
-                        }}>Hide me!</Text>
-                        </TouchableOpacity>
-                    </View>
-                    </Modal>
+         
                     <TouchableOpacity>
                         <Text style={styles.openText} onPress={() => {
                             this.setState({

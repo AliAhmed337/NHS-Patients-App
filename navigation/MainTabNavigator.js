@@ -62,8 +62,6 @@ const DashboardTabNavigator = createMaterialTopTabNavigator({
   MenuScreen,
   TimeLineTestScreen,
   GridMenuTest,
-  PopupScreen,
-  ModalScreen
 },{
   navigationOptions:({navigation})=>{
     const{routeName} = navigation.state.routes[navigation.state.index]

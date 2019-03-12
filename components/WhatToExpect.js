@@ -11,10 +11,10 @@ export const WhatToExpect = ({info}) => {
 
        <View  style={{alignItems: 'center'}}>
            <View style={{paddingBottom: 30}}>
-           <Text style={{textAlign: 'center', fontFamily: 'pp', paddingTop: 30, fontWeight: 'bold'}}>{Title}</Text>
+           <Text style={{textAlign: 'center', paddingTop: 30, fontWeight: 'bold'}}>{Title}</Text>
            </View >
            <Image style={{height: 200, width:200, paddingBottom: 30}} source={{uri: ImageUrl} }/>
-           <Text style={{fontFamily: 'pp',paddingBottom: 30, paddingTop: 30}}>{InformationText}</Text>
+           <Text style={{paddingBottom: 30, paddingTop: 30}}>{InformationText}</Text>
        </View>
 
    );

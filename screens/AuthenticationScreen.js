@@ -26,7 +26,7 @@ export default class AuthenticationScreen extends React.Component  {
                 <View style={{paddingTop: 40}}>
                 <Image style={{width: 250, height: 100,}} source={{uri: 'https://www.chortho.co.uk/wp-content/uploads/2018/11/nhs.png'}} />
                 </View>
-                    <Text style={{textAlign: 'center', fontFamily: 'pp',paddingBottom: 30, paddingTop: 30, fontWeight: 'bold'}}>To begin, scan your appointment code {"\n"}
+                    <Text style={{textAlign: 'center',paddingBottom: 30, paddingTop: 30, fontWeight: 'bold'}}>To begin, scan your appointment code {"\n"}
                    which will be included alongside your {"\n"}
                     confirmation letter.</Text>
                 <View style={{paddingBottom: 30}} >

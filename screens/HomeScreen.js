@@ -7,7 +7,8 @@ import {
   StyleSheet,
   Text,
   ActivityIndicator,
-  FlatList
+  FlatList,
+  StatusBar
 } from 'react-native';
 import { connect } from 'react-redux';
 import { requestAppointments } from "../actions";
@@ -38,6 +39,7 @@ class HomeScreen extends React.Component {
     return (
       loading ? <ActivityIndicator/> :
       <View>
+          <StatusBar barStyle="light-content"/>
           <FlatList
             data = {appointments}
             keyExtractor = {item => item.id}
@@ -47,7 +49,7 @@ class HomeScreen extends React.Component {
           />
         
           <ThemeProvider>
-            <Button title="a VERY SPECIAL THING" type="outline"/>
+            <Button title="a VERY SPECIAL THING" type="outline" onPress={() => this.props.navigation.navigate('Preparation')}/>
               <Button title="a VERY SPECIAL THING 2" type="outline" onPress={() => this.props.navigation.navigate('Expect')}/>
           </ThemeProvider>
       </View>

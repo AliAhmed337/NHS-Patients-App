@@ -48,8 +48,6 @@ export default class AppointmentCard extends React.Component {
                 </TouchableOpacity>
             </AppointmentContainer>
         );
-        
-
     }
 
     _renderExpanded() {
@@ -117,8 +115,8 @@ export default class AppointmentCard extends React.Component {
     render() {
         console.log('are we expanded: ' + this.state.expanded);
         return this.state.expanded ? this._renderExpanded() : this._renderCollapsed();
+  }
 }
 
-        
-}
+export default AppointmentCard;
 

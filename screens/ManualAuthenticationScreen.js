@@ -7,6 +7,13 @@ import Button from '../components/common/Button';
 class ManualAuthenticationScreen extends React.Component {
     static navigationOptions = {
         title: 'Enter details manually',
+        headerStyle: {
+            backgroundColor: '#007dff',
+        },
+        headerTitleStyle: {
+            fontWeight: 'bold',
+            color: '#ffffff',
+        },
     };
 
     _onPassphraseChange(text) {

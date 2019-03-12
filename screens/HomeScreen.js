@@ -17,7 +17,15 @@ import { Button, ThemeProvider } from 'react-native-elements';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
-    title: 'Home',
+      title: 'Upcoming Appointments',
+
+      headerStyle: {
+          backgroundColor: '#007dff',
+      },
+      headerTitleStyle: {
+          fontWeight: 'bold',
+          color: '#ffffff',
+      },
   };
 
   componentDidMount() {
@@ -39,7 +47,8 @@ class HomeScreen extends React.Component {
           />
         
           <ThemeProvider>
-            <Button title="a VERY SPECIAL THING" type="outline" onPress={() => this.props.navigation.navigate('Preparation')}/> 
+            <Button title="a VERY SPECIAL THING" type="outline" onPress={() => this.props.navigation.navigate('Preparation')}/>
+              <Button title="a VERY SPECIAL THING 2" type="outline" onPress={() => this.props.navigation.navigate('Expect')}/>
           </ThemeProvider>
       </View>
     );

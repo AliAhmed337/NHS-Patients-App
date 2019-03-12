@@ -1,7 +1,6 @@
 import React from 'react';
 import {Text,View,Image} from 'react-native';
 import Button from '../components/common/Button';
-import Header from '../components/common/ScreenHeader';
 import {ThemeProvider} from "react-native-elements";
 
 

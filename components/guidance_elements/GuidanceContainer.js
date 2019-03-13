@@ -1,17 +1,15 @@
 import React from 'react';
-import { View } from 'react-native';
-import { GuidanceSubtitle, GuidanceContent } from '../guidance_elements';
+import { View, Text } from 'react-native';
 
-export const GuidanceContainer = ({ menu }) => {
-	const { title, content } = menu;
+export const GuidanceContainer = (props) => {
 	return (
 		<View>
-			<View style={styles.titleContainterStyle}>
-				<GuidanceSubtitle title={title} />
+			<View >
+				<Text style={styles.titleContainterStyle}>{props.title}</Text>
 			</View>
 
-			<View style={styles.contentContainerStyle}>
-				<GuidanceContent content={content} />
+			<View >
+				<Text style={styles.contentContainerStyle}>{props.content}</Text>
 			</View>
 		</View>
 	);
@@ -20,12 +18,12 @@ export const GuidanceContainer = ({ menu }) => {
 const styles = {
 	titleContainterStyle: {
 		margin: 6,
+		fontSize: 17,
+		fontWeight: 'bold'
 
 	},
 	contentContainerStyle: {
 		margin: 6,
-	},
-	combinedContainerStyle: {
-		
+		fontSize: 16
 	}
 };

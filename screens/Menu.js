@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, Button, TouchableOpacity, ScrollView } from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
 import Dialog, {
   DialogTitle,
@@ -51,7 +51,7 @@ import Dialog, {
   });
   
 
-export default class GridMenuTest extends Component {
+export default class Menu extends Component {
     constructor(){
         super()
         this.state={
@@ -59,6 +59,18 @@ export default class GridMenuTest extends Component {
             item: ''
         }
     }
+
+
+  renderMenuContent(item) {
+    if(item !== ''){
+    return item.content.map(row =>
+      <View style={{ flexDirection: 'row' }}>
+          <Text>{'\u2022'}</Text>
+          <Text style={{ flex: 1, paddingLeft: 5, fontSize: 16 }}>{row}</Text>
+        </View>
+      );
+    }
+  }
 
   render() {
 const items = [ 
@@ -92,18 +104,20 @@ const items = [
       />
        <View>
         <Dialog
+          style={{ margin: 50 }}
           onDismiss={() => {
             this.setState({ clicked: false, item: '' });
           }}
           onTouchOutside={() => {
             this.setState({ clicked: false, item: '' });
           }}
+
           visible={this.state.clicked}
           dialogTitle={<DialogTitle title={this.state.item.name} />}
           dialogAnimation={new SlideAnimation({ slideFrom: 'bottom' })}
         >
-          <DialogContent>
-            <Text>{this.state.item.content}</Text>
+          <DialogContent style={{ height: 200, flexDirection: 'row' }}>
+            <ScrollView>{this.renderMenuContent(this.state.item)}</ScrollView>
           </DialogContent>
         </Dialog>
       </View>

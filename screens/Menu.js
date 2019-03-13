@@ -51,7 +51,7 @@ import Dialog, {
   });
   
 
-export default class GridMenuTest extends Component {
+export default class Menu extends Component {
     constructor(){
         super()
         this.state={

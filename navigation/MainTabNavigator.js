@@ -10,9 +10,8 @@ import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import { Icon } from 'react-native-elements';
 import DietScreen from '../screens/DietScreen';
-import MenuScreen from '../screens/MenuScreen';
 import TimeLineTestScreen from '../screens/TimeLineTestScreen';
-import GridMenuTest from '../screens/GridMenuTest';
+import Menu from '../screens/Menu';
 import WhatToExpectScreen from '../screens/WhatToExpectScreen';
 
 export default class MainTabNavigator extends React.Component{
@@ -39,9 +38,9 @@ SettingsStack.navigationOptions = {
 const DashboardTabNavigator = createMaterialTopTabNavigator({
   PreparationScreen, 
   DietScreen, 
-  MenuScreen,
+  Menu,
   TimeLineTestScreen,
-  GridMenuTest,
+  
 },{
   navigationOptions:({navigation})=>{
     const{routeName} = navigation.state.routes[navigation.state.index]

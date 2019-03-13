@@ -28,6 +28,7 @@ export const verifyUser = (passphrase) => {
 
 const tempFakeVerify = (passphrase) => {
     // verify passphrase and return true if valid
+    // set the passphrase asyncStorage as user token
     return true;
 }
 

@@ -30,31 +30,53 @@ export default class QRAuth extends Component {
     });
   };
 
-  _handleBarCodeRead = data => {
+  _handleBarCodeRead = resource => {
+    
+    const {verifyUser} = this.props;
+
+    try {
+      verifyUser(resource.data);
+      Vibration.vibrate(100);
+    }
+    catch (e) {
+      console.error(e.message);
+    }
     Alert.alert(
       'Scan successful!',
-      JSON.stringify(data)
+      JSON.stringify(resource)
     );
-      Vibration.vibrate(100);
-    this.props.navigation.navigate('Main');
   };
 
-  render() {
+  _renderCamera() {
+    const camPerm = this.state.hasCameraPermission.status;
     return (
       <View style={styles.container}>
-        {this.state.hasCameraPermission === null ?
+        {camPerm === null ?
           <ActivityIndicator/> :
-          this.state.hasCameraPermission === false ?
-            this.props.navigation.navigate('Auth') :
-            <BarCodeScanner
+          camPerm === 'granted' ?
+          <BarCodeScanner
               onBarCodeRead={this._handleBarCodeRead}
               style={[StyleSheet.absoluteFill]}
-            />
+          />
+          : this.props.navigation.goBack()
         }
       </View>
     );
   }
+
+  render() {
+    const {navigate} = this.props.navigation;
+        console.log(this.props.user ? true : false);
+        return(this.props.user ? navigate('Main') : this._renderCamera());
+  }
 }
+
+const mapStateToProps = ({ authRed }) => {
+  const { user } = authRed;
+  return { user };
+}
+
+export default connect(mapStateToProps, {verifyUser})(QRAuthenticationScreen);
 
 const styles = StyleSheet.create({
   container: {

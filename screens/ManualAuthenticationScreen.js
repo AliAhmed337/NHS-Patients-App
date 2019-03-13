@@ -60,8 +60,8 @@ class ManualAuthenticationScreen extends React.Component {
     }
 }
 
-const mapStateToProps = ({ manRed }) => {
-  const { passphrase, user, loading } = manRed;
+const mapStateToProps = ({ authRed }) => {
+  const { passphrase, user, loading } = authRed;
   return { passphrase, user,  loading };
 }
 

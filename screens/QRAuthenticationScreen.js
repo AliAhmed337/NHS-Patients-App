@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Alert, ActivityIndicator, Vibration} from 'react-native';
+import { View, StyleSheet, Alert, ActivityIndicator, Vibration} from 'react-native';
 import { Constants, BarCodeScanner, Permissions } from 'expo';
 
-export default class QRAuth extends Component {
+class QRAuthenticationScreen extends Component {
     static navigationOptions = {
         title: 'Scan QR Code',
 
@@ -52,7 +52,7 @@ export default class QRAuth extends Component {
     return (
       <View style={styles.container}>
         {camPerm === null ?
-          <ActivityIndicator/> :
+          this.props.navigation.goBack() :
           camPerm === 'granted' ?
           <BarCodeScanner
               onBarCodeRead={this._handleBarCodeRead}

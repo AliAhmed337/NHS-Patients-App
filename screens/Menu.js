@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, Button, TouchableOpacity, ScrollView } from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
 import Dialog, {
   DialogTitle,
@@ -60,6 +60,18 @@ export default class Menu extends Component {
         }
     }
 
+
+  renderMenuContent(item) {
+    if(item !== ''){
+    return item.content.map(row =>
+      <View style={{ flexDirection: 'row' }}>
+          <Text>{'\u2022'}</Text>
+          <Text style={{ flex: 1, paddingLeft: 5, fontSize: 16 }}>{row}</Text>
+        </View>
+      );
+    }
+  }
+
   render() {
 const items = [ 
   { name: 'Chicken and Bacon Salad', content: ['Chop tomato, cucumber, peppers, spring onions and radishes', 'Wash and pat dry some lettuce', 'In a bowl combine the salad ingredients with pieces of cooled cooked chicken and chopped grilled bacon', 'Mix with home-made salad dressing (2 tablespoons of oil, 1 tablespoon of vinegar, salt and pepper, whisked together).'], code: '#1abc9c' },
@@ -92,18 +104,20 @@ const items = [
       />
        <View>
         <Dialog
+          style={{ margin: 50 }}
           onDismiss={() => {
             this.setState({ clicked: false, item: '' });
           }}
           onTouchOutside={() => {
             this.setState({ clicked: false, item: '' });
           }}
+
           visible={this.state.clicked}
           dialogTitle={<DialogTitle title={this.state.item.name} />}
           dialogAnimation={new SlideAnimation({ slideFrom: 'bottom' })}
         >
-          <DialogContent>
-            <Text>{this.state.item.content}</Text>
+          <DialogContent style={{ height: 200, flexDirection: 'row' }}>
+            <ScrollView>{this.renderMenuContent(this.state.item)}</ScrollView>
           </DialogContent>
         </Dialog>
       </View>

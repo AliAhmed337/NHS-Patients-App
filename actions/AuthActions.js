@@ -7,7 +7,7 @@ import {
     CLEAR_APPOINTMENTS
 } from './types';
 
-import {AsyncStorage} from 'react-native';
+import { AsyncStorage } from 'react-native';
 
 export const passphraseChanged = (text) => {
     console.log('changing passphrase');

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Alert, ActivityIndicator, Vibration} from 'react-native';
 import { Constants, BarCodeScanner, Permissions } from 'expo';
+import { connect } from 'react-redux';
+import { verifyUser, cameraPermRequested } from '../actions';
 
 class QRAuthenticationScreen extends Component {
     static navigationOptions = {
@@ -15,19 +17,13 @@ class QRAuthenticationScreen extends Component {
         },
     };
 
-  state = {
-    hasCameraPermission: null
-  };
-
   componentDidMount() {
     this._requestCameraPermission();
   }
 
   _requestCameraPermission = async () => {
     const { status } = await Permissions.askAsync(Permissions.CAMERA);
-    this.setState({
-      hasCameraPermission: status === 'granted',
-    });
+    this.props.cameraPermRequested(status === 'granted');
   };
 
   _handleBarCodeRead = resource => {
@@ -35,6 +31,7 @@ class QRAuthenticationScreen extends Component {
     const {verifyUser} = this.props;
 
     try {
+      console.log(resource.data);
       verifyUser(resource.data);
       Vibration.vibrate(100);
     }
@@ -48,12 +45,12 @@ class QRAuthenticationScreen extends Component {
   };
 
   _renderCamera() {
-    const camPerm = this.state.hasCameraPermission.status;
+    const camPerm = this.props.hasCameraPermissions;
     return (
       <View style={styles.container}>
         {camPerm === null ?
-          this.props.navigation.goBack() :
-          camPerm === 'granted' ?
+          <ActivityIndicator/> :
+          camPerm ?
           <BarCodeScanner
               onBarCodeRead={this._handleBarCodeRead}
               style={[StyleSheet.absoluteFill]}
@@ -72,11 +69,11 @@ class QRAuthenticationScreen extends Component {
 }
 
 const mapStateToProps = ({ authRed }) => {
-  const { user } = authRed;
-  return { user };
+  const { user, hasCameraPermissions } = authRed;
+  return { user, hasCameraPermissions };
 }
 
-export default connect(mapStateToProps, {verifyUser})(QRAuthenticationScreen);
+export default connect(mapStateToProps, { verifyUser, cameraPermRequested })(QRAuthenticationScreen);
 
 const styles = StyleSheet.create({
   container: {

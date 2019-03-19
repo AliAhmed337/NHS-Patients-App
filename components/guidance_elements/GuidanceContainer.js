@@ -1,10 +1,12 @@
 import React from 'react';
+import { FontAwesome } from '@expo/vector-icons';
 import { View, Text } from 'react-native';
 
 export const GuidanceContainer = (props) => {
 	return (
 		<View>
-			<View >
+			<View style={{ flexDirection: 'row', alignItems: 'center' }}>
+				<FontAwesome name="bullseye" size={22} color="blue" />
 				<Text style={styles.titleContainterStyle}>{props.title}</Text>
 			</View>
 
@@ -18,12 +20,12 @@ export const GuidanceContainer = (props) => {
 const styles = {
 	titleContainterStyle: {
 		margin: 6,
-		fontSize: 17,
+		fontSize: 22,
 		fontWeight: 'bold'
 
 	},
 	contentContainerStyle: {
 		margin: 6,
-		fontSize: 16
+		fontSize: 18
 	}
 };

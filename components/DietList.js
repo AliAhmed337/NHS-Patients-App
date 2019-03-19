@@ -37,21 +37,19 @@ const styles = {
 	titleStyle: {
 		flex: 1,
 		flexDirection: 'column',
-		alignItems: 'center',
+		alignItems: 'flex-start',
 		padding: 10,
-		borderTopColor: '#487F7F',
-		borderTopWidth: 1,
-		borderBottomColor: '#487F7F',
-		borderBottomWidth: 1
+		borderBottomColor: '#005EB8',
+		borderBottomWidth: 2
 	},
 	bodyStyle: {
 		fontSize: 17,
 		alignItems: 'center',
 		justifyContent: 'center',
-		flexDirection: 'column'
+		flexDirection: 'column',
 	},
 	listStyle: {
-		marginBottom: 50
+		marginBottom: 10
 	}
 };
 

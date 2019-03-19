@@ -25,28 +25,8 @@ import Dialog, {
       color: '#fff',
       fontWeight: '600',
     },
-    itemCode: {
-      fontWeight: '600',
-      fontSize: 12,
-      color: '#fff',
-    },
-    modalView:{
-        backgroundColor: "#ffffff",
-        height: 150, 
-        justifyContent: 'center',
-        alignItems: 'center', 
-    },
-    closeText:{
-        backgroundColor: '#333',
-        color: '#bbb',
-        padding: 5, 
-        margin: 20, 
-    },
-    openText:{
-        backgroundColor: '#333',
-        color: '#bbb',
-        padding: 5,
-        margin: 20
+    dialogTitleStyle: {
+      width: 320
     }
   });
   
@@ -113,7 +93,7 @@ const items = [
           }}
 
           visible={this.state.clicked}
-          dialogTitle={<DialogTitle title={this.state.item.name} />}
+          dialogTitle={<DialogTitle style={styles.dialogTitleStyle} title={this.state.item.name} />}
           dialogAnimation={new SlideAnimation({ slideFrom: 'bottom' })}
         >
           <DialogContent style={{ height: 200, flexDirection: 'row' }}>

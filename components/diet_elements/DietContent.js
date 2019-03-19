@@ -26,7 +26,7 @@ const styles = {
 		color: 'white',
 	},
 	contentStyle: {
-		margin: 5, 
+		margin: 10, 
 		color: 'white'
 	}
 };

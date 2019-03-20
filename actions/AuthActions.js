@@ -6,8 +6,10 @@ import {
     USER_VERIFY_FAIL,
     CLEAR_APPOINTMENTS
 } from './types';
-
+import { Constants } from 'expo';
 import { AsyncStorage } from 'react-native';
+
+const VERIFY_ENDPOINT = "https://nhs.hallsy.io/api/v1/subscribe";
 
 export const passphraseChanged = (text) => {
     console.log('changing passphrase');
@@ -28,33 +30,37 @@ export const verifyUser = (passphrase) => {
     console.log('attempting to verify user with passphrase: ' + passphrase);
     return dispatch => {
         dispatch({type: VERIFY_USER});
-        attemptVerify(passphrase) ? 
-        verifySuccess(dispatch, passphrase) : verifyFail(dispatch);
-        // Below is the more likely implementation once Auth
-        //.then(verifySuccess(dispatch, passphrase))
-        //.catch(verifyFail(dispatch))
+        attemptVerify(passphrase, dispatch);
     };
 };
 
-const attemptVerify = (passphrase) => {
-    const verifyURL = "https://nhs.hallsy.io/api/v1/validate-patient";
-    fetch(verifyURL, {headers: {
+const attemptVerify = (passphrase, dispatch) => {
+    fetch(VERIFY_ENDPOINT, {
+        method: 'POST',
+        headers: {
         'Cache-Control': 'no-cache',
-        'X-API-KEY': passphrase
-    }})
-    .then((response) => response.json())
-        .then((responseJson) => {
-            console.log(responseJson);
-            const status = responseJson.success
-            return status === 'success';
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify ({
+            'device' : {
+                'id': Constants.deviceId,
+                'name': Constants.deviceName
+            },
+            'passphrase': passphrase
         })
-        .catch((error) => console.error(error));
+    })
+    .then((response) => {
+        response.status === '200' ? 
+        verifySuccess(dispatch, response.json().accessToken) : verifyFail(dispatch) 
+    })
+    .catch((error) => console.error(error));
 }
 
 const verifySuccess = (dispatch, user) => {
     console.log('successfully verified apparently, user should be: ' + user);
-    storeData(user);
     dispatch({type: CLEAR_APPOINTMENTS})
+    storeData(user);
     dispatch({
         type: USER_VERIFY_SUCCESS,
         payload: user
@@ -63,6 +69,7 @@ const verifySuccess = (dispatch, user) => {
 }
 
 const verifyFail = (dispatch) => {
+    console.log('this user has failed verification');
     dispatch({type: USER_VERIFY_FAIL});
 }
 

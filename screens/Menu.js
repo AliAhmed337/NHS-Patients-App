@@ -11,7 +11,7 @@ import Dialog, {
 
   const styles = StyleSheet.create({
     gridView: {
-      marginTop: 20,
+      marginTop: 0,
       flex: 1,
     },
     itemContainer: {

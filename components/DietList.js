@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, View, Text } from 'react-native';
 import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native';
 import { DietTitle, DietContent } from './diet_elements';
 
@@ -12,7 +12,7 @@ class DietList extends Component {
 
 	renderDiets() {
 		return this.state.diets.map(diet =>
-			<Collapse style={{ backgroundColor: 'white' }} key={diet.title}>
+			<Collapse key={diet.title}>
 				<CollapseHeader style={styles.titleStyle}>
 					<DietTitle title={diet.title} />
 				</CollapseHeader>
@@ -26,8 +26,8 @@ class DietList extends Component {
 
 	render() {
 		return (
-			<ScrollView style={styles.listStyle}>
-				{this.renderDiets()}
+			<ScrollView>
+					{this.renderDiets()}
 			</ScrollView>
 		);
 	}
@@ -35,21 +35,20 @@ class DietList extends Component {
 
 const styles = {
 	titleStyle: {
-		flex: 1,
-		flexDirection: 'column',
-		alignItems: 'flex-start',
+		flexDirection: 'row',
 		padding: 10,
-		borderBottomColor: '#005EB8',
-		borderBottomWidth: 2
+		backgroundColor:'#004D97'
 	},
 	bodyStyle: {
 		fontSize: 17,
+		backgroundColor: '#718BC2',
 		alignItems: 'center',
 		justifyContent: 'center',
 		flexDirection: 'column',
-	},
-	listStyle: {
-		marginBottom: 10
+		borderTopWidth: 2,
+		borderTopColor: 'white',
+		borderBottomWidth: 2,
+		borderBottomColor: 'white',
 	}
 };
 

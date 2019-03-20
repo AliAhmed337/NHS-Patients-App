@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { FlatList, View, Text } from 'react-native';
+import { FlatList, View, Text, Image } from 'react-native';
 import { GuidanceTopInfo, GuidanceContainer } from './guidance_elements';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 class GuidanceList extends Component {
-	state = { guidances: [] };
+	state = { guidances: [], image: '' };
 
 	componentWillMount() {
 		this.setState({ guidances });
+		this.setState({ image : (<Image source={require('../images/care.png')} />)});
 	}
 
 	renderRows(item) {
@@ -37,6 +38,7 @@ class GuidanceList extends Component {
 				 style={styles.listStyle}
 				 data={this.state.guidances}
 				 ListHeaderComponent={this.renderHeader()}
+				 ListFooterComponent={this.state.image}
 				 renderItem={({item}) =>
 				 <View style={{ margin: 5 }}>
 				  	<GuidanceContainer title={item.title} content={item.content} />
@@ -58,7 +60,7 @@ const styles = {
 const guidances = [
   {
     title: 'Special Diet',
-    content: 'The day before your scan you will need to follow a high-fat, high-protein, low-carbohydrate diet',
+    content: 'The day before your scan you will need to follow a high-fat, high-protein, low-carbohydrate diet.',
   	subarray: null
   },
   {

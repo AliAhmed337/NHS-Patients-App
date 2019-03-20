@@ -5,8 +5,10 @@ import { View, Text } from 'react-native';
 export const DietTitle = (props) => {
 	return (
 		<View style={styles.dietTitleArrangementStyle}>
-		    <MaterialCommunityIcons name="chevron-down-circle-outline" size={25} color="blue" />
+			<View style={{ flexBasis: '90%' }}>
 			<Text style={styles.dietTitleTextStyle}>{props.title}</Text>
+			</View>
+			<MaterialCommunityIcons name="information-outline" size={30} color="white" style={{ alignItems: 'flex-end' }} />
 		</View>
 	);
 };
@@ -14,11 +16,11 @@ export const DietTitle = (props) => {
 const styles = {
 	dietTitleTextStyle: {
 		fontSize: 20, 
-		fontWeight: '400',
-		color: '#005EB8', 
+		color: 'white',
+		fontWeight: '500', 
 	},
 	dietTitleArrangementStyle: {
+		flexWrap: 'wrap',
 		flexDirection: 'row',
-		justifyContent: 'space-around'
 	}
 }

@@ -5,7 +5,7 @@ import { View, Text } from 'react-native';
 export const GuidanceContainer = (props) => {
 	return (
 		<View>
-			<View style={{ flexDirection: 'row', alignItems: 'center' }}>
+			<View style={{ flexDirection: 'row', alignItems: 'center', borderBottomColor: '#647CAA', borderBottomWidth: 1 }}>
 				<FontAwesome name="bullseye" size={22} color="blue" />
 				<Text style={styles.titleContainterStyle}>{props.title}</Text>
 			</View>
@@ -20,12 +20,12 @@ export const GuidanceContainer = (props) => {
 const styles = {
 	titleContainterStyle: {
 		margin: 6,
-		fontSize: 22,
+		fontSize: 20,
 		fontWeight: 'bold'
 
 	},
 	contentContainerStyle: {
 		margin: 6,
-		fontSize: 18
+		fontSize: 17
 	}
 };

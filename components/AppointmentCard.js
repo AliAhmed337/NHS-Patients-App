@@ -84,13 +84,13 @@ export default class AppointmentCard extends React.Component {
                         <View style={{paddingBottom: 10}}>
                             <Button style={{paddingBottom: 20}} size={30} padding={10} width='100%' color='#ffffff'
                             onPress={this._doNothing} name="md-checkbox" 
-                            backgroundColor='#00a753'>Preparation checklist</Button>
+                            backgroundColor='#31A8A0'>Preparation checklist</Button>
                         </View>
 
                         <View style={{paddingBottom: 10}}>
                             <Button padding={10} size={30} width='100%' color='#000000'
                             onPress={this._doNothing} name="md-information-circle" 
-                            backgroundColor='#d3d3d3'>
+                            backgroundColor='#FFFDF4'>
                                 What to Expect
                             </Button>
                         </View>

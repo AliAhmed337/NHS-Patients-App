@@ -5,7 +5,7 @@ export default styles = StyleSheet.create({
     
     appointmentCardContainer: {
         borderWidth: 2,
-        borderColor: '#34856D',
+        borderColor: '#0052A8',
         // shadowColor: '#000',
         // shadowOffset: {width: 5, height: 10},
         // shadowOpacity: 0.4,
@@ -19,7 +19,7 @@ export default styles = StyleSheet.create({
     
     appointmentHeaderContainer: {
         justifyContent: 'space-between',
-        backgroundColor: '#34856D',
+        backgroundColor: '#0058AC',
         flexDirection: 'row',
         padding: 12,
     },

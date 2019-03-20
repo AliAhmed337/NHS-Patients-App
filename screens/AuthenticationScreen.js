@@ -25,10 +25,10 @@ export default class AuthenticationScreen extends React.Component  {
                 </View>
                 <View style={{paddingBottom: 30}}>
 
-                <Button size={30} padding={20} width='80%' backgroundColor='#007dff' color='#ffffff' name='md-qr-scanner' onPress={() => navigate('QRAuth')}>Scan appointment code</Button>
+                <Button size={30} padding={20} width='80%' backgroundColor='#00A499' color='#ffffff' name='md-qr-scanner' onPress={() => navigate('QRAuth')}>Scan appointment code</Button>
                 </View>
              
-               <Button  size={30} padding={20} width='80%' name ='ios-paper' backgroundColor='#007dff' color= '#ffffff' onPress={() => navigate('ManualAuth')}>Enter Details Manually</Button>
+               <Button  size={30} padding={20} width='80%' name ='ios-paper' backgroundColor='#00A499' color= '#ffffff' onPress={() => navigate('ManualAuth')}>Enter Details Manually</Button>
                
                 <View style={{paddingTop: 40}}>
                 </View>

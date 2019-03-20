@@ -9,9 +9,7 @@ import { AsyncStorage } from 'react-native';
 const APPOINTMENTS_ENDPOINT = "https://nhs.hallsy.io/api/v1/appointments";
 const PUSH_ENDPOINT = "https://nhs.hallsy.io/api/v1/notifications/subscribe";
 
-export const requestAppointments = () => {
-
-    const userToken = await AsyncStorage.getItem('userToken');
+export const requestAppointments = (userToken) => {
 
     return function action(dispatch) {
         dispatch({type: CLEAR_APPOINTMENTS});

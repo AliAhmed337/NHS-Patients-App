@@ -31,8 +31,9 @@ class HomeScreen extends React.Component {
 
   componentDidMount() {
     const {requestAppointments, registerForPushNotificationsAsync} = this.props;
+    const userToken = await AsyncStorage.getItem('userToken');
     registerForPushNotificationsAsync();
-    requestAppointments();
+    requestAppointments(userToken);
   }
 
   render() {

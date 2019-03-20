@@ -3,6 +3,7 @@ import {Text,View,TextInput, ActivityIndicator, Keyboard} from 'react-native';
 import { connect } from 'react-redux';
 import { passphraseChanged, verifyUser } from '../actions';
 import Button from '../components/common/Button';
+import { LinearGradient } from 'expo';
 
 class ManualAuthenticationScreen extends React.Component {
     static navigationOptions = {
@@ -28,27 +29,32 @@ class ManualAuthenticationScreen extends React.Component {
 
     _renderForm(){
         return (
-            <View style={{alignItems: 'center', paddingTop: 20,}}>
-                <Text style={{fontSize: 30, textAlign: 'center',paddingBottom: 30, 
-                paddingTop: 30, fontWeight: 'bold'}}>
-                    Enter your passphrase:
+            <View
+            style={{ padding: 20, flex: 1, alignSelf: 'flex-start',}}>
+
+            <View >
+                <Text style={{fontSize: 30, paddingBottom: 30, 
+                paddingTop: 30, fontWeight: 'bold', color: 'black'}}>
+                Enter your passphrase:
                 </Text>
+
+                <Text style={{fontSize: 17, paddingBottom: 30, color: 'black'}}>
+                You'll find this on your appointment confirmation letter or text message.
+                </Text>
+
             <TextInput
                 placeholder = "example: gooseberry1034"
-                style={{textAlign: 'center',height: 40, width: 300, borderColor: 'gray', borderWidth: 1}}
+                style={{textAlign: 'center',height: 50, borderColor: 'gray', borderWidth: 1}}
                 onChangeText={this._onPassphraseChange.bind(this)}
                 value={this.props.passphrase}/>
+
             <View style={{paddingBottom: 30, paddingTop: 30}}>
-                <Button size={30}  padding={20} name = 'md-arrow-dropright-circle' width='80%' backgroundColor='#007dff' color='#ffffff' 
+                <Button size={30}  padding={20} name = 'md-arrow-dropright-circle' backgroundColor='#007dff' color='#ffffff' 
                     onPress = {this._onSubmitPress.bind(this)}>
                         {this.props.loading ? <ActivityIndicator/> : 'Submit'}
-                </Button>        
+                </Button>
+                </View>      
             </View>
-                <Text style={{fontSize: 15, textAlign: 'center',
-                    paddingBottom: 30, paddingTop: 10, fontWeight: 'bold'}}>
-                        You'll find this on your appointment confirmation {"\n"}
-                        letter or text message
-                </Text>
             </View>
         );
     }

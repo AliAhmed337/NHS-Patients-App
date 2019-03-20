@@ -11,7 +11,7 @@ import {
   StatusBar
 } from 'react-native';
 import { connect } from 'react-redux';
-import { requestAppointments } from "../actions";
+import { requestAppointments, registerForPushNotificationsAsync } from "../actions";
 import { WebBrowser } from 'expo';
 import AppointmentCard from '../components/AppointmentCard';
 import { Button, ThemeProvider } from 'react-native-elements';
@@ -30,7 +30,8 @@ class HomeScreen extends React.Component {
   };
 
   componentDidMount() {
-    const {requestAppointments} = this.props;
+    const {requestAppointments, registerForPushNotificationsAsync} = this.props;
+    registerForPushNotificationsAsync();
     requestAppointments();
   }
 
@@ -163,4 +164,4 @@ const mapStateToProps = ({ appointmentsRed }) => {
   return { appointments, loading };
 }
 
-export default connect(mapStateToProps, {requestAppointments})(HomeScreen);
+export default connect(mapStateToProps, {requestAppointments, registerForPushNotificationsAsync})(HomeScreen);

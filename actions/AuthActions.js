@@ -28,7 +28,7 @@ export const cameraPermRequested = (status) => {
 
 export const verifyUser = (passphrase) => {
     console.log('attempting to verify user with passphrase: ' + passphrase);
-    return dispatch => {
+    return function action(dispatch) {
         dispatch({type: VERIFY_USER});
         attemptVerify(passphrase, dispatch);
     };
@@ -39,7 +39,7 @@ const attemptVerify = (passphrase, dispatch) => {
         method: 'POST',
         headers: {
         'Cache-Control': 'no-cache',
-        Accept: 'application/json',
+        'Accept': 'application/json',
         'Content-Type': 'application/json'
         },
         body: JSON.stringify ({
@@ -51,8 +51,12 @@ const attemptVerify = (passphrase, dispatch) => {
         })
     })
     .then((response) => {
-        response.status === '200' ? 
-        verifySuccess(dispatch, response.json().accessToken) : verifyFail(dispatch) 
+        console.log('status code: ' + response.status);
+        console.log('response body: ');
+        response.status === 200 ? response.json().then(json => {
+            console.log(json);
+            verifySuccess(dispatch, json.accessToken)
+        }) : verifyFail(dispatch) 
     })
     .catch((error) => console.error(error));
 }

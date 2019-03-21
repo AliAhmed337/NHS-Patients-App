@@ -16,12 +16,13 @@ import { WebBrowser } from 'expo';
 import AppointmentCard from '../components/AppointmentCard';
 import { Button, ThemeProvider } from 'react-native-elements';
 
+
 class HomeScreen extends React.Component {
   static navigationOptions = {
       title: 'Upcoming Appointments',
 
       headerStyle: {
-          backgroundColor: '#005EB8',
+          backgroundColor: '#008FAE',
       },
       headerTitleStyle: {
           fontWeight: 'bold',
@@ -71,7 +72,7 @@ class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
   backgroundStyle: {
-    backgroundColor: '#005EB8',
+    backgroundColor: '#17154C',
   },
   container: {
     flex: 1,

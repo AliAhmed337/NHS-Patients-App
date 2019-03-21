@@ -15,7 +15,9 @@ export const requestAppointments = (userToken) => {
         dispatch({type: CLEAR_APPOINTMENTS});
         dispatch({type: APPOINTMENTS_REQUESTED});
 
-        fetch(APPOINTMENTS_ENDPOINT, {headers: {
+        fetch(APPOINTMENTS_ENDPOINT, {
+          method: 'POST',
+          headers: {
             'Cache-Control': 'no-cache',
             'X-API-KEY': userToken
         }})

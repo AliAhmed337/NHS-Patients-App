@@ -76,7 +76,7 @@ const DashboardStackNavigator = createStackNavigator({
         color='#00A499'
         size= {35}
         underlayColor='#ffffff'
-        onPress={() => navigation.navigate('Home')}
+        onPress={() => navigation.navigate('Timeline')}
         />
         </View>
       )

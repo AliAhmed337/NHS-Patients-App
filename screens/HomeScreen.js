@@ -22,7 +22,7 @@ class HomeScreen extends React.Component {
       title: 'Upcoming Appointments',
 
       headerStyle: {
-          backgroundColor: '#008FAE',
+          backgroundColor: '#005EB8',
       },
       headerTitleStyle: {
           fontWeight: 'bold',

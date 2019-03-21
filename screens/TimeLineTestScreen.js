@@ -16,6 +16,19 @@ export default class TimeLineTestScreen extends React.Component {
         ]
       } 
     
+      static navigationOptions = {
+        title: 'Time Line',
+  
+        headerStyle: {
+            backgroundColor: '#005EB8',
+        },
+        headerTitleStyle: {
+            fontWeight: 'bold',
+            color: '#ffffff',
+        },
+        headerTintColor: '#ffffff',
+    };
+
       render() {
         //'rgb(45,156,219)'
         return (

@@ -41,7 +41,7 @@ const styles = {
 	},
 	bodyStyle: {
 		fontSize: 17,
-		backgroundColor: '#718BC2',
+		backgroundColor: '#E8EDEE',
 		alignItems: 'center',
 		justifyContent: 'center',
 		flexDirection: 'column',

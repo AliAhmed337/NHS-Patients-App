@@ -42,10 +42,6 @@ const DashboardTabNavigator = createMaterialTopTabNavigator({
   PreparationScreen, 
   DietScreen, 
   Menu,
-  TimeLineTestScreen,
-  LinearMainScreen,
-  NewAppointmentList,
-  
 },{
   navigationOptions:({navigation})=>{
     const{routeName} = navigation.state.routes[navigation.state.index]
@@ -60,7 +56,7 @@ const DashboardTabNavigator = createMaterialTopTabNavigator({
   headerStyle: {
     backgroundColor: '#005EB8',
   },
-  headerTintColor: '#fff',
+  headerTintColor: '#ffffff',
   headerTitleStyle: {
     fontWeight: 'bold',
   },
@@ -90,14 +86,20 @@ const DashboardStackNavigator = createStackNavigator({
 
 
 
-const AppDrawerNavigator = createDrawerNavigator({
+const AppDrawerNavigator = createStackNavigator({
   Preparation: DashboardStackNavigator,
-})
-
-
+},
+{
+  headerMode: 'none',
+  navigationOptions: {
+    headerVisible: false,
+  }
+}
+)
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
+  Timeline: TimeLineTestScreen,
   Expect: WhatToExpectScreen,
 });
 

@@ -60,7 +60,7 @@ const DashboardTabNavigator = createMaterialTopTabNavigator({
   headerStyle: {
     backgroundColor: '#005EB8',
   },
-  headerTintColor: '#fff',
+  headerTintColor: '#ffffff',
   headerTitleStyle: {
     fontWeight: 'bold',
   },
@@ -90,9 +90,16 @@ const DashboardStackNavigator = createStackNavigator({
 
 
 
-const AppDrawerNavigator = createDrawerNavigator({
+const AppDrawerNavigator = createStackNavigator({
   Preparation: DashboardStackNavigator,
-})
+},
+{
+  headerMode: 'none',
+  navigationOptions: {
+    headerVisible: false,
+  }
+}
+)
 
 
 

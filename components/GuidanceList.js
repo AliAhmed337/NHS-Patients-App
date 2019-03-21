@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlatList, View, Text } from 'react-native';
+import { FlatList, View, Text, Image, Platform } from 'react-native';
 import { GuidanceTopInfo, GuidanceContainer } from './guidance_elements';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -14,8 +14,8 @@ class GuidanceList extends Component {
 		if (item.subarray !== null) {
 			return item.subarray.map(row =>
 				<View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <MaterialCommunityIcons name="bullseye-arrow" size={18} color="green" />
-					<Text style={{ flex: 1, paddingLeft: 5, fontSize: 18, margin: 3 }}>{row}</Text>
+                    <MaterialCommunityIcons name="bullseye-arrow" size={16} color="green" />
+					<Text style={{ fontFamily: Platform.OS === 'ios' ? 'Arial' : 'sans-serif', flex: 1, paddingLeft: 5, fontSize: 15, margin: 3, color: '#00315F' }}>{row}</Text>
 				</View>
 			);
 		}
@@ -58,7 +58,7 @@ const styles = {
 const guidances = [
   {
     title: 'Special Diet',
-    content: 'The day before your scan you will need to follow a high-fat, high-protein, low-carbohydrate diet',
+    content: 'The day before your scan you will need to follow a high-fat, high-protein, low-carbohydrate diet.',
   	subarray: null
   },
   {

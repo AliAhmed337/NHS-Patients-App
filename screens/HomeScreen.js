@@ -21,7 +21,7 @@ class HomeScreen extends React.Component {
       title: 'Upcoming Appointments',
 
       headerStyle: {
-          backgroundColor: '#007dff',
+          backgroundColor: '#005EB8',
       },
       headerTitleStyle: {
           fontWeight: 'bold',
@@ -38,7 +38,7 @@ class HomeScreen extends React.Component {
     const { appointments, loading } = this.props;
     return (
       loading ? <ActivityIndicator/> :
-      <View>
+      <View style={styles.backgroundStyle}>
           <StatusBar barStyle="light-content"/>
           <FlatList
             data = {appointments}
@@ -70,6 +70,9 @@ class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  backgroundStyle: {
+    backgroundColor: '#005EB8',
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',

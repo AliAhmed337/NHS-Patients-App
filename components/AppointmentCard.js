@@ -71,26 +71,26 @@ export default class AppointmentCard extends React.Component {
 
                     <AppointmentBody>
                         <AppointmentDetail>
-                            <Ionicons name="md-pin" size={15} color="black"></Ionicons>
+                            <Ionicons name="md-pin" size={15} color="white"></Ionicons>
                             <Text style={{paddingLeft: 30}} onPress={() => Linking.openURL(
                                 Platform === 'ios' ? location.maps.appleMapsURL : location.maps.googleMapsURL
                                 )}>{location.name}</Text>
                         </AppointmentDetail>
                         <AppointmentDetail>
-                            <Ionicons name="ios-clock" size={15} color="black"></Ionicons>
+                            <Ionicons name="ios-clock" size={15} color="white"></Ionicons>
                             <Text style={{paddingLeft: 30}}>{appointmentDate.format('MMMM Do YYYY, h:mm a')}</Text>
                         </AppointmentDetail>
 
                         <View style={{paddingBottom: 10}}>
                             <Button style={{paddingBottom: 20}} size={30} padding={10} width='100%' color='#ffffff'
                             onPress={this._doNothing} name="md-checkbox" 
-                            backgroundColor='#00a753'>Preparation checklist</Button>
+                            backgroundColor='#31A8A0'>Preparation checklist</Button>
                         </View>
 
                         <View style={{paddingBottom: 10}}>
                             <Button padding={10} size={30} width='100%' color='#000000'
                             onPress={this._doNothing} name="md-information-circle" 
-                            backgroundColor='#d3d3d3'>
+                            backgroundColor='#FFFDF4'>
                                 What to Expect
                             </Button>
                         </View>

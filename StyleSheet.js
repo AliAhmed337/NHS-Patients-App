@@ -5,7 +5,7 @@ export default styles = StyleSheet.create({
     
     appointmentCardContainer: {
         borderWidth: 2,
-        borderColor: '#0052A8',
+        borderColor: '#ffffff',
         // shadowColor: '#000',
         // shadowOffset: {width: 5, height: 10},
         // shadowOpacity: 0.4,
@@ -19,7 +19,7 @@ export default styles = StyleSheet.create({
     
     appointmentHeaderContainer: {
         justifyContent: 'space-between',
-        backgroundColor: '#0058AC',
+        backgroundColor: '#ffffff',
         flexDirection: 'row',
         padding: 12,
     },
@@ -47,13 +47,13 @@ export default styles = StyleSheet.create({
 
     appointmentTitleText: {
         fontSize: 16,
-        color: 'white',
+        color: 'black',
     },
 
     appointmentTypeText: {
         fontSize: 25,
         fontWeight: '700',
-        color: 'white',
+        color: 'black',
     },
 
     appointmentTimerText: {

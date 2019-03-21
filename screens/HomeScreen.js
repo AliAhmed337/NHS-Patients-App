@@ -71,7 +71,7 @@ class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
   backgroundStyle: {
-    backgroundColor: '#D1E9FF',
+    backgroundColor: '#005EB8',
   },
   container: {
     flex: 1,

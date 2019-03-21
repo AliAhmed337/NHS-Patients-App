@@ -71,13 +71,13 @@ export default class AppointmentCard extends React.Component {
 
                     <AppointmentBody>
                         <AppointmentDetail>
-                            <Ionicons name="md-pin" size={15} color="black"></Ionicons>
+                            <Ionicons name="md-pin" size={15} color="white"></Ionicons>
                             <Text style={{paddingLeft: 30}} onPress={() => Linking.openURL(
                                 Platform === 'ios' ? location.maps.appleMapsURL : location.maps.googleMapsURL
                                 )}>{location.name}</Text>
                         </AppointmentDetail>
                         <AppointmentDetail>
-                            <Ionicons name="ios-clock" size={15} color="black"></Ionicons>
+                            <Ionicons name="ios-clock" size={15} color="white"></Ionicons>
                             <Text style={{paddingLeft: 30}}>{appointmentDate.format('MMMM Do YYYY, h:mm a')}</Text>
                         </AppointmentDetail>
 

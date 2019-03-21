@@ -48,17 +48,12 @@ class HomeScreen extends React.Component {
             onRefresh = {() => this._handleRefresh()}
             renderItem = {this._renderAppointment}          
           />
-        
-          <ThemeProvider>
-            <Button title="a VERY SPECIAL THING" type="outline" onPress={() => this.props.navigation.navigate('Preparation')}/>
-              <Button title="a VERY SPECIAL THING 2" type="outline" onPress={() => this.props.navigation.navigate('Expect')}/>
-          </ThemeProvider>
       </View>
     );
   }
 
   _renderAppointment = ({item}) => (
-    <AppointmentCard id = {item.id} appointment = {item}/>
+    <AppointmentCard id = {item.id} appointment = {item} navigation={this.props.navigation} prepInfo={item.appointmentType.detailedInformation}/>
   )
     
   
@@ -73,6 +68,7 @@ class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   backgroundStyle: {
     backgroundColor: '#17154C',
+    flex: 1
   },
   container: {
     flex: 1,

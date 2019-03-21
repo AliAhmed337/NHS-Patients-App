@@ -32,7 +32,7 @@ export default class TimeLineTestScreen extends React.Component {
               options={{
                 style:{paddingTop:5}
               }}
-              onEventPress={() => this.props.navigation.navigate('Home')} //this is where navigation happens
+              onEventPress={() => this.props.navigation.navigate('Preparation')} //this is where navigation happens
             />
           </View>
         );

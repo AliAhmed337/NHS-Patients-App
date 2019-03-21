@@ -42,10 +42,6 @@ const DashboardTabNavigator = createMaterialTopTabNavigator({
   PreparationScreen, 
   DietScreen, 
   Menu,
-  TimeLineTestScreen,
-  LinearMainScreen,
-  NewAppointmentList,
-  
 },{
   navigationOptions:({navigation})=>{
     const{routeName} = navigation.state.routes[navigation.state.index]
@@ -101,10 +97,9 @@ const AppDrawerNavigator = createStackNavigator({
 }
 )
 
-
-
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
+  Timeline: TimeLineTestScreen,
   Expect: WhatToExpectScreen,
 });
 

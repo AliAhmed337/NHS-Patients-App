@@ -9,12 +9,13 @@ class ManualAuthenticationScreen extends React.Component {
     static navigationOptions = {
         title: 'Enter details manually',
         headerStyle: {
-            backgroundColor: '#007dff',
+            backgroundColor: '#005EB8',
         },
         headerTitleStyle: {
             fontWeight: 'bold',
             color: '#ffffff',
         },
+        headerTintColor: '#ffffff',
     };
 
     _onPassphraseChange(text) {

@@ -8,10 +8,11 @@ import {
   Text,
   ActivityIndicator,
   FlatList,
-  StatusBar
+  StatusBar,
+  AsyncStorage
 } from 'react-native';
 import { connect } from 'react-redux';
-import { requestAppointments } from "../actions";
+import { requestAppointments, registerForPushNotificationsAsync } from "../actions";
 import { WebBrowser } from 'expo';
 import AppointmentCard from '../components/AppointmentCard';
 import { Button, ThemeProvider } from 'react-native-elements';
@@ -30,9 +31,11 @@ class HomeScreen extends React.Component {
       },
   };
 
-  componentDidMount() {
-    const {requestAppointments} = this.props;
-    requestAppointments();
+  componentDidMount = async () => {
+    const {requestAppointments, registerForPushNotificationsAsync} = this.props;
+    const userToken = await AsyncStorage.getItem('userToken');
+    //registerForPushNotificationsAsync();
+    requestAppointments(userToken);
   }
 
   render() {
@@ -43,7 +46,7 @@ class HomeScreen extends React.Component {
           <StatusBar barStyle="light-content"/>
           <FlatList
             data = {appointments}
-            keyExtractor = {item => item.id}
+            keyExtractor = {item => item.id.toString()}
             refreshing = {false}
             onRefresh = {() => this._handleRefresh()}
             renderItem = {this._renderAppointment}          
@@ -163,4 +166,4 @@ const mapStateToProps = ({ appointmentsRed }) => {
   return { appointments, loading };
 }
 
-export default connect(mapStateToProps, {requestAppointments})(HomeScreen);
+export default connect(mapStateToProps, {requestAppointments, registerForPushNotificationsAsync})(HomeScreen);

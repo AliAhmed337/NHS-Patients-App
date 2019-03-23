@@ -1,5 +1,6 @@
 import {
     PASSPHRASE_CHANGED,
+    CAMERA_PERMISSION_REQUESTED,
     VERIFY_USER,
     USER_VERIFY_SUCCESS,
     USER_VERIFY_FAIL
@@ -7,6 +8,7 @@ import {
 
 const INITIAL_STATE = {
     passphrase: '',
+    hasCameraPermissions: null,
     user: null,
     error: '',
     loading: false
@@ -18,6 +20,9 @@ export default (state = INITIAL_STATE, action) => {
         case PASSPHRASE_CHANGED:
         console.log('passphrase is now: ' + state.passphrase);
             return {...state, passphrase: action.payload};
+
+        case CAMERA_PERMISSION_REQUESTED:
+            return {...state, hasCameraPermissions: action.payload}
         
         case VERIFY_USER:
             return {...state, loading: true, error: ''};

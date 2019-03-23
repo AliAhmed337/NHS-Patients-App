@@ -1,10 +1,8 @@
 import { combineReducers } from "redux";
 import AppointmentsReducer from './AppointmentsReducer';
-import QRAuthReducer from './QRAuthReducer';
-import ManualAuthReducer from './ManualAuthReducer';
+import AuthReducer from "./AuthReducer";
 
 export default combineReducers({
     appointmentsRed: AppointmentsReducer,
-    qrRed: QRAuthReducer,
-    manRed: ManualAuthReducer
+    authRed: AuthReducer
 });

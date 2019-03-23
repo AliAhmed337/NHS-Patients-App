@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text,View,TextInput, ActivityIndicator, Keyboard} from 'react-native';
+import {Text,View,TextInput, Keyboard} from 'react-native';
 import { connect } from 'react-redux';
 import { passphraseChanged, verifyUser } from '../actions';
 import Button from '../components/common/Button';
@@ -28,6 +28,11 @@ class ManualAuthenticationScreen extends React.Component {
         verifyUser(passphrase);
     }
 
+    _renderError(){
+        const {error} = this.props;
+        return <Text>{error}</Text>
+    }
+
     _renderForm(){
         return (
             <View
@@ -50,12 +55,17 @@ class ManualAuthenticationScreen extends React.Component {
                 value={this.props.passphrase}/>
 
             <View style={{paddingBottom: 30, paddingTop: 30}}>
-                <Button size={30}  padding={20} name = 'md-arrow-dropright-circle' backgroundColor='#007dff' color='#ffffff' 
-                    onPress = {this._onSubmitPress.bind(this)}>
-                        {this.props.loading ? <ActivityIndicator/> : 'Submit'}
-                </Button>
-                </View>      
+                <Button size={30} padding={20} name = 'md-arrow-dropright-circle' width='80%' backgroundColor='#007dff' color='#ffffff' 
+                    onPress = {this._onSubmitPress.bind(this)} loading = {this.props.loading}>
+                {'Submit'}
+                </Button>      
             </View>
+                <Text style={{fontSize: 15, textAlign: 'center',
+                    paddingBottom: 30, paddingTop: 10, fontWeight: 'bold'}}>
+                        You'll find this on your appointment confirmation {"\n"}
+                        letter or text message
+                </Text>
+                {this._renderError()}
             </View>
         );
     }
@@ -67,9 +77,9 @@ class ManualAuthenticationScreen extends React.Component {
     }
 }
 
-const mapStateToProps = ({ manRed }) => {
-  const { passphrase, user, loading } = manRed;
-  return { passphrase, user,  loading };
+const mapStateToProps = ({ authRed }) => {
+  const { passphrase, user, loading, error} = authRed;
+  return { passphrase, user,  loading, error };
 }
 
 export default connect(mapStateToProps, {passphraseChanged, verifyUser})(ManualAuthenticationScreen);

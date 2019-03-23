@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Alert, ActivityIndicator, Vibration} from 'react-native';
+import { View, StyleSheet, Alert, ActivityIndicator, Vibration} from 'react-native';
 import { Constants, BarCodeScanner, Permissions } from 'expo';
+import { connect } from 'react-redux';
+import { verifyUser, cameraPermRequested } from '../actions';
 
-export default class QRAuth extends Component {
+class QRAuthenticationScreen extends Component {
     static navigationOptions = {
         title: 'Scan QR Code',
 
@@ -16,46 +18,63 @@ export default class QRAuth extends Component {
         headerTintColor: '#ffffff',
     };
 
-  state = {
-    hasCameraPermission: null
-  };
-
   componentDidMount() {
     this._requestCameraPermission();
   }
 
   _requestCameraPermission = async () => {
     const { status } = await Permissions.askAsync(Permissions.CAMERA);
-    this.setState({
-      hasCameraPermission: status === 'granted',
-    });
+    this.props.cameraPermRequested(status === 'granted');
   };
 
-  _handleBarCodeRead = data => {
+  _handleBarCodeRead = resource => {
+    
+    const {verifyUser} = this.props;
+
+    try {
+      console.log(resource.data);
+      verifyUser(resource.data);
+      Vibration.vibrate(100);
+    }
+    catch (e) {
+      console.error(e.message);
+    }
     Alert.alert(
       'Scan successful!',
-      JSON.stringify(data)
+      JSON.stringify(resource)
     );
-      Vibration.vibrate(100);
-    this.props.navigation.navigate('Main');
   };
 
-  render() {
+  _renderCamera() {
+    const camPerm = this.props.hasCameraPermissions;
     return (
       <View style={styles.container}>
-        {this.state.hasCameraPermission === null ?
+        {camPerm === null ?
           <ActivityIndicator/> :
-          this.state.hasCameraPermission === false ?
-            this.props.navigation.navigate('Auth') :
-            <BarCodeScanner
+          camPerm ?
+          <BarCodeScanner
               onBarCodeRead={this._handleBarCodeRead}
               style={[StyleSheet.absoluteFill]}
-            />
+          />
+          : this.props.navigation.goBack()
         }
       </View>
     );
   }
+
+  render() {
+    const {navigate} = this.props.navigation;
+        console.log(this.props.user ? true : false);
+        return(this.props.user ? navigate('Main') : this._renderCamera());
+  }
 }
+
+const mapStateToProps = ({ authRed }) => {
+  const { user, hasCameraPermissions } = authRed;
+  return { user, hasCameraPermissions };
+}
+
+export default connect(mapStateToProps, { verifyUser, cameraPermRequested })(QRAuthenticationScreen);
 
 const styles = StyleSheet.create({
   container: {

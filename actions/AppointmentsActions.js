@@ -14,17 +14,20 @@ export const requestAppointments = (userToken) => {
     return function action(dispatch) {
         dispatch({type: CLEAR_APPOINTMENTS});
         dispatch({type: APPOINTMENTS_REQUESTED});
-
+        console.log('this is what we are sending to the api: ');
+        console.log(userToken);
         fetch(APPOINTMENTS_ENDPOINT, {
-          method: 'POST',
+          method: 'GET',
           headers: {
             'Cache-Control': 'no-cache',
             'X-API-KEY': userToken
         }})
-        .then((response) => response.json())
-            .then((responseJson) => {
-                console.log('Appointments retrieved');
-                dispatch({type: APPOINTMENTS_RETRIEVED, payload: responseJson.appointments});
+        .then((response) => {
+          console.log('status code for appointments fetch: ' + response.status);
+          response.json().then((responseJson) => {
+            console.log('Appointments retrieved');
+            dispatch({type: APPOINTMENTS_RETRIEVED, payload: responseJson.appointments});
+    })
         })
         .catch((error) => console.error(error));
     }

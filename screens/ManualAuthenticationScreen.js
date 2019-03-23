@@ -38,7 +38,6 @@ class ManualAuthenticationScreen extends React.Component {
             <View
             style={{ padding: 20, flex: 1, alignSelf: 'flex-start',}}>
 
-            <View >
                 <Text style={{fontSize: 30, paddingBottom: 30, 
                 paddingTop: 30, fontWeight: 'bold', color: 'black'}}>
                 Enter your passphrase:

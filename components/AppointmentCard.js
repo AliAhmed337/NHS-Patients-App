@@ -51,7 +51,7 @@ export default class AppointmentCard extends React.Component {
 
     _renderExpanded() {
         console.log('Rendering expanded version');
-        const {appointmentType, startTime, location} = this.props.appointment;
+        const {appointmentType, startTime, location, contactPoint} = this.props.appointment;
         const appointmentDate = moment(startTime);
         const {appointmentTypeText, appointmentTitleText, appointmentTimerText} = styles;
 
@@ -104,7 +104,7 @@ export default class AppointmentCard extends React.Component {
                         </Text>
 
                         <View>
-                            <DialogBox/>
+                            <DialogBox contactNo = {contactPoint.telephone} email = {contactPoint.email} />
                         </View>
                     </AppointmentBody>
             </AppointmentContainer>

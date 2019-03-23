@@ -31,9 +31,12 @@ class DialogBox extends Component {
                 <Dialog.Container visible={this.state.isVisible}>
                     <Dialog.Title>Contact</Dialog.Title>
                     <Dialog.Description>
+                        Department Phone Number:
+                        {this.props.contactNo}
                     </Dialog.Description>
                     <Dialog.Description>
-                        Email: 123@hotmail.co.uk
+                        Email Address:
+                        {this.props.email} 
                     </Dialog.Description>
                     <Dialog.Button label="Close" onPress={this.hide} />
                 </Dialog.Container>

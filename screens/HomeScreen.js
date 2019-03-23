@@ -31,11 +31,10 @@ class HomeScreen extends React.Component {
       },
   };
 
-  componentDidMount = async () => {
-    const {requestAppointments, registerForPushNotificationsAsync} = this.props;
-    const userToken = await AsyncStorage.getItem('userToken');
+  componentDidMount(){
+    this._handleAppointmentRequest();
     //registerForPushNotificationsAsync();
-    requestAppointments(userToken);
+    
   }
 
   render() {
@@ -59,12 +58,15 @@ class HomeScreen extends React.Component {
     <AppointmentCard id = {item.id} appointment = {item} navigation={this.props.navigation} prepInfo={item.appointmentType.detailedInformation}/>
   )
     
-  
+  _handleAppointmentRequest = async () => {
+    const {requestAppointments} = this.props;
+    const userToken = await AsyncStorage.getItem('userToken');
+    requestAppointments(userToken);
+  }
 
   _handleRefresh() {
     console.log('we are refreshing');
-    const {requestAppointments} = this.props;
-    requestAppointments();
+    this._handleAppointmentRequest();
   }
 }
 

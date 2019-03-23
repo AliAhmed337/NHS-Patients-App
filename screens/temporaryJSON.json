@@ -1,0 +1,177 @@
+{
+    "id": "43569567",
+    "name": "MRI Scan",
+    "procedureDescription": {
+      "articleBody": "Magnetic resonance imaging (MRI) is a type of scan that uses strong magnetic fields and radio waves to produce detailed images of the inside of the body.",
+      "url": "https://www.nhs.uk/conditions/mri-scan/"
+    },
+    "preparatoryTasks": [
+      {
+        "id": "43569876",
+        "name": "Preparing for CBT Appointment",
+        "description": "Welcome! THis is a preparation guide to help you get ready for your CBT appointment. Please click here to read the preparation steps and the mandatory diet guide.",
+        "startTime": {
+          "type": "offset",
+          "value": "10800",
+          "interval": "seconds"
+        },
+        "dietary_restrictions": [
+          {
+            "name": "starchy foods",
+            "allowed": [
+              {
+                "id": 1234,
+                "name": "banana",
+                "image": "https://en.wikipedia.org/wiki/Banana#/media/File:Banana_and_cross_section.jpg"
+              },
+              {
+                "id": 1244,
+                "name": "apple",
+                "image": "https://en.wikipedia.org/wiki/Apple#/media/File:Honeycrisp.jpg"
+              }
+            ],
+            "not-allowed": [
+              {
+                "id": 1234,
+                "name": "pasta",
+                "image": "https://en.wikipedia.org/wiki/Tagliatelle#/media/File:Tagliatelles2.jpg"
+              },
+              {
+                "id": 1234,
+                "name": "chewing gum",
+                "image": "https://en.wikipedia.org/wiki/Tagliatelle#/media/File:Tagliatelles2.jpg"
+              }
+            ]
+          },
+          {
+            "name": "Drinks",
+            "allowed": [
+              {
+                "id": 1234,
+                "name": "Orange juice",
+                "image": "https://en.wikipedia.org/wiki/Banana#/media/File:Banana_and_cross_section.jpg"
+              },
+              {
+                "id": 1244,
+                "name": "apple juice",
+                "image": "https://en.wikipedia.org/wiki/Apple#/media/File:Honeycrisp.jpg"
+              }
+            ],
+            "not-allowed": [
+              {
+                "id": 1234,
+                "name": "pineapple juice",
+                "image": "https://en.wikipedia.org/wiki/Tagliatelle#/media/File:Tagliatelles2.jpg"
+              },
+              {
+                "id": 1234,
+                "name": "cranberry juice",
+                "image": "https://en.wikipedia.org/wiki/Tagliatelle#/media/File:Tagliatelles2.jpg"
+              }
+            ]
+          }
+        ],
+        "guidance": [
+            {
+                "guidanceText": "The day before your scan you will need to follow a high-fat, high-protein, low carbohydrate diet. You will need to fast for 15 hours prior to your scan appointment time, starting from the evening before the day of your scan."
+            }
+        ],
+        "menu": [
+            {
+                "id": 1128, 
+                "name": "Chicken and Bacon Salad",
+                "instructions": "Cook some sliced mushrooms in butter and garlic, fruing some tomato quarters on the side. Serve with fried eggs and bacon, or a lamb chop. Please remember processed meats including sausages are not allowed.",
+                "image": "https://www.paleorunningmomma.com/wp-content/uploads/2014/04/bacon-scallion-chicken-salad-6-2.jpg"
+            },
+            {
+                "id": 2000,
+                "name": "Vegetable curry",
+                "instructions": "Fry chopped spring onions peppers, okra, aubergine and chilli together with dried curry spices (such as turmeric, cumin, mustard seeds, and fenugreek) in some oil for a few minutes. Add a can of chopped tomatoes or some water, salt and pepper, and cook until the vegetables are tender."
+            }
+        ]
+      },{
+      "id": "12345678",
+      "name": "Fasting at night",
+      "description": "Please now follow this card. The main change now is that you aren't allowed to eat after 7pm.",
+      "startTime": {
+        "type": "offset",
+        "value": "06800",
+        "interval": "seconds"
+      },
+      "dietary_restrictions": [
+        {
+          "name": "starchy foods",
+          "allowed": [
+            {
+              "id": 1234,
+              "name": "banana",
+              "image": "https://en.wikipedia.org/wiki/Banana#/media/File:Banana_and_cross_section.jpg"
+            },
+            {
+              "id": 1244,
+              "name": "apple",
+              "image": "https://en.wikipedia.org/wiki/Apple#/media/File:Honeycrisp.jpg"
+            }
+          ],
+          "not-allowed": [
+            {
+              "id": 1234,
+              "name": "pasta",
+              "image": "https://en.wikipedia.org/wiki/Tagliatelle#/media/File:Tagliatelles2.jpg"
+            },
+            {
+              "id": 1234,
+              "name": "chewing gum",
+              "image": "https://en.wikipedia.org/wiki/Tagliatelle#/media/File:Tagliatelles2.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Drinks",
+          "allowed": [
+            {
+              "id": 1234,
+              "name": "Orange juice",
+              "image": "https://en.wikipedia.org/wiki/Banana#/media/File:Banana_and_cross_section.jpg"
+            },
+            {
+              "id": 1244,
+              "name": "apple juice",
+              "image": "https://en.wikipedia.org/wiki/Apple#/media/File:Honeycrisp.jpg"
+            }
+          ],
+          "not-allowed": [
+            {
+              "id": 1234,
+              "name": "pineapple juice",
+              "image": "https://en.wikipedia.org/wiki/Tagliatelle#/media/File:Tagliatelles2.jpg"
+            },
+            {
+              "id": 1234,
+              "name": "cranberry juice",
+              "image": "https://en.wikipedia.org/wiki/Tagliatelle#/media/File:Tagliatelles2.jpg"
+            }
+          ]
+        }
+      ],
+      "guidance": [
+          {
+              "guidanceText": "Only water and certain juices allowed. Consult this card for your diet today."
+          }
+      ],
+      "menu": [
+          {
+              "id": 1000, 
+              "name": "African Meat and Spinach Stew",
+              "instructions": "Fry onions, add toast butter and marmalade. Please remember processed meats including sausages are not allowed.",
+              "image": "https://www.paleorunningmomma.com/wp-content/uploads/2014/04/bacon-scallion-chicken-salad-6-2.jpg"
+          },
+          {
+              "id": 2000,
+              "name": "Vegetable curry",
+              "instructions": "Fry chopped spring onions peppers, okra, aubergine and chilli together with dried curry spices (such as turmeric, cumin, mustard seeds, and fenugreek) in some oil for a few minutes. Add a can of chopped tomatoes or some water, salt and pepper, and cook until the vegetables are tender."
+          }
+      ]
+    }
+    ]
+}

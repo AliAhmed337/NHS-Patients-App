@@ -8,7 +8,8 @@ import {
   Text,
   ActivityIndicator,
   FlatList,
-  StatusBar
+  StatusBar,
+  AsyncStorage
 } from 'react-native';
 import { connect } from 'react-redux';
 import { requestAppointments, registerForPushNotificationsAsync } from "../actions";
@@ -29,10 +30,10 @@ class HomeScreen extends React.Component {
       },
   };
 
-  componentDidMount() {
+  componentDidMount = async () => {
     const {requestAppointments, registerForPushNotificationsAsync} = this.props;
     const userToken = await AsyncStorage.getItem('userToken');
-    registerForPushNotificationsAsync();
+    //registerForPushNotificationsAsync();
     requestAppointments(userToken);
   }
 
@@ -44,7 +45,7 @@ class HomeScreen extends React.Component {
           <StatusBar barStyle="light-content"/>
           <FlatList
             data = {appointments}
-            keyExtractor = {item => item.id}
+            keyExtractor = {item => item.id.toString()}
             refreshing = {false}
             onRefresh = {() => this._handleRefresh()}
             renderItem = {this._renderAppointment}          

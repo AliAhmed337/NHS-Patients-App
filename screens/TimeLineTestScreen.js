@@ -16,6 +16,19 @@ export default class TimeLineTestScreen extends React.Component {
         ]
       } 
     
+      static navigationOptions = {
+        title: 'Time Line',
+  
+        headerStyle: {
+            backgroundColor: '#005EB8',
+        },
+        headerTitleStyle: {
+            fontWeight: 'bold',
+            color: '#ffffff',
+        },
+        headerTintColor: '#ffffff',
+    };
+
       render() {
         //'rgb(45,156,219)'
         return (
@@ -32,7 +45,7 @@ export default class TimeLineTestScreen extends React.Component {
               options={{
                 style:{paddingTop:5}
               }}
-              onEventPress={() => this.props.navigation.navigate('Home')} //this is where navigation happens
+              onEventPress={() => this.props.navigation.navigate('Preparation')} //this is where navigation happens
             />
           </View>
         );

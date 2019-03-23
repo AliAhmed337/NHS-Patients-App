@@ -13,6 +13,9 @@ import DietScreen from '../screens/DietScreen';
 import TimeLineTestScreen from '../screens/TimeLineTestScreen';
 import Menu from '../screens/Menu';
 import WhatToExpectScreen from '../screens/WhatToExpectScreen';
+import LinearMainScreen from '../screens/LinearMainScreen';
+import NewAppointmentList from '../screens/NewAppointmentList';
+
 
 export default class MainTabNavigator extends React.Component{
   render(){
@@ -39,8 +42,6 @@ const DashboardTabNavigator = createMaterialTopTabNavigator({
   PreparationScreen, 
   DietScreen, 
   Menu,
-  TimeLineTestScreen,
-  
 },{
   navigationOptions:({navigation})=>{
     const{routeName} = navigation.state.routes[navigation.state.index]
@@ -55,7 +56,7 @@ const DashboardTabNavigator = createMaterialTopTabNavigator({
   headerStyle: {
     backgroundColor: '#005EB8',
   },
-  headerTintColor: '#fff',
+  headerTintColor: '#ffffff',
   headerTitleStyle: {
     fontWeight: 'bold',
   },
@@ -75,7 +76,7 @@ const DashboardStackNavigator = createStackNavigator({
         color='#00A499'
         size= {35}
         underlayColor='#ffffff'
-        onPress={() => navigation.navigate('Home')}
+        onPress={() => navigation.navigate('Timeline')}
         />
         </View>
       )
@@ -85,14 +86,20 @@ const DashboardStackNavigator = createStackNavigator({
 
 
 
-const AppDrawerNavigator = createDrawerNavigator({
+const AppDrawerNavigator = createStackNavigator({
   Preparation: DashboardStackNavigator,
-})
-
-
+},
+{
+  headerMode: 'none',
+  navigationOptions: {
+    headerVisible: false,
+  }
+}
+)
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
+  Timeline: TimeLineTestScreen,
   Expect: WhatToExpectScreen,
 });
 
@@ -126,6 +133,7 @@ HomeStack.navigationOptions = {
       }
     />
   ),
+
 };
 
 PreparationStack.navigationOptions = {

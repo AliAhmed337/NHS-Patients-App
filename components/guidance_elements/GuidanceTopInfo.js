@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Platform } from 'react-native';
 
 export const GuidanceTopInfo = () => {
 	return (
@@ -17,9 +17,9 @@ export const GuidanceTopInfo = () => {
 
 const styles = {
 	infoStyle: {
+		fontFamily: Platform.OS === 'ios' ? 'Arial' : 'sans-serif',
 		fontSize: 16,
-		fontStyle: 'normal',
-		textAlign: 'center',
+		color: '#00315F',
 		padding: 5
 	}
 };

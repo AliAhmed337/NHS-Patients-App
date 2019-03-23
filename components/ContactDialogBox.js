@@ -24,7 +24,7 @@ class DialogBox extends Component {
 
             <View style={{alignItems: 'center',}}>
                 <View style={[{paddingTop: 10},{paddingBottom: 10}]}>
-                <TouchableOpacity style={[styles.buttonBody, {backgroundColor: '#ed2c3a'}, {padding:10}, {width:'100%'}] }onPress={this.show}>
+                <TouchableOpacity style={[styles.buttonBody, {backgroundColor: '#881E2C'}, {padding:10}, {width:'100%'}] }onPress={this.show}>
                     <Text style={[{color:'#ffffff'},styles.buttonText]}>Cancel or change appointment</Text>
                 </TouchableOpacity>
                 </View>
@@ -48,9 +48,8 @@ class DialogBox extends Component {
 const styles = ({
     buttonBody: {
 
-
+        borderRadius: 10,
         alignItems: 'center',
-        borderRadius: 0,
         flexDirection: 'row',
         justifyContent: 'space-evenly',
     },

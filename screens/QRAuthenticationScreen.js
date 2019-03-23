@@ -7,12 +7,13 @@ export default class QRAuth extends Component {
         title: 'Scan QR Code',
 
         headerStyle: {
-            backgroundColor: '#007dff',
+            backgroundColor: '#005EB8',
         },
         headerTitleStyle: {
             fontWeight: 'bold',
             color: '#ffffff',
         },
+        headerTintColor: '#ffffff',
     };
 
   state = {

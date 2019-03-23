@@ -4,8 +4,9 @@ import { StyleSheet } from 'react-native';
 export default styles = StyleSheet.create({
     
     appointmentCardContainer: {
-        borderWidth: 2,
-        borderColor: '#34856D',
+        //borderWidth: 1,
+        //borderColor: '#586FB9',
+        borderRadius: 2,
         // shadowColor: '#000',
         // shadowOffset: {width: 5, height: 10},
         // shadowOpacity: 0.4,
@@ -19,7 +20,6 @@ export default styles = StyleSheet.create({
     
     appointmentHeaderContainer: {
         justifyContent: 'space-between',
-        backgroundColor: '#34856D',
         flexDirection: 'row',
         padding: 12,
     },
@@ -36,6 +36,8 @@ export default styles = StyleSheet.create({
 
     appointmentBodyContainer: {
         paddingHorizontal: 10,
+        backgroundColor: '#ffffff',
+        borderRadius: 2,
     },
 
     appointmentDetailContainer: {

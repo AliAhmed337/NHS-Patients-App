@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
 import AppointmentsReducer from './AppointmentsReducer';
-import AuthReducer from "./AuthReducer";
+import AuthReducer from './AuthReducer';
+import PreparationsReducer from './PreparationsReducer'; 
 
 export default combineReducers({
     appointmentsRed: AppointmentsReducer,
-    authRed: AuthReducer
+    authRed: AuthReducer,
+    prepRed: PreparationsReducer
 });

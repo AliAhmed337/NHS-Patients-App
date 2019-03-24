@@ -21,6 +21,7 @@ export default class TimeLineTestScreen extends React.Component {
   
         headerStyle: {
             backgroundColor: '#005EB8',
+            borderBottomWidth: 0,
         },
         headerTitleStyle: {
             fontWeight: 'bold',
@@ -55,11 +56,10 @@ export default class TimeLineTestScreen extends React.Component {
     const styles = StyleSheet.create({
       container: {
         flex: 1,
-        padding: 10,
+        padding: 5,
         backgroundColor:'white'
       },
       list: {
         flex: 1,
-        marginTop:5,
       },
     });

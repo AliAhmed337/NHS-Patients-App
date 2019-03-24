@@ -10,6 +10,7 @@ import { Constants } from 'expo';
 import { AsyncStorage } from 'react-native';
 
 const VERIFY_ENDPOINT = "https://nhs.hallsy.io/api/v1/subscribe";
+const VALIDATE_ENDPOINT = "https://nhs.hallsy.io/api/v1/validate-patient";
 
 export const passphraseChanged = (text) => {
     console.log('changing passphrase');
@@ -33,6 +34,23 @@ export const verifyUser = (passphrase) => {
         attemptVerify(passphrase, dispatch);
     };
 };
+
+export const validateUser = (userToken) => {
+    fetch(VALIDATE_ENDPOINT, {
+        method: 'GET',
+        headers: {
+            'Cache-Control': 'no-cache',
+            'X-API-KEY': userToken  
+        }})
+        .then((response) => {
+            if (response.status === 401) {
+                removeInvalidTokenFromStorage();
+                 false;
+            }
+            else true;
+        })
+          .catch((error) => console.error(error));
+}
 
 const attemptVerify = (passphrase, dispatch) => {
     fetch(VERIFY_ENDPOINT, {
@@ -74,6 +92,7 @@ const verifySuccess = (dispatch, user) => {
 
 const verifyFail = (dispatch) => {
     console.log('this user has failed verification');
+    removeInvalidTokenFromStorage();
     dispatch({type: USER_VERIFY_FAIL});
 }
 
@@ -84,3 +103,11 @@ const storeData = async (user) => {
       console.error(error);
     }
   };
+
+const removeInvalidTokenFromStorage = async () => {
+    try {
+        await AsyncStorage.setItem('userToken', null);
+    } catch (error) {
+        console.error(error);
+    }
+}

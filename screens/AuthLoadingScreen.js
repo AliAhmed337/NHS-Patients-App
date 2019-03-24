@@ -6,8 +6,10 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
+import { connect } from 'react-redux';
+import { validateUser } from '../actions';
 
-export default class AuthLoadingScreen extends React.Component {
+class AuthLoadingScreen extends React.Component {
   constructor(props) {
     super(props);
     this._bootstrapAsync();
@@ -19,9 +21,10 @@ export default class AuthLoadingScreen extends React.Component {
     const userToken = await AsyncStorage.getItem('userToken');
     console.log('In our storage, our user is: ' + userToken);
 
+    // Need to make sure token is still valid and hasn't expired -
     // This will switch to the App screen or Auth screen and this loading
     // screen will be unmounted and thrown away.
-    this.props.navigation.navigate(userToken ? 'Main' : 'Auth');
+    this.props.navigation.navigate(validateUser(userToken) ? 'Main' : 'Auth');
   };
 
   render() {
@@ -33,3 +36,5 @@ export default class AuthLoadingScreen extends React.Component {
     );
   }
 }
+
+export default connect(null, {validateUser})(AuthLoadingScreen);

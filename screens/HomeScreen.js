@@ -34,7 +34,6 @@ class HomeScreen extends React.Component {
   componentDidMount(){
     this._handleAppointmentRequest();
     //registerForPushNotificationsAsync();
-    
   }
 
   render() {

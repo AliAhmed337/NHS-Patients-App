@@ -18,7 +18,6 @@ export default class PreparationScreen extends React.Component {
         <View>
           <GuidanceList />
         </View>
-
       </View>      
     );
   }

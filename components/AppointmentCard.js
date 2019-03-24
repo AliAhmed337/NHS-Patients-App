@@ -17,10 +17,6 @@ export default class AppointmentCard extends React.Component {
         this.state = { expanded: this.props.expanded || false };
     }
 
-    _doNothing = () => {
-
-    }
-
     _toggleExpand(){
         this.setState((state) => ({
             expanded: !state.expanded
@@ -83,7 +79,7 @@ export default class AppointmentCard extends React.Component {
 
                         <View style={{paddingBottom: 10}}>
                             <Button style={{paddingBottom: 20}} size={30} padding={10} width='100%' color='#ffffff'
-                            onPress={() => this.props.navigation.navigate('Timeline')} name="md-checkbox" 
+                            onPress={() => this.props.navigation.navigate('Timeline', this.props.prepInfo)} name="md-checkbox" 
                             backgroundColor='#41557B'>Preparation checklist</Button>
                         </View>
 

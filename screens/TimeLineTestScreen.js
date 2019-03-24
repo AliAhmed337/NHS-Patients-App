@@ -1,11 +1,13 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
+import { requestPreparations } from "../actions";
 import Timeline from 'react-native-timeline-listview';
 
 
 export default class TimeLineTestScreen extends React.Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.data = [
           {time: '12/Mar', title: 'Preparing for CBT Appointment', description: "Welcome! This is a preparation guide to help you get ready for your CBT appointment. Please click here to read the preparation steps and the mandatory diet guide.", 
           circleColor: '#009688',lineColor:'#009688'},
@@ -29,6 +31,16 @@ export default class TimeLineTestScreen extends React.Component {
         headerTintColor: '#ffffff',
     };
 
+    componentDidMount(){
+      this._handlePreparationRequest();
+    }
+
+    _handlePreparationRequest = async () => {
+      const {requestPreparations} = this.props;
+      const userToken = await AsyncStorage.getItem('userToken');
+      requestPreparations(userToken);
+    }
+    
       render() {
         //'rgb(45,156,219)'
         return (
@@ -63,3 +75,10 @@ export default class TimeLineTestScreen extends React.Component {
         marginTop:5,
       },
     });
+
+    const mapStateToProps = ({ prepRed }) => {
+      const { preparations, loading } = prepRed;
+      return { preparations, loading };
+    }
+    
+    export default connect(mapStateToProps, {requestPreparations})(PreparationScreen);

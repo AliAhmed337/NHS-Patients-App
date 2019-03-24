@@ -57,7 +57,11 @@ const DashboardTabNavigator = createMaterialTopTabNavigator({
   }, tabBarOptions: {
     style:{
       backgroundColor: '#005EB8',
-    }
+      
+    },
+    indicatorStyle: {
+      backgroundColor: '#FAE100',
+  }
   }
 })
 

@@ -21,14 +21,18 @@ import { Button, ThemeProvider } from 'react-native-elements';
 class HomeScreen extends React.Component {
   static navigationOptions = {
       title: 'Upcoming Appointments',
-
+    
       headerStyle: {
           backgroundColor: '#005EB8',
+          borderBottomWidth: 0,
+          elevation: 0,
       },
       headerTitleStyle: {
           fontWeight: 'bold',
           color: '#ffffff',
-      },
+          textAlign:"center", 
+          flex:1 
+        },
   };
 
   componentDidMount(){

@@ -14,6 +14,8 @@ class ManualAuthenticationScreen extends React.Component {
         headerTitleStyle: {
             fontWeight: 'bold',
             color: '#ffffff',
+            textAlign:"center", 
+            flex:1 
         },
         headerTintColor: '#ffffff',
     };

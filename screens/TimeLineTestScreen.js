@@ -17,14 +17,18 @@ export default class TimeLineTestScreen extends React.Component {
       } 
     
       static navigationOptions = {
-        title: 'Time Line',
+        title: 'Timeline',
   
         headerStyle: {
             backgroundColor: '#005EB8',
+            borderBottomWidth: 0,
+            elevation: 0,
+
         },
         headerTitleStyle: {
             fontWeight: 'bold',
             color: '#ffffff',
+
         },
         headerTintColor: '#ffffff',
     };
@@ -55,11 +59,10 @@ export default class TimeLineTestScreen extends React.Component {
     const styles = StyleSheet.create({
       container: {
         flex: 1,
-        padding: 10,
-        backgroundColor:'white'
+        padding: 5,
+        backgroundColor:'white',
       },
       list: {
         flex: 1,
-        marginTop:5,
       },
     });

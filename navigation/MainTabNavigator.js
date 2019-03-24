@@ -1,5 +1,6 @@
 import React from 'react';
 import { Platform, View } from 'react-native';
+import { Button } from 'react-native-elements';
 import { createStackNavigator, createBottomTabNavigator, createMaterialTopTabNavigator,
   createAppContainer,
   createSwitchNavigator,
@@ -46,20 +47,22 @@ const DashboardTabNavigator = createMaterialTopTabNavigator({
   navigationOptions:({navigation})=>{
     const{routeName} = navigation.state.routes[navigation.state.index]
     return{
-      headerTitle: routeName
+      headerTitle: null,
+      headerStyle: {
+        backgroundColor: '#005EB8',
+        borderBottomWidth: 0,
+        elevation:0
+      }
     }
   }, tabBarOptions: {
     style:{
       backgroundColor: '#005EB8',
-    }
-  },
-  headerStyle: {
-    backgroundColor: '#005EB8',
-  },
-  headerTintColor: '#ffffff',
-  headerTitleStyle: {
-    fontWeight: 'bold',
-  },
+      
+    },
+    indicatorStyle: {
+      backgroundColor: '#FAE100',
+  }
+  }
 })
 
 const DashboardStackNavigator = createStackNavigator({
@@ -69,15 +72,14 @@ const DashboardStackNavigator = createStackNavigator({
     return {
       headerLeft: (
         <View style={{marginLeft: 10}}>
-        <Icon 
+       <Icon 
         style={{ padding:10 }}
-        name='ios-arrow-dropleft-circle'
+        name='md-arrow-back'
         type='ionicon'
-        color='#00A499'
+        color='#ffffff'
         size= {35}
         underlayColor='#ffffff'
-        onPress={() => navigation.navigate('Timeline')}
-        />
+        onPress={() => navigation.navigate('Timeline')} />
         </View>
       )
     }
@@ -111,6 +113,12 @@ const AppSwitchNavigator = createSwitchNavigator({
 })
 
 const AppContainer = createAppContainer(AppSwitchNavigator);
+
+AppContainer.navigationOptions ={
+  header: {
+    shadowColor: 'transparent'
+  }
+}
 
 const PreparationStack = createStackNavigator({
   Preparation: PreparationScreen,

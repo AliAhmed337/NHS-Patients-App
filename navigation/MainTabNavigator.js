@@ -51,6 +51,7 @@ const DashboardTabNavigator = createMaterialTopTabNavigator({
       headerStyle: {
         backgroundColor: '#005EB8',
         borderBottomWidth: 0,
+        elevation:0
       }
     }
   }, tabBarOptions: {

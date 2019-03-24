@@ -25,11 +25,14 @@ class HomeScreen extends React.Component {
       headerStyle: {
           backgroundColor: '#005EB8',
           borderBottomWidth: 0,
+          elevation: 0,
       },
       headerTitleStyle: {
           fontWeight: 'bold',
           color: '#ffffff',
-      },
+          textAlign:"center", 
+          flex:1 
+        },
   };
 
   componentDidMount(){

@@ -8,7 +8,7 @@ import GuidanceList from '../components/GuidanceList';
 export default class PreparationScreen extends React.Component {
 
   static navigationOptions = {
-    title: 'Preparation',
+    title: 'Guide',
   };
 
   render() {

@@ -12,16 +12,17 @@ class DietList extends Component {
 
 	renderDiets() {
 		return this.state.diets.map(diet =>
+			<View style={{margin: 10}}>
 			<Collapse key={diet.title}>
 				<CollapseHeader style={styles.titleStyle}>
-				<Image style={{width: '25%', height: '100%', resizeMode: 'cover', borderRadius: 5, paddingRight: 5}} source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Muhammad_Ali_NYWTS.jpg'}}/>
-					<DietTitle title={diet.title} />
+					<DietTitle title={diet.title} image={diet.image}/>
 				</CollapseHeader>
 
 				<CollapseBody style={styles.bodyStyle}>
 					<DietContent allowed={diet.allowed} notAllowed={diet.notAllowed} />
 				</CollapseBody>
 			</Collapse>
+			</View>
 		);
 	}
 
@@ -46,10 +47,10 @@ const styles = {
 		alignItems: 'center',
 		justifyContent: 'center',
 		flexDirection: 'column',
-		borderTopWidth: 2,
-		borderTopColor: 'white',
 		borderBottomWidth: 2,
-		borderBottomColor: 'white',
+		borderLeftWidth: 2,
+		borderRightWidth: 2,
+		borderColor: '#004281',
 	}
 };
 

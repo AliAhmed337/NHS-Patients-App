@@ -44,13 +44,10 @@ export default class Menu extends Component {
   renderMenuContent(item) {
     if(item !== ''){
     return item.content.map(row =>
-      <View style={{ flexDirection: 'row', padding: 5}}>
-      <Image
-      style={{width: 50, height: 50}} 
-      source={{uri: 'https://www.lecremedelacrumb.com/wp-content/uploads/2017/07/lemon-dill-salmon-101.jpg'}} />
+      <View style={{ flexDirection: 'row' }}>
           <Text>{'\u2022'}</Text>
           <Text style={{ flex: 1, paddingLeft: 16, fontSize: 16 }}>{row}</Text>
-      </View>
+        </View>
       );
     }
   }
@@ -90,7 +87,23 @@ const items = [
         )}
       />
        <View>
+        <Dialog
+          style={{ margin: 50 }}
+          onDismiss={() => {
+            this.setState({ clicked: false, item: '' });
+          }}
+          onTouchOutside={() => {
+            this.setState({ clicked: false, item: '' });
+          }}
+
+          visible={this.state.clicked}
+          dialogTitle={<DialogTitle style={styles.dialogTitleStyle} title={this.state.item.name} />}
+          dialogAnimation={new SlideAnimation({ slideFrom: 'bottom' })}
+        >
+          <DialogContent style={{ height: 450, flexDirection: 'row' }}>
             <ScrollView>{this.renderMenuContent(this.state.item)}</ScrollView>
+          </DialogContent>
+        </Dialog>
       </View>
       
       </View>

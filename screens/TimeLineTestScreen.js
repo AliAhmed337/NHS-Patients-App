@@ -47,7 +47,8 @@ export default class TimeLineTestScreen extends React.Component {
               timeStyle={{textAlign: 'center', backgroundColor:'#ff9797', color:'white', padding:5, borderRadius:13}}
               descriptionStyle={{color:'gray'}}
               options={{
-                style:{paddingTop:5}
+                style:{paddingTop:5},
+                removeClippedSubviews: false
               }}
               onEventPress={() => this.props.navigation.navigate('Preparation')} //this is where navigation happens
             />

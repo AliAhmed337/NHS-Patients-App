@@ -60,7 +60,7 @@ export default class TimeLineTestScreen extends React.Component {
       container: {
         flex: 1,
         padding: 5,
-        backgroundColor:'white',
+        backgroundColor:'#E8EDEE',
       },
       list: {
         flex: 1,

@@ -73,7 +73,7 @@ const items = [
             <View style={{flex: 1}}>
             <TouchableOpacity 
                 style={[styles.itemContainer, { backgroundColor: item.code }]}
-                onPress={() => this.setState({ clicked: true, item })}
+                onPress={() => this.props.navigation.navigate('IndividualMenuItem')}
             >
                 <ImageOverlay 
                   source={{ uri:item.image}} 

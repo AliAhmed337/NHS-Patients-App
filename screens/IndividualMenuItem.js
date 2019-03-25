@@ -30,8 +30,7 @@ import ImageOverlay from "react-native-image-overlay";
     }
   });
   
-
-export default class Menu extends Component {
+  export default class Menu extends Component {
     constructor(){
         super()
         this.state={
@@ -79,7 +78,7 @@ const items = [
                   source={{ uri:item.image}} 
                   title={item.name}
                   titleStyle={{fontWeight: 'bold' }}
-                  containerStyle={{ flex: 1, width: undefined, height: undefined, borderRadius: 5}} 
+                  containerStyle={{ width: 173, height: 150, borderRadius: 5}} 
                 >
                 </ImageOverlay>
             </TouchableOpacity>

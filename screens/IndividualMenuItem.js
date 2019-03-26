@@ -26,17 +26,24 @@ import * as Animatable from 'react-native-animatable';
   export default class IndividualMenuItem extends Component {
 
     static navigationOptions = {
-      title: 'HEAY',
-      color: 'white',
+      title: 'Food Dish',
       fontWeight: 'bold',
+
       headerStyle: {
         backgroundColor: '#005EB8',
         borderBottomWidth: 0,
         elevation:0
       },
+      headerTitleStyle: {
+        fontWeight: 'bold',
+        color: '#ffffff',
+        textAlign:"center", 
+        flex:1 
+      },
       indicatorStyle: {
         backgroundColor: '#ffffff',
-    }
+    },
+    headerTintColor: '#ffffff'
     };
 
     render(){
@@ -55,13 +62,16 @@ import * as Animatable from 'react-native-animatable';
                   top: '85%',
                   left: 20,
                   right: 20,
-                  height: 100,
                   borderRadius: 10,
                   backgroundColor: '#E8EDEE',
                   flexDirection: 'column'
+                
                 }}
               >
               <Text style={{fontSize: 25, paddingLeft: 10, paddingBottom: 30, 
+                paddingTop: 30, fontWeight: 'bold', color: 'black'}}>Title of Dish</Text>
+
+              <Text style={{fontSize: 25, paddingLeft: 10, paddingBottom: 20, 
                 paddingTop: 30, fontWeight: 'bold', color: 'black'}}>Ingredients</Text>
               </Animatable.View>
           </View>

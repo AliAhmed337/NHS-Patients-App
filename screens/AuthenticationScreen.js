@@ -6,7 +6,6 @@ import { LinearGradient } from 'expo';
 
 
 export default class AuthenticationScreen extends React.Component  {
-
     static navigationOptions = {
         header: null
     };

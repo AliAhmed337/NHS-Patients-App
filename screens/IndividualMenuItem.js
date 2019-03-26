@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
 import ImageOverlay from "react-native-image-overlay";
 import * as Animatable from 'react-native-animatable';
-  
+import { ReactRenderComponent } from '../components/common/ReactRenderComponent';
+
   export default class IndividualMenuItem extends Component {
 
     static navigationOptions = {
@@ -65,6 +66,20 @@ import * as Animatable from 'react-native-animatable';
                   fontWeight: 'bold', 
                   color: 'black'}}
                 >Ingredients</Text>
+                
+                {/* THIS IS WHERE WE BULLET POINT INGREDIENTS IN A FLATLIST */}
+
+                <Text style={{
+                  fontSize: 25, 
+                  paddingLeft: 10, 
+                  paddingBottom: 20, 
+                  paddingTop: 30, 
+                  fontWeight: 'bold', 
+                  color: 'black'}}
+                >How to cook</Text>
+
+              <ReactRenderComponent />
+
               </Animatable.View>
           </View>
         </View>
@@ -91,3 +106,5 @@ const styles = StyleSheet.create({
     width: 340
   }
 });
+
+

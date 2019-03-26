@@ -1,6 +1,6 @@
 import {
-    PREPARATIONS_REQUESTED, PREPARATIONS_COMPLETE, CLEAR_PREPARATIONS,
-    TIMELINE_CREATED, GUIDELINE_CREATED, DIET_CREATED, MENU_CREATED
+    PREPARATIONS_REQUESTED, PREPARATIONS_RETRIEVED, CLEAR_PREPARATIONS,
+    GUIDANCE_CREATED, DIET_CREATED, MENU_CREATED
 } from './types';
 
 
@@ -21,13 +21,24 @@ export const requestPreparations = (PREPARATION_ENDPOINT, userToken) => {
         .then((response) => response.json())
         .then((responseJson) => {
             console.log('preparations retrieved for endpoint: ' + PREPARATION_ENDPOINT);
-            const prep = responseJson.preparatoryTasks;
-
-            // grab the data, split them, and reformat them to display in their relevant sections.
-
-
-            dispatch({type: PREPARATIONS_COMPLETE});
+            dispatch({type: PREPARATIONS_RETRIEVED, payload: responseJson});
         })
         .catch((error) => console.error(error));
+    }
+};
+
+export const loadPrepInfo = (preptask) => {
+    return (dispatch) => {
+       
+        console.log('splitting and sending guidance ' + JSON.stringify(preptask.guidance));
+        dispatch({type: GUIDANCE_CREATED, payload: preptask.guidance});
+    
+        console.log('splitting and sending diet ' + JSON.stringify(preptask.diet));
+        dispatch({type: DIET_CREATED, payload: preptask.diet});
+    
+        console.log('splitting and sending menu ' + JSON.stringify(preptask.menu));
+        dispatch({type: MENU_CREATED, payload: preptask.menu})
+
+        
     }
 };

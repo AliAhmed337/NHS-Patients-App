@@ -25,6 +25,7 @@ class TimeLineTestScreen extends React.Component {
 
         },
         headerTintColor: '#ffffff',
+        
     };
 
     componentDidMount(){

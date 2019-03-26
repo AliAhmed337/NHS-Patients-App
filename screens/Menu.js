@@ -1,36 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Button, TouchableOpacity, ScrollView, Image, Animated } from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
-import Dialog, {
-  DialogTitle,
-  DialogContent,
-  DialogFooter,
-  DialogButton,
-  SlideAnimation
-} from 'react-native-popup-dialog';
 import ImageOverlay from "react-native-image-overlay";
-import { duration } from 'moment';
-
-  const styles = StyleSheet.create({
-    gridView: {
-      marginTop: 0,
-      flex: 1,
-    },
-    itemContainer: {
-      justifyContent: 'center',
-      borderRadius: 5,
-      height: 150,
-    },
-    itemName: {
-      fontSize: 16,
-      color: '#fff',
-      fontWeight: '600',
-    },
-    dialogTitleStyle: {
-      width: 340
-    }
-  });
-  
 
 export default class Menu extends Component {
   
@@ -40,42 +11,30 @@ export default class Menu extends Component {
     isAnimating: false
   };
 
-    constructor(){
-        super()
-        this.state={
-            clicked: false,
-            item: ''
-        }
-    }
-
-    // openThing(item) {
-    //     Animated.timing(this.openProgress, {
-    //       toValue: 1,
-    //       duration: 300,
-    //       useNativeDriver: true
-    //     }).start()
-    // };
-
-
-  renderMenuContent(item) {
-    if(item !== ''){
-    return item.content.map(row =>
-      <View style={{ flexDirection: 'row' }}>
-          <Text>{'\u2022'}</Text>
-          <Text style={{ flex: 1, paddingLeft: 16, fontSize: 16 }}>{row}</Text>
-        </View>
-      );
+  constructor(){
+    super()
+    this.state={
+      clicked: false,
+      item: ''
     }
   }
 
+  renderMenuContent(item) {
+    if(item !== '') {
+      return item.content.map(row =>
+        <View style={{ flexDirection: 'row' }}>
+            <Text>{'\u2022'}</Text>
+            <Text style={{ flex: 1, paddingLeft: 16, fontSize: 16 }}>{row}</Text>
+          </View>
+        );
+      }
+  }
+
   onPressFunction(item) {
-  //  this.openThing(item)
     this.props.navigation.navigate('IndividualMenuItem')
   }
 
   render() {
-    const { style, photo } = this.props;
-    const { opacity } = this.state;
 const items = [ 
   { name: 'Chicken and Bacon Salad', content: ['Chop tomato, cucumber, peppers, spring onions and radishes', 'Wash and pat dry some lettuce', 'In a bowl combine the salad ingredients with pieces of cooled cooked chicken and chopped grilled bacon', 'Mix with home-made salad dressing (2 tablespoons of oil, 1 tablespoon of vinegar, salt and pepper, whisked together).'], code: '#1abc9c', image: 'https://www.simplyrecipes.com/wp-content/uploads/2012/06/chicken-salad-square-a-1800.jpg' },
   { name: 'Fried Mushrooms', content: ['Cook some sliced mushrooms in butter and garlic, frying some tomato quarters on the side', 'Serve with fried eggs and bacon, or a lamb chop. Please remember processed meats including sausages are not allowed.'], code: '#2ecc71', image: 'http://totsfamily.com/wp-content/uploads/2016/10/IMG_0028.jpg' },
@@ -109,27 +68,24 @@ const items = [
             </View>
         )}
       />
-       <View>
-        <Dialog
-          style={{ margin: 50 }}
-          onDismiss={() => {
-            this.setState({ clicked: false, item: '' });
-          }}
-          onTouchOutside={() => {
-            this.setState({ clicked: false, item: '' });
-          }}
-
-          visible={this.state.clicked}
-          dialogTitle={<DialogTitle style={styles.dialogTitleStyle} title={this.state.item.name} />}
-          dialogAnimation={new SlideAnimation({ slideFrom: 'bottom' })}
-        >
-          <DialogContent style={{ height: 450, flexDirection: 'row' }}>
-            <ScrollView>{this.renderMenuContent(this.state.item)}</ScrollView>
-          </DialogContent>
-        </Dialog>
-      </View>
-      
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  gridView: {
+    marginTop: 0,
+    flex: 1,
+  },
+  itemContainer: {
+    justifyContent: 'center',
+    borderRadius: 5,
+    height: 150,
+  },
+  itemName: {
+    fontSize: 16,
+    color: '#fff',
+    fontWeight: '600',
+  },
+});

@@ -24,6 +24,7 @@ class AuthLoadingScreen extends React.Component {
     // Need to make sure token is still valid and hasn't expired -
     // This will switch to the App screen or Auth screen and this loading
     // screen will be unmounted and thrown away.
+    console.log(validateUser(userToken));
     this.props.navigation.navigate(validateUser(userToken) ? 'Main' : 'Auth');
   };
 

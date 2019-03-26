@@ -8,6 +8,7 @@ import DietScreen from '../screens/DietScreen';
 import TimeLineTestScreen from '../screens/TimeLineTestScreen';
 import Menu from '../screens/Menu';
 import WhatToExpectScreen from '../screens/WhatToExpectScreen';
+import IndividualMenuItem from '../screens/IndividualMenuItem';
 
 
 const DashboardTabNavigator = createMaterialTopTabNavigator({
@@ -45,25 +46,6 @@ const HomeStack = createStackNavigator({
   IndividualMenuItem,
 }); 
 
-HomeStack.navigationOptions = {
-  tabBarVisible: false,
-  swipeEnabled: false, 
-};
-
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
-    />
-  ),
-
-};
 
 export default HomeStack;
 

@@ -14,8 +14,10 @@ import DietScreen from '../screens/DietScreen';
 import TimeLineTestScreen from '../screens/TimeLineTestScreen';
 import Menu from '../screens/Menu';
 import WhatToExpectScreen from '../screens/WhatToExpectScreen';
+import DetailScreen from '../screens/DetailScreen';
+import IndividualMenuItem from '../screens/IndividualMenuItem';
 import LinearMainScreen from '../screens/LinearMainScreen';
-import NewAppointmentList from '../screens/NewAppointmentList';
+import TimeLineExample from '../screens/TimeLineExample';
 
 
 export default class MainTabNavigator extends React.Component{
@@ -23,7 +25,6 @@ export default class MainTabNavigator extends React.Component{
     return <AppContainer />;
   }
 }
-
 
 const SettingsStack = createStackNavigator({
   Settings: SettingsScreen,
@@ -103,7 +104,9 @@ const HomeStack = createStackNavigator({
   Home: HomeScreen,
   Timeline: TimeLineTestScreen,
   Expect: WhatToExpectScreen,
-});
+  Menu,
+  IndividualMenuItem,
+}); 
 
 const AppSwitchNavigator = createSwitchNavigator({
   Home: { screen: HomeStack },

@@ -106,7 +106,7 @@ const storeData = async (user) => {
 
 const removeInvalidTokenFromStorage = async () => {
     try {
-        await AsyncStorage.setItem('userToken', null);
+        await AsyncStorage.removeItem('userToken');
     } catch (error) {
         console.error(error);
     }

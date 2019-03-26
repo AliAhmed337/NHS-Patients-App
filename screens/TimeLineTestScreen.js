@@ -1,21 +1,13 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, AsyncStorage, ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
-import { requestPreparations } from "../actions";
+import { requestPreparations, loadPrepInfo } from "../actions";
 import Timeline from 'react-native-timeline-listview';
 
 
-export default class TimeLineTestScreen extends React.Component {
+class TimeLineTestScreen extends React.Component {
     constructor(props){
         super(props)
-        this.data = [
-          {time: '12/Mar', title: 'Preparing for CBT Appointment', description: "Welcome! This is a preparation guide to help you get ready for your CBT appointment. Please click here to read the preparation steps and the mandatory diet guide.", 
-          circleColor: '#009688',lineColor:'#009688'},
-          {time: '27/Mar', title: 'Fasting at night', description: "Please now follow this card. The main change now is that you aren't allowed to eat after 7pm." },
-          {time: '05/Apr', title: 'Strict new Diet', description: "With only 3 days left until your appointment, a strict new diet is required. Please now consult only this card." },
-          {time: '06/Apr', title: 'Day Before Appointment', description: "No eating allowed 24 hours before your appointment so please remember to follow that." },
-          {time: '07/Apr', title: 'Day of Appointment', description: "Only water and certain juices allowed. Consult this card for your diet today."}
-        ]
       } 
     
       static navigationOptions = {
@@ -38,16 +30,23 @@ export default class TimeLineTestScreen extends React.Component {
     _handlePreparationRequest = async () => {
       const {requestPreparations} = this.props;
       const userToken = await AsyncStorage.getItem('userToken');
-      requestPreparations(userToken);
+      requestPreparations(this.props.navigation.state.params, userToken);
+    }
+
+    _handleOnPress(data){
+      const {loadPrepInfo, navigation} = this.props;
+      loadPrepInfo(data);
+      navigation.navigate('Preparation');
     }
     
       render() {
-        //'rgb(45,156,219)'
-        return (
+        const {preparations} = this.props;
+        return (!preparations  ?  <ActivityIndicator/> :
+        
           <View style={styles.container}>
             <Timeline 
               style={styles.list}
-              data={this.data}
+              data={this.props.preparations.preparatoryTasks}
               circleSize={20}
               circleColor='rgb(45,156,219)'
               lineColor='rgb(45,156,219)'
@@ -57,7 +56,7 @@ export default class TimeLineTestScreen extends React.Component {
               options={{
                 style:{paddingTop:5}
               }}
-              onEventPress={() => this.props.navigation.navigate('Preparation')} //this is where navigation happens
+              onEventPress={(data) => this._handleOnPress(data)} //this is where navigation happens
             />
           </View>
         );
@@ -81,4 +80,4 @@ export default class TimeLineTestScreen extends React.Component {
       return { preparations, loading };
     }
     
-    export default connect(mapStateToProps, {requestPreparations})(PreparationScreen);
+    export default connect(mapStateToProps, { requestPreparations, loadPrepInfo })(TimeLineTestScreen);

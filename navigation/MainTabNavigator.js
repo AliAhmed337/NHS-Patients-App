@@ -17,7 +17,7 @@ import WhatToExpectScreen from '../screens/WhatToExpectScreen';
 import DetailScreen from '../screens/DetailScreen';
 import IndividualMenuItem from '../screens/IndividualMenuItem';
 import LinearMainScreen from '../screens/LinearMainScreen';
-import NewAppointmentList from '../screens/NewAppointmentList';
+import TimeLineExample from '../screens/TimeLineExample';
 
 
 export default class MainTabNavigator extends React.Component{
@@ -44,6 +44,7 @@ const DashboardTabNavigator = createMaterialTopTabNavigator({
   PreparationScreen, 
   DietScreen, 
   Menu,
+  TimeLineExample,
 },{
   navigationOptions:({navigation})=>{
     const{routeName} = navigation.state.routes[navigation.state.index]

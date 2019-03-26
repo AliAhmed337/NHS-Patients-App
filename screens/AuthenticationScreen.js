@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,Image, StatusBar} from 'react-native';
+import {View,Image, StatusBar, Text} from 'react-native';
 import Button from '../components/common/Button';
 import {ThemeProvider} from "react-native-elements";
 import { LinearGradient } from 'expo';

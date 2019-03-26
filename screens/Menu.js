@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Button, TouchableOpacity, ScrollView, Image } from 'react-native';
+import { StyleSheet, View, Text, Button, TouchableOpacity, ScrollView, Image, Animated } from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
 import Dialog, {
   DialogTitle,
@@ -9,6 +9,7 @@ import Dialog, {
   SlideAnimation
 } from 'react-native-popup-dialog';
 import ImageOverlay from "react-native-image-overlay";
+import { duration } from 'moment';
 
   const styles = StyleSheet.create({
     gridView: {
@@ -32,6 +33,13 @@ import ImageOverlay from "react-native-image-overlay";
   
 
 export default class Menu extends Component {
+  
+  state = {
+    opacity: 1,
+    openProgress: new Animated.Value(0),
+    isAnimating: false
+  };
+
     constructor(){
         super()
         this.state={
@@ -39,6 +47,14 @@ export default class Menu extends Component {
             item: ''
         }
     }
+
+    // openThing(item) {
+    //     Animated.timing(this.openProgress, {
+    //       toValue: 1,
+    //       duration: 300,
+    //       useNativeDriver: true
+    //     }).start()
+    // };
 
 
   renderMenuContent(item) {
@@ -52,7 +68,14 @@ export default class Menu extends Component {
     }
   }
 
+  onPressFunction(item) {
+  //  this.openThing(item)
+    this.props.navigation.navigate('IndividualMenuItem')
+  }
+
   render() {
+    const { style, photo } = this.props;
+    const { opacity } = this.state;
 const items = [ 
   { name: 'Chicken and Bacon Salad', content: ['Chop tomato, cucumber, peppers, spring onions and radishes', 'Wash and pat dry some lettuce', 'In a bowl combine the salad ingredients with pieces of cooled cooked chicken and chopped grilled bacon', 'Mix with home-made salad dressing (2 tablespoons of oil, 1 tablespoon of vinegar, salt and pepper, whisked together).'], code: '#1abc9c', image: 'https://www.simplyrecipes.com/wp-content/uploads/2012/06/chicken-salad-square-a-1800.jpg' },
   { name: 'Fried Mushrooms', content: ['Cook some sliced mushrooms in butter and garlic, frying some tomato quarters on the side', 'Serve with fried eggs and bacon, or a lamb chop. Please remember processed meats including sausages are not allowed.'], code: '#2ecc71', image: 'http://totsfamily.com/wp-content/uploads/2016/10/IMG_0028.jpg' },
@@ -73,7 +96,7 @@ const items = [
             <View style={{flex: 1}}>
             <TouchableOpacity 
                 style={[styles.itemContainer, { backgroundColor: item.code }]}
-                onPress={() => this.props.navigation.navigate('IndividualMenuItem')}
+                onPress={() => this.onPressFunction(item)}
             >
                 <ImageOverlay 
                   source={{ uri:item.image}} 

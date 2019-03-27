@@ -22,9 +22,11 @@ const DashboardTabNavigator = createMaterialTopTabNavigator({
       headerTitle: null,
       headerStyle: {
         backgroundColor: '#005EB8',
+        headerBackTitleStyle: '#ffffff',
         borderBottomWidth: 0,
-        elevation:0
-      }
+        elevation:0,      },
+        headerBackTitleStyle: 'Back',
+        headerTintColor: '#ffffff',
     }
   }, tabBarOptions: {
     style:{
@@ -33,7 +35,7 @@ const DashboardTabNavigator = createMaterialTopTabNavigator({
     },
     indicatorStyle: {
       backgroundColor: '#FAE100',
-  }
+  },
   }
 })
 
@@ -45,7 +47,6 @@ const HomeStack = createStackNavigator({
   Menu,
   IndividualMenuItem,
 }); 
-
 
 export default HomeStack;
 

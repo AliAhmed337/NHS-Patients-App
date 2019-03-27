@@ -58,7 +58,8 @@ class HomeScreen extends React.Component {
   }
 
   _renderAppointment = ({item}) => (
-    <AppointmentCard id = {item.id} appointment = {item} navigation={this.props.navigation} prepInfo={item.appointmentType.detailedInformation}/>
+    <AppointmentCard id = {item.id} appointment = {item} navigation={this.props.navigation} 
+    prepInfo={item.appointmentType.detailedInformation}/>
   )
     
   _handleAppointmentRequest = async () => {

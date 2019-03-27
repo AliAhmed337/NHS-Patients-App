@@ -48,8 +48,12 @@ import FoodTESTTemp from './FoodTESTTemp.json';
                   right: 20,
                   borderRadius: 10,
                   backgroundColor: '#E8EDEE',
-                  flexDirection: 'column'
+                  flexDirection: 'column',
+                  height: '300%'
                 }}
+              >
+              <ScrollView 
+                style={{margin: 10}}
               >
                 <Text style={{
                   fontSize: 25, 
@@ -63,7 +67,7 @@ import FoodTESTTemp from './FoodTESTTemp.json';
 
                 <Text style={{
                   fontSize: 25, 
-                  paddingLeft: 10, 
+                  padding: 10, 
                   paddingBottom: 20, 
                   paddingTop: 30, 
                   fontWeight: 'bold', 
@@ -78,7 +82,7 @@ import FoodTESTTemp from './FoodTESTTemp.json';
 
                 <Text style={{
                   fontSize: 25, 
-                  paddingLeft: 10, 
+                  padding: 10, 
                   paddingBottom: 20, 
                   paddingTop: 30, 
                   fontWeight: 'bold', 
@@ -90,7 +94,7 @@ import FoodTESTTemp from './FoodTESTTemp.json';
                 style={{height: undefined, width: undefined}}
                 data={require('./FoodTESTTemp.json')}
                 />
-
+            </ScrollView>
               </Animatable.View>
           </View>
         </View>

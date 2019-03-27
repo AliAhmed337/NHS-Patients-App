@@ -2,7 +2,8 @@ import React from 'react';
 import {
   Text,
   View,
-  StatusBar
+  StatusBar,
+  ScrollView
 } from 'react-native';
 import GuidanceList from '../components/GuidanceList';
 import ReactRender from '../components/common/ReactRender/ReactRender';
@@ -18,6 +19,7 @@ export default class PreparationScreen extends React.Component {
       <View style={{ margin: 5 }}>
       <StatusBar barStyle="light-content" />
         <View>
+        <ScrollView>
         <Text style={{
                   fontSize: 25, 
                   paddingLeft: 10, 
@@ -47,6 +49,7 @@ export default class PreparationScreen extends React.Component {
                 style={{height: undefined, width: undefined}}
                 data={require('./FoodTESTTemp.json')}
                 />
+          </ScrollView>
         </View>
       </View>      
     );

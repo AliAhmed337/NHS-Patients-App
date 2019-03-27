@@ -1,3 +1,1 @@
- static navigationOptions = {
-    title: 'Guide',
-  };
+ height: '300%'

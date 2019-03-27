@@ -20,7 +20,7 @@ export default class ReactRender extends React.Component {
                 <FlatList 
                     data={this.props.data}
                     keyExtractor={item => item.series_ordinal}
-                    renderItem={({item}) => <ReactRenderComponent type={item.type}>{item.content}</ReactRenderComponent>}
+                    renderItem={({item}) => <ReactRenderComponent type={item.content_type}>{item.content}</ReactRenderComponent>}
                 />
             </View>
         );

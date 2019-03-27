@@ -15,7 +15,7 @@ export default class AppointmentCard extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { expanded: this.props.expanded || false };
+        this.state = { expanded: this.props.expanded || true };
     }
 
 

@@ -5,9 +5,9 @@ import {
 
 const INITIAL_STATE = {
     preparations: null,
-    guidancePrep: [],
-    dietPrep: [],
-    menuPrep: [],
+    guidancePrep: null,
+    dietPrep: null,
+    menuPrep: null,
     loading: false,
 };
 
@@ -40,7 +40,7 @@ export default (state = INITIAL_STATE, action) => {
             };
 
         case PREPARATIONS_RETRIEVED:
-            console.log(`preparations have completed: ${JSON.stringify(action.payload)}`);
+            console.log('preparations have completed: ' + action.payload);
             return {...state, loading: false, preparations: action.payload};
 
         case CLEAR_PREPARATIONS:

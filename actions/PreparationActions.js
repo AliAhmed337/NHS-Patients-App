@@ -2,7 +2,7 @@ import {
     PREPARATIONS_REQUESTED, PREPARATIONS_RETRIEVED, CLEAR_PREPARATIONS,
     GUIDANCE_CREATED, DIET_CREATED, MENU_CREATED
 } from './types';
-
+import moment from 'moment';
 
 export const requestPreparations = (PREPARATION_ENDPOINT, userToken) => {
 
@@ -18,20 +18,16 @@ export const requestPreparations = (PREPARATION_ENDPOINT, userToken) => {
                 'X-API-KEY': userToken
 
             }})
-        .then((response) => {
-            console.log(response);
-            response.json()
-        })
+        .then((response) => response.json())
         .then((responseJson) => {
-            console.log('the response from appointment/1: '+ JSON.stringify(responseJson));
+            console.log('the response from appointment/1: '+ JSON.stringify(responseJson.preparatoryTasks));
             const original = responseJson.preparatoryTasks;
-            const modified = original.map(task => {
-                task.time = '12:00';//moment(task.time).format();
-                task.title='name';//delete once title appears
-                return task;
+            original.map(task => {
+                const formatTime = moment(task.time).format("MMM Do");
+                task.time = formatTime;
             });
             console.log('preparations retrieved for endpoint: ' + PREPARATION_ENDPOINT);
-            dispatch({type: PREPARATIONS_RETRIEVED, payload: modified});
+            dispatch({type: PREPARATIONS_RETRIEVED, payload: original});
         })
         .catch((error) => console.error(error));
     }

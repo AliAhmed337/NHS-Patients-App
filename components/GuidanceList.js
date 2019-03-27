@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { FlatList, View, Text, Image, Platform } from 'react-native';
+import { connect } from 'react-redux';
 import { GuidanceTopInfo, GuidanceContainer } from './guidance_elements';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 class GuidanceList extends Component {
-	state = { guidances: [] };
 
-	componentWillMount() {
-		this.setState({ guidances });
+	componentDidMount(){
+		console.log('mounting guidance' + this.props.guidancePrep);
 	}
 
 	renderRows(item) {
@@ -35,7 +35,7 @@ class GuidanceList extends Component {
 				<FlatList
 
 				 style={styles.listStyle}
-				 data={this.state.guidances}
+				 data={this.props.guidancePrep}
 				 ListHeaderComponent={this.renderHeader()}
 				 renderItem={({item}) =>
 				 <View style={{ margin: 5 }}>
@@ -55,22 +55,9 @@ const styles = {
 	}
 };
 
-const guidances = [
-  {
-    title: 'Special Diet',
-    content: 'The day before your scan you will need to follow a high-fat, high-protein, low-carbohydrate diet.',
-  	subarray: null
-  },
-  {
-    title: 'Fasting',
-    content: 'You will need to fast for 15 hours prior to your scan appointment time, starting from the EVENING BEFORE the day of your scan:',
-    subarray: [
-    'We recommend you have an early dinner and skip breakfast the morning of your PET scan.',
-    'It is important that you keep well hydrated by drinking plenty of water during this period.',
-	'You MUST AVOID ALL SUGAR AND SWEET FOODS AND DRINKS during this period.',
-	'If you have any questions or doubts, please contact us.'
-	]
-  }
-];
+const mapStateToProps = ({ prepRed }) => {
+    const { guidancePrep } = prepRed;
+    return { guidancePrep };
+}
 
-export default GuidanceList;
+export default connect(mapStateToProps)(GuidanceList);

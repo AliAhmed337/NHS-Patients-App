@@ -80,16 +80,14 @@ export default class AppointmentCard extends React.Component {
                     </View>
 
                     <View style={{paddingBottom: 15, alignItems: 'center'}}>
-                        <Button paddingLeft={15} size={30} borderRadius='5'  width='100%' color='white'
+                        <Button paddingLeft={15} size={30} borderRadius={5}  width='100%' color='white'
                                 name="ios-checkbox-outline" backgroundColor='#2481db' onPress={() => this.props.navigation.navigate('Timeline', this.props.prepInfo)}>Preparation checklist</Button>
                     </View>
 
                     <View style={{paddingBottom: 15,alignItems: 'center'}}>
-                        <Button paddingLeft={15} borderRadius='5' size={30} width='100%'  color='white' name="ios-information-circle-outline"
+                        <Button paddingLeft={15} borderRadius={5} size={30} width='100%'  color='white' name="ios-information-circle-outline"
                                 backgroundColor='#2481db'
-                                onPress={() => this.props.navigation.navigate('Expect')}>
-                            What to Expect
-                        </Button>
+                                onPress={() => this.props.navigation.navigate('Expect')}>What to Expect </Button>
                     </View>
 
                     <Text style={{fontWeight: 'bold', color: '#768692'}}>

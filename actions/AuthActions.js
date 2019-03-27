@@ -4,7 +4,8 @@ import {
     VERIFY_USER,
     USER_VERIFY_SUCCESS,
     USER_VERIFY_FAIL,
-    CLEAR_APPOINTMENTS
+    CLEAR_APPOINTMENTS,
+    ISVALID_USER
 } from './types';
 import { Constants } from 'expo';
 import { AsyncStorage } from 'react-native';
@@ -36,6 +37,7 @@ export const verifyUser = (passphrase) => {
 };
 
 export const validateUser = (userToken) => {
+    return (dispatch) => {
     fetch(VALIDATE_ENDPOINT, {
         method: 'GET',
         headers: {
@@ -43,13 +45,18 @@ export const validateUser = (userToken) => {
             'X-API-KEY': userToken  
         }})
         .then((response) => {
+            console.log('validating user' + response.status);
             if (response.status === 401) {
+                dispatch({type: ISVALID_USER, payload: false})
                 removeInvalidTokenFromStorage();
-                 false;
             }
-            else true;
+            if (response.status === 500) {
+                dispatch({type:USER_VERIFY_FAIL});
+            }
+            else dispatch({type: ISVALID_USER, payload: true});
         })
-          .catch((error) => console.error(error));
+        .catch((error) => console.error(error));
+    }
 }
 
 const attemptVerify = (passphrase, dispatch) => {

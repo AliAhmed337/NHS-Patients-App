@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing diet title component renders correcly 1`] = `ShallowWrapper {}`;

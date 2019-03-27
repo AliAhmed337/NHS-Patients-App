@@ -42,7 +42,6 @@ const HomeStack = createStackNavigator({
   Preparation: DashboardTabNavigator,
   Expect: WhatToExpectScreen,
   Menu,
-  IndividualMenuItem,
 }); 
 
 HomeStack.navigationOptions = {

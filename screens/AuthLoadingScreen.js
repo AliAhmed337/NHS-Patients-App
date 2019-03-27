@@ -3,7 +3,6 @@ import {
   ActivityIndicator,
   AsyncStorage,
   StatusBar,
-  StyleSheet,
   View,
 } from 'react-native';
 import { connect } from 'react-redux';
@@ -20,7 +19,6 @@ class AuthLoadingScreen extends React.Component {
     console.log('going to fetch our user from async');
     const userToken = await AsyncStorage.getItem('userToken');
     console.log('In our storage, our user is: ' + userToken);
-    console.log(this.props);
     const { validateUser } = this.props;
     await validateUser(userToken);
     // Need to make sure token is still valid and hasn't expired -
@@ -28,15 +26,18 @@ class AuthLoadingScreen extends React.Component {
     // screen will be unmounted and thrown away.
   };
 
+  componentDidUpdate () {
+    if (this.props.valid !== undefined) {
+      this._renderPathway();
+    }
+  }
+
   _renderPathway() {
     const {valid, navigation} = this.props;
     valid ? navigation.navigate('Main') : navigation.navigate('Auth');
   }
 
   render() {
-    const {valid} = this.props;
-    if (valid !== undefined) this._renderPathway();
-    
     return (
       <View>
         <ActivityIndicator />

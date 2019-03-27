@@ -59,6 +59,7 @@ const styles = ({
     buttonText: {
         fontSize: 18,
         fontWeight: '600',
+        fontFamily: 'Roboto-Regular',
     }
 
 

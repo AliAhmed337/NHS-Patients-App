@@ -1,11 +1,8 @@
 import React from 'react';
 import {
   View,
-  Image,
   Platform,
-  ScrollView,
   StyleSheet,
-  Text,
   ActivityIndicator,
   FlatList,
   StatusBar,
@@ -13,9 +10,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { requestAppointments, registerForPushNotificationsAsync } from "../actions";
-import { WebBrowser } from 'expo';
 import AppointmentCard from '../components/AppointmentCard';
-import { Button, ThemeProvider } from 'react-native-elements';
 
 
 class HomeScreen extends React.Component {
@@ -37,7 +32,7 @@ class HomeScreen extends React.Component {
 
   componentDidMount(){
     this._handleAppointmentRequest();
-    //registerForPushNotificationsAsync();
+    registerForPushNotificationsAsync();
   }
 
   render() {
@@ -59,7 +54,7 @@ class HomeScreen extends React.Component {
 
   _renderAppointment = ({item}) => (
     <AppointmentCard id = {item.id} appointment = {item} navigation={this.props.navigation} 
-    prepInfo={item.appointmentType.detailedInformation}/>
+    prepInfo={item.detailedInformation}/>
   )
     
   _handleAppointmentRequest = async () => {
@@ -172,4 +167,4 @@ const mapStateToProps = ({ appointmentsRed }) => {
   return { appointments, loading };
 }
 
-export default connect(mapStateToProps, {requestAppointments, registerForPushNotificationsAsync})(HomeScreen);
+export default connect(mapStateToProps, {requestAppointments})(HomeScreen);

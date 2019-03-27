@@ -18,8 +18,12 @@ export const requestPreparations = (PREPARATION_ENDPOINT, userToken) => {
                 'X-API-KEY': userToken
 
             }})
-        .then((response) => response.json())
+        .then((response) => {
+            console.log(response);
+            response.json()
+        })
         .then((responseJson) => {
+            console.log('the response from appointment/1: '+ JSON.stringify(responseJson));
             const original = responseJson.preparatoryTasks;
             const modified = original.map(task => {
                 task.time = '12:00';//moment(task.time).format();

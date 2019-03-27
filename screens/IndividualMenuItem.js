@@ -58,8 +58,8 @@ import FoodTESTTemp from './FoodTESTTemp.json';
                 <Text style={{
                   fontSize: 25, 
                   paddingLeft: 10, 
-                  paddingBottom: 30, 
-                  paddingTop: 30, 
+                  paddingBottom: 5, 
+                  paddingTop: 5, 
                   fontWeight: 'bold', 
                   color: 'black'}}
                   >Title of Dish</Text> 
@@ -68,8 +68,8 @@ import FoodTESTTemp from './FoodTESTTemp.json';
                 <Text style={{
                   fontSize: 25, 
                   padding: 10, 
-                  paddingBottom: 20, 
-                  paddingTop: 30, 
+                  paddingBottom: 15, 
+                  paddingTop: 10, 
                   fontWeight: 'bold', 
                   color: 'black'}}
                 >Ingredients</Text>
@@ -84,7 +84,7 @@ import FoodTESTTemp from './FoodTESTTemp.json';
                   fontSize: 25, 
                   padding: 10, 
                   paddingBottom: 20, 
-                  paddingTop: 30, 
+                  paddingTop: 10, 
                   fontWeight: 'bold', 
                   color: 'black'}}
                 >How to cook</Text>

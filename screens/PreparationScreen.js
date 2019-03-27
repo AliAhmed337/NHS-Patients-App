@@ -23,8 +23,8 @@ export default class PreparationScreen extends React.Component {
         <Text style={{
                   fontSize: 25, 
                   paddingLeft: 10, 
-                  paddingBottom: 20, 
-                  paddingTop: 30, 
+                  paddingBottom: 5, 
+                  paddingTop: 5, 
                   fontWeight: 'bold', 
                   color: 'black'}}
                 >Ingredients</Text>
@@ -39,7 +39,7 @@ export default class PreparationScreen extends React.Component {
                   fontSize: 25, 
                   paddingLeft: 10, 
                   paddingBottom: 20, 
-                  paddingTop: 30, 
+                  paddingTop: 10, 
                   fontWeight: 'bold', 
                   color: 'black'}}
                 >How to cook</Text>

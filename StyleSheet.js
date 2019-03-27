@@ -2,31 +2,36 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 
 export default styles = StyleSheet.create({
-    
+
     appointmentCardContainer: {
-        //borderWidth: 1,
-        //borderColor: '#586FB9',
-        borderRadius: 2,
-        // shadowColor: '#000',
-        // shadowOffset: {width: 5, height: 10},
-        // shadowOpacity: 0.4,
-        // shadowRadius: 2,
+        borderWidth: 0,
         elevation: 1,
         marginLeft: 15,
         marginRight: 15,
         marginTop: 15,
-        marginBottom: 10,
+        marginBottom: 5,
+        borderRadius: 5,
+        shadowColor: '#000',
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 0.3,
+        shadowRadius: 3,
+
     },
-    
+
     appointmentHeaderContainer: {
         justifyContent: 'space-between',
         flexDirection: 'row',
         padding: 12,
+        borderTopLeftRadius: 5,
+        borderTopRightRadius: 5,
+
     },
 
     appointmentTitleContainer: {
         flexDirection: 'column',
         justifyContent: 'space-around',
+
+
     },
 
     appointmentTimerContainer: {
@@ -36,8 +41,14 @@ export default styles = StyleSheet.create({
 
     appointmentBodyContainer: {
         paddingHorizontal: 10,
-        backgroundColor: '#ffffff',
-        borderRadius: 2,
+        borderBottomRightRadius: 10,
+        borderBottomLeftRadius: 10,
+        backgroundColor: '#fff',
+        borderWidth: 2,
+        borderColor: '#0768C5'
+
+
+
     },
 
     appointmentDetailContainer: {
@@ -45,6 +56,12 @@ export default styles = StyleSheet.create({
         alignItems: 'center',
         paddingBottom: 10,
         paddingTop: 10,
+        borderRadius: 5,
+        backgroundColor: '#fff',
+
+
+
+
     },
 
     appointmentTitleText: {

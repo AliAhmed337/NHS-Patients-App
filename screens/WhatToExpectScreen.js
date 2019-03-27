@@ -1,8 +1,7 @@
 import React from "react";
-import {Text, View, Image, ScrollView} from 'react-native';
-import {WhatToExpect} from "../components/WhatToExpect";
-import {AppointmentCard} from "../components/AppointmentCard";
-import {Button, ThemeProvider} from "react-native-elements";
+import {WhatToExpectNew} from "../components/WhatToExpectNew";
+
+
 
 
 export default class WhatToExpectScreen extends React.Component{
@@ -11,18 +10,19 @@ export default class WhatToExpectScreen extends React.Component{
         title: 'What To Expect',
 
         headerStyle: {
-            backgroundColor: '#007dff',
+            backgroundColor: '#005EB8',
         },
         headerTitleStyle: {
             fontWeight: 'bold',
             color: '#ffffff',
         },
+        headerTintColor: '#ffffff'
     };
 
 
     render() {
         return (
-           <WhatToExpect info = {info.HeartScan} />
+            <WhatToExpectNew info = {info.HeartScan} />
         );
     }
 }

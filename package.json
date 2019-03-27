@@ -29,7 +29,8 @@
     "react-redux": "^6.0.1",
     "react-test-renderer": "latest",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "@expo/vector-icons": "latest"
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0",

@@ -9,6 +9,7 @@ import {
 } from './appointment_elements';
 import DialogBox from './ContactDialogBox'
 import Button from "./common/Button"
+import EventBar from "./EventBar"
 
 export default class AppointmentCard extends React.Component {
 
@@ -16,6 +17,7 @@ export default class AppointmentCard extends React.Component {
         super(props);
         this.state = { expanded: this.props.expanded || false };
     }
+
 
     _toggleExpand(){
         this.setState((state) => ({
@@ -65,44 +67,42 @@ export default class AppointmentCard extends React.Component {
                     </AppointmentHeader>
                 </TouchableOpacity>
 
-                    <AppointmentBody>
-                        <AppointmentDetail>
-                            <Ionicons name="md-pin" size={15} color="black"></Ionicons>
-                            <Text style={{paddingLeft: 30}} onPress={() => Linking.openURL(
-                                Platform === 'ios' ? location.maps.appleMapsURL : location.maps.googleMapsURL
-                                )}>{location.name}</Text>
-                        </AppointmentDetail>
-                        <AppointmentDetail>
-                            <Ionicons name="ios-clock" size={15} color="black"></Ionicons>
-                            <Text style={{paddingLeft: 30}}>{appointmentDate.format('MMMM Do YYYY, h:mm a')}</Text>
-                        </AppointmentDetail>
+                <AppointmentBody>
+                    <View style={{borderTopWidth: 0.5,borderColor: '#d6d7da',paddingTop: 15,paddingBottom:15}}>
+                        <EventBar
+                            icon_name={'access-time'}
+                            primary_text={appointmentDate.calendar('MMMM Do YYYY, h:mm a')}
+                            icons_library={'MaterialIcons'}/>
 
-                        <View style={{paddingBottom: 10}}>
-                            <Button style={{paddingBottom: 20}} size={30} padding={10} width='100%' color='#ffffff'
-                            onPress={() => this.props.navigation.navigate('Timeline', this.props.prepInfo)} name="md-checkbox" 
-                            backgroundColor='#41557B'>Preparation checklist</Button>
-                        </View>
+                        <EventBar icon_name={'place'}
+                                  primary_text={location.name}
+                                  icons_library={'MaterialIcons'}/>
+                    </View>
 
-                        <View style={{paddingBottom: 10}}>
-                            <Button padding={10} size={30} width='100%' color='#ffffff'
-                            onPress={() => this.props.navigation.navigate('Expect')} name="md-information-circle" 
-                            backgroundColor='#C4A1C1'>
-                                What to Expect
-                            </Button>
-                        </View>
+                    <View style={{paddingBottom: 15, alignItems: 'center'}}>
+                        <Button paddingLeft={15} size={30} borderRadius='5'  width='100%' color='white'
+                                name="ios-checkbox-outline" backgroundColor='#2481db' onPress={() => this.props.navigation.navigate('Timeline', this.props.prepInfo)}>Preparation checklist</Button>
+                    </View>
 
-                        <Text style={{fontWeight: 'bold'}}>
-                            Can't make it to your appointment?
-                        </Text>
-                        <Text>
-                            It's important to
-                            let us know so we can offer your slot to somebody else:
-                        </Text>
+                    <View style={{paddingBottom: 15,alignItems: 'center'}}>
+                        <Button paddingLeft={15} borderRadius='5' size={30} width='100%'  color='white' name="ios-information-circle-outline"
+                                backgroundColor='#2481db'
+                                onPress={() => this.props.navigation.navigate('Expect')}>
+                            What to Expect
+                        </Button>
+                    </View>
 
-                        <View>
-                            <DialogBox contactNo = {contactPoint.telephone} email = {contactPoint.email} />
-                        </View>
-                    </AppointmentBody>
+                    <Text style={{fontWeight: 'bold', color: '#768692'}}>
+                        Can't make it to your appointment?
+                    </Text>
+                    <Text style={{ color: '#768692'}}>
+                        It's important to
+                        let us know so we can offer your slot to somebody else:
+                    </Text>
+                    <View>
+                        <DialogBox contactNo = {contactPoint.telephone} email = {contactPoint.email} />
+                    </View>
+                </AppointmentBody>
             </AppointmentContainer>
         );
     }
@@ -110,5 +110,6 @@ export default class AppointmentCard extends React.Component {
     render() {
         console.log('are we expanded: ' + this.state.expanded);
         return this.state.expanded ? this._renderExpanded() : this._renderCollapsed();
-  }
+    }
 }
+

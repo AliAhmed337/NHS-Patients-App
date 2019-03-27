@@ -4,20 +4,21 @@ import { connect } from 'react-redux';
 import { passphraseChanged, verifyUser } from '../actions';
 import Button from '../components/common/Button';
 import { LinearGradient } from 'expo';
+import { Ionicons } from '@expo/vector-icons';
 
 class ManualAuthenticationScreen extends React.Component {
     static navigationOptions = {
-        title: 'Enter details manually',
+        title: 'Sign in manually',
         headerStyle: {
             backgroundColor: '#005EB8',
         },
         headerTitleStyle: {
             fontWeight: 'bold',
             color: '#ffffff',
-            textAlign:"center", 
-            flex:1 
+            textAlign:"center",
+            flex:1
         },
-        headerTintColor: '#ffffff',
+        headerTintColor: '#fff',
     };
 
     _onPassphraseChange(text) {
@@ -38,35 +39,35 @@ class ManualAuthenticationScreen extends React.Component {
     _renderForm(){
         return (
             <View
-            style={{ padding: 20, flex: 1, alignSelf: 'flex-start',}}>
+                style={{ padding: 40, flex: 1, alignItems: 'center'}}>
+                <View>
+                    <Text style={{fontSize: 24, fontWeight: 'bold', color: '#231f20', paddingBottom: 40}}>
+                        Sign in manually
+                    </Text>
+                    <Text style={{fontSize: 18, paddingBottom: 40, color: '#231f20'}}>
+                        If you can't scan your appointment confirmation letter, you can enter the code manually.{'\n'}{'\n'}
+                        Your hospital can give you a new code over the phone if you've lost it.
+                    </Text>
 
-                <Text style={{fontSize: 30, paddingBottom: 30, 
-                paddingTop: 30, fontWeight: 'bold', color: 'black'}}>
-                Enter your passphrase:
-                </Text>
+                    <View style={{paddingBottom: 40, flexDirection: 'row', alignItems: 'center'}}>
+                        <Ionicons style={{paddingRight: 20}}name='ios-arrow-dropright' size={30} color='#6C6C6C'/>
+                        <TextInput
+                            placeholder = "Enter Code Here"
+                            placeholderTextColor = '#C5C2C2'
+                            placeholderTextAlign = 'left'
+                            style={{textAlign: 'left', textAlignVertical: 'bottom',height: 50, borderBottomColor: '#6C6C6C', borderBottomWidth: 2, width: 250, color: 'black',}}
+                            onChangeText={this._onPassphraseChange.bind(this)}
+                            value={this.props.passphrase}/>
+                    </View>
 
-                <Text style={{fontSize: 17, paddingBottom: 30, color: 'black'}}>
-                You'll find this on your appointment confirmation letter or text message.
-                </Text>
 
-            <TextInput
-                placeholder = "example: gooseberry1034"
-                style={{textAlign: 'center',height: 50, borderColor: 'gray', borderWidth: 1}}
-                onChangeText={this._onPassphraseChange.bind(this)}
-                value={this.props.passphrase}/>
+                    <Button padding={20} noIcon width='100%' backgroundColor='#005EB8' color='#FFFFFF'
+                            onPress = {this._onSubmitPress.bind(this)} loading = {this.props.loading}>
+                        {'Sign in'}
+                    </Button>
 
-            <View style={{paddingBottom: 30, paddingTop: 30}}>
-                <Button size={30} padding={20} name = 'md-arrow-dropright-circle' width='80%' backgroundColor='#007dff' color='#ffffff' 
-                    onPress = {this._onSubmitPress.bind(this)} loading = {this.props.loading}>
-                {'Submit'}
-                </Button>      
-            </View>
-                <Text style={{fontSize: 15, textAlign: 'center',
-                    paddingBottom: 30, paddingTop: 10, fontWeight: 'bold'}}>
-                        You'll find this on your appointment confirmation {"\n"}
-                        letter or text message
-                </Text>
-                {this._renderError()}
+                    {this._renderError()}
+                </View>
             </View>
         );
     }
@@ -74,13 +75,13 @@ class ManualAuthenticationScreen extends React.Component {
     render(){
         const {navigate} = this.props.navigation;
         console.log(this.props.user ? true : false);
-        return(this.props.user ? navigate('Main') : this._renderForm());        
+        return(this.props.user ? navigate('Main') : this._renderForm());
     }
 }
 
 const mapStateToProps = ({ authRed }) => {
-  const { passphrase, user, loading, error} = authRed;
-  return { passphrase, user,  loading, error };
+    const { passphrase, user, loading, error} = authRed;
+    return { passphrase, user,  loading, error };
 }
 
 export default connect(mapStateToProps, {passphraseChanged, verifyUser})(ManualAuthenticationScreen);

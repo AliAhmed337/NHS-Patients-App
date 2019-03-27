@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
+import { StyleSheet, View, Text, Image, ScrollView } from 'react-native';
 import ImageOverlay from "react-native-image-overlay";
 import * as Animatable from 'react-native-animatable';
-import { ReactRenderComponent } from '../components/common/ReactRenderComponent';
+import { ReactRender } from '../components/common/ReactRender/ReactRender';
+import FoodTESTTemp from './FoodTESTTemp.json';
 
   export default class IndividualMenuItem extends Component {
 
@@ -29,7 +30,7 @@ import { ReactRenderComponent } from '../components/common/ReactRenderComponent'
 
     render(){
     return (
-      <View style={{flex: 1, flexDirection: 'column'}}>
+      <View style={{flexGrow: 1, flexDirection: 'column'}}>
         <View
           style={{width: '100%', height: '25%', position:'relative'}}
           >
@@ -57,7 +58,9 @@ import { ReactRenderComponent } from '../components/common/ReactRenderComponent'
                   paddingTop: 30, 
                   fontWeight: 'bold', 
                   color: 'black'}}
-                  >Title of Dish</Text>
+                  >Title of Dish</Text> 
+                  {/* ^PUT the title of the dish there */}
+
                 <Text style={{
                   fontSize: 25, 
                   paddingLeft: 10, 
@@ -66,8 +69,12 @@ import { ReactRenderComponent } from '../components/common/ReactRenderComponent'
                   fontWeight: 'bold', 
                   color: 'black'}}
                 >Ingredients</Text>
-                
+      
                 {/* THIS IS WHERE WE BULLET POINT INGREDIENTS IN A FLATLIST */}
+                <ReactRender 
+                style={{height: undefined, width: undefined}}
+                data={require('./IngredientsTESTTemp.json')}
+                />
 
                 <Text style={{
                   fontSize: 25, 
@@ -77,8 +84,12 @@ import { ReactRenderComponent } from '../components/common/ReactRenderComponent'
                   fontWeight: 'bold', 
                   color: 'black'}}
                 >How to cook</Text>
-
-              <ReactRenderComponent />
+                  
+              {/* This is where the code for rendering methods is: */}
+              <ReactRender 
+                style={{height: undefined, width: undefined}}
+                data={require('./FoodTESTTemp.json')}
+                />
 
               </Animatable.View>
           </View>

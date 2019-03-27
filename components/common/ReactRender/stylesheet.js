@@ -9,7 +9,6 @@ const styles = {
         paddingBottom:10,
         alignItems:'center',
         justifyContent: 'flex-start',
-        flex:1
     },
 
     indent: {
@@ -20,7 +19,6 @@ const styles = {
         paddingLeft: 10,
         marginTop: 3,
         marginBottom: 3,
-        flex:1
     },
 
     dateImageBox:{
@@ -32,7 +30,6 @@ const styles = {
     titleBox: {
         flexDirection:'column',
         justifyContent:'flex-start',
-        flex:1,
     },
 
     heading: {

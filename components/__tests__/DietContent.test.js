@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { DietContent } from './index';
+import { DietContent } from '../diet_elements';
 
 describe('Testing diet content component', () => {
 

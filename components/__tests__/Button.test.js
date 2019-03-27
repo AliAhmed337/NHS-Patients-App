@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Button from './Button';
+import Button from '../common/Button';
 
 describe('Testing common button component', () => {
 

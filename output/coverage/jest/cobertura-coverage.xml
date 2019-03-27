@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="30" lines-covered="29" line-rate="0.9667" branches-valid="8" branches-covered="4" branch-rate="0.5" timestamp="1553705905893" complexity="0" version="0.1">
+<coverage lines-valid="29" lines-covered="28" line-rate="0.9655" branches-valid="8" branches-covered="4" branch-rate="0.5" timestamp="1553711171006" complexity="0" version="0.1">
   <sources>
     <source>C:\Users\XPS 13\Desktop\react\medapp-nhs</source>
   </sources>
@@ -11,22 +11,6 @@
           <methods>
           </methods>
           <lines>
-          </lines>
-        </class>
-      </classes>
-    </package>
-    <package name="medapp-nhs.components" line-rate="1" branch-rate="1">
-      <classes>
-        <class name="StyledText.js" filename="components\StyledText.js" line-rate="1" branch-rate="1">
-          <methods>
-            <method name="(anonymous_0)" hits="1" signature="()V">
-              <lines>
-                <line number="5" hits="1"/>
-              </lines>
-            </method>
-          </methods>
-          <lines>
-            <line number="6" hits="1" branch="false"/>
           </lines>
         </class>
       </classes>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { GuidanceTopInfo } from './index';
+import { GuidanceTopInfo } from '../guidance_elements';
 
 describe('Testing guidance info component', () => {
 

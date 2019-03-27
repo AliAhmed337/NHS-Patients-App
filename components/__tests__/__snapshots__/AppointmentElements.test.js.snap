@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing appointment components renders correctly 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderRadius": 2,
+      "paddingHorizontal": 10,
+    }
+  }
+>
+  <Component>
+    body
+  </Component>
+</Component>
+`;
+
+exports[`Testing appointment components renders correctly 2`] = `
+<Component
+  style={
+    Object {
+      "borderRadius": 2,
+      "elevation": 1,
+      "marginBottom": 10,
+      "marginLeft": 15,
+      "marginRight": 15,
+      "marginTop": 15,
+    }
+  }
+>
+  <Component>
+    container
+  </Component>
+</Component>
+`;
+
+exports[`Testing appointment components renders correctly 3`] = `
+<Component
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "paddingBottom": 10,
+      "paddingTop": 10,
+    }
+  }
+>
+  <Component>
+    detail
+  </Component>
+</Component>
+`;
+
+exports[`Testing appointment components renders correctly 4`] = `
+<LinearGradient
+  colors={
+    Array [
+      "#3F4EAC",
+      "#06C4FF",
+    ]
+  }
+  end={
+    Array [
+      1,
+      0.5,
+    ]
+  }
+  locations={
+    Array [
+      0.1,
+      1,
+    ]
+  }
+  start={
+    Array [
+      0,
+      0.75,
+    ]
+  }
+  style={
+    Object {
+      "alignItems": "center",
+      "borderRadius": 5,
+      "padding": 15,
+    }
+  }
+>
+  <Component
+    style={
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "padding": 12,
+      }
+    }
+  >
+    <Component>
+      header
+    </Component>
+  </Component>
+</LinearGradient>
+`;
+
+exports[`Testing appointment components renders correctly 5`] = `
+<Component
+  style={
+    Object {
+      "justifyContent": "flex-end",
+      "paddingBottom": 4,
+    }
+  }
+>
+  <Component>
+    timer
+  </Component>
+</Component>
+`;
+
+exports[`Testing appointment components renders correctly 6`] = `
+<Component
+  style={
+    Object {
+      "flexDirection": "column",
+      "justifyContent": "space-around",
+    }
+  }
+>
+  <Component>
+    title
+  </Component>
+</Component>
+`;

@@ -13,6 +13,9 @@
     ],
     "setupFiles": [
       "<rootDir>/jest/setup.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
     ]
   },
   "dependencies": {

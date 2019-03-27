@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing diet content component renders correcly 1`] = `
+<Component>
+  <Component
+    style={
+      Object {
+        "flexDirection": "row",
+        "flexWrap": "wrap",
+      }
+    }
+  >
+    <Component
+      style={
+        Object {
+          "flexBasis": "50%",
+        }
+      }
+    >
+      <Component
+        style={
+          Object {
+            "flexDirection": "row",
+            "margin": 5,
+          }
+        }
+      >
+        <Component
+          style={
+            Object {
+              "color": "#003087",
+              "fontSize": 19,
+              "fontWeight": "bold",
+              "margin": 5,
+              "textDecorationColor": "#003087",
+            }
+          }
+        >
+          Allowed:
+        </Component>
+      </Component>
+      <Component
+        style={
+          Object {
+            "color": "black",
+            "fontSize": 16,
+            "margin": 10,
+          }
+        }
+      >
+        allowed
+      </Component>
+    </Component>
+    <Component
+      style={
+        Object {
+          "flexBasis": "50%",
+        }
+      }
+    >
+      <Component
+        style={
+          Object {
+            "flexDirection": "row",
+            "margin": 5,
+          }
+        }
+      >
+        <Component
+          style={
+            Object {
+              "color": "#003087",
+              "fontSize": 19,
+              "fontWeight": "bold",
+              "margin": 5,
+              "textDecorationColor": "#003087",
+            }
+          }
+        >
+          Not Allowed:
+        </Component>
+      </Component>
+      <Component
+        style={
+          Object {
+            "color": "black",
+            "fontSize": 16,
+            "margin": 10,
+          }
+        }
+      >
+        notAllowed
+      </Component>
+    </Component>
+  </Component>
+</Component>
+`;

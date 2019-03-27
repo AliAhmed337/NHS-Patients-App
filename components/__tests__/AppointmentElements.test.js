@@ -7,7 +7,7 @@ import { AppointmentBody,
 		 AppointmentHeader,
 		 AppointmentTimer,
 		 AppointmentTitle
-		} from './index';
+		} from '../appointment_elements';
 
 describe('Testing appointment components', () => {
 	it('renders correctly', () => {

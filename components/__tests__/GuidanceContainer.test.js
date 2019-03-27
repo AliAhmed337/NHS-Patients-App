@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { GuidanceContainer } from './index';
+import { GuidanceContainer } from '../guidance_elements';
 
 describe('Testing guidance container component', () => {
 

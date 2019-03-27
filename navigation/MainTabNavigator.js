@@ -48,10 +48,6 @@ const HomeStack = createStackNavigator({
   IndividualMenuItem,
 }); 
 
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
-};
-
 export default HomeStack;
 
 

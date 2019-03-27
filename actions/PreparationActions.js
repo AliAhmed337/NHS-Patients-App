@@ -20,8 +20,14 @@ export const requestPreparations = (PREPARATION_ENDPOINT, userToken) => {
             }})
         .then((response) => response.json())
         .then((responseJson) => {
+            const original = responseJson.preparatoryTasks;
+            const modified = original.map(task => {
+                task.time = '12:00';//moment(task.time).format();
+                task.title='name';//delete once title appears
+                return task;
+            });
             console.log('preparations retrieved for endpoint: ' + PREPARATION_ENDPOINT);
-            dispatch({type: PREPARATIONS_RETRIEVED, payload: responseJson});
+            dispatch({type: PREPARATIONS_RETRIEVED, payload: modified});
         })
         .catch((error) => console.error(error));
     }

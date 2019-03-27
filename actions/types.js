@@ -14,3 +14,4 @@ export const PASSPHRASE_CHANGED = 'passphrase_changed';
 export const VERIFY_USER = 'verify_user';
 export const USER_VERIFY_SUCCESS = 'user_verify_success';
 export const USER_VERIFY_FAIL = 'user_verify_fail';
+export const ISVALID_USER = 'isvalid_user';

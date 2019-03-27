@@ -32,7 +32,7 @@ class DialogBox extends Component {
                     <Dialog.Title>Contact</Dialog.Title>
                     <Dialog.Description>
                         Department Phone Number:
-                        {this.props.contactNo}
+                        {this.props.contactNo.toString()}
                     </Dialog.Description>
                     <Dialog.Description>
                         Email Address:

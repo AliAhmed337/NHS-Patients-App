@@ -35,7 +35,7 @@ export const WhatToExpectNew = ({info}) => {
             <View
                 style={{width: '100%', height: '25%', position:'relative'}}
             >
-                <Animatable.Image source={{uri: ImageUrl}} style={{'flex':1}} animation="fadeIn"/>
+                <Animatable.Image source={{uri: ImageUrl}} style={{'flex':1}} animation="fadeInDown"/>
                 <Animatable.View
                     animation="fadeInUp"
                     style={{
@@ -59,11 +59,11 @@ export const WhatToExpectNew = ({info}) => {
                 </Animatable.View>
 
             </View>
-            <View style={{paddingTop: 60, paddingLeft: 20, paddingRight: 20, alignItems: 'center'}}>
+            <Animatable.View animation="fadeInUp" style={{paddingTop: 60, paddingLeft: 20, paddingRight: 20, alignItems: 'center'}}>
                 <Text style={{fontSize: 17, fontWeight: 'bold', paddingBottom: 20,
                     paddingTop: 30, color: 'black'}}>What to expect during the appointment ?</Text>
                 <Text style={{fontSize: 15,paddingBottom: 20, color: 'black'}}>{InformationText}</Text>
-            </View>
+            </Animatable.View>
         </ScrollView>
 
     );

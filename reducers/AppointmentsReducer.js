@@ -15,7 +15,7 @@ export default (state = INITIAL_STATE, action) => {
             return {...state, loading: true};
         
         case APPOINTMENTS_RETRIEVED:
-        console.log('Appointments have been retrieved: ' + action.payload);
+        console.log('Appointments have been retrieved: ' + JSON.stringify(action.payload));
             return {
                 ...state, 
                 appointments: action.payload, 

@@ -33,7 +33,6 @@ export const requestAppointments = (userToken) => {
     .then((response) => {
       console.log('status code for appointments fetch: ' + response.status);
       response.json().then((responseJson) => {
-        console.log('Appointments retrieved');
         dispatch({type: APPOINTMENTS_RETRIEVED, payload: responseJson.appointments});
       })
     })

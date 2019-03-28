@@ -1,10 +1,12 @@
-import React from "react";
+import React from 'react';
+import { ActivityIndicator } from 'react-native'
 import {WhatToExpectNew} from "../components/WhatToExpectNew";
+import { connect } from 'react-redux';
+import { loadExpectInfo } from "../actions";
 
 
 
-
-export default class WhatToExpectScreen extends React.Component{
+class WhatToExpectScreen extends React.Component{
 
     static navigationOptions = {
         title: 'What To Expect',
@@ -19,10 +21,20 @@ export default class WhatToExpectScreen extends React.Component{
         headerTintColor: '#ffffff'
     };
 
+    componentDidMount() {
+        this._handleExpectInfoLoad();
+    }
+
+    _handleExpectInfoLoad = async () => {
+        const {loadExpectInfo} = this.props;
+        const userToken = await AsyncStorage.getItem('userToken');
+        loadExpectInfo(this.props.navigation.state.params, userToken);
+      }
 
     render() {
-        return (
-            <WhatToExpectNew info = {info.HeartScan} />
+        const {expectPrep} = this.props;
+        return (!expectPrep  ?  <ActivityIndicator/> :
+            <WhatToExpectNew info = {expectPrep} />
         );
     }
 }
@@ -48,3 +60,10 @@ const info = {
     },
 
 };
+
+const mapStateToProps = ({ prepRed }) => {
+    const { expectPrep } = prepRed;
+    return { expectPrep };
+  }
+  
+  export default connect(mapStateToProps, {loadExpectInfo})(WhatToExpectScreen);

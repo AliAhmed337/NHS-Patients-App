@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {StyleSheet, View, Text, Image, ScrollView} from 'react-native';
 import ImageOverlay from "react-native-image-overlay";
 import * as Animatable from 'react-native-animatable';
+import ReactRender from './common/ReactRender/ReactRender';
+import FoodTESTTemp from '../screens/FoodTESTTemp.json';
 
 const styles = StyleSheet.create({
     gridView: {
@@ -62,7 +64,13 @@ export const WhatToExpectNew = ({info}) => {
             <Animatable.View animation="fadeInUp" style={{paddingTop: 60, paddingLeft: 20, paddingRight: 20, alignItems: 'center'}}>
                 <Text style={{fontSize: 17, fontWeight: 'bold', paddingBottom: 20,
                     paddingTop: 30, color: 'black'}}>What to expect during the appointment ?</Text>
-                <Text style={{fontSize: 15,paddingBottom: 20, color: 'black'}}>{InformationText}</Text>
+                {/* <Text style={{fontSize: 15,paddingBottom: 20, color: 'black'}}>{InformationText}</Text> */}
+                <ScrollView style={{fontSize: 15,paddingBottom: 20, color: 'black'}}>
+                    <ReactRender 
+                    style={{height: undefined, width: undefined}}
+                    data={require('../screens/FoodTESTTemp.json')}
+                    />
+                </ScrollView>
             </Animatable.View>
         </ScrollView>
 

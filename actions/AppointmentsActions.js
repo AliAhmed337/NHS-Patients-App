@@ -4,7 +4,9 @@ import {
     CLEAR_APPOINTMENTS
 } from './types';
 import { Permissions, Notifications } from 'expo';
+import {AsyncStorage} from 'react-native';
 
+// Endpoints
 const APPOINTMENTS_ENDPOINT = "https://nhs.hallsy.io/api/v1/appointments";
 const PUSH_ENDPOINT = "https://nhs.hallsy.io/api/v1/notifications/subscribe";
 
@@ -66,7 +68,7 @@ export async function registerForPushNotificationsAsync() {
   
     // Get the token that uniquely identifies this device
     let token = await Notifications.getExpoPushTokenAsync();
-  
+    let userToken = await AsyncStorage.getItem('userToken');
     // POST the token to your backend server from where you can retrieve it to send push notifications.
     return fetch(PUSH_ENDPOINT, {
       method: 'POST',
@@ -74,6 +76,7 @@ export async function registerForPushNotificationsAsync() {
         'Accept': 'application/json',
         'Cache-Control': 'no-cache',
         'Content-Type': 'application/json',
+        'X-API-KEY': userToken
       },
       body: JSON.stringify({
         expo_token: token

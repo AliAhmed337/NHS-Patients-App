@@ -51,6 +51,7 @@ export const loadPrepInfo = (preptask) => {
 
 export const loadExpectInfo = (PREPARATION_ENDPOINT, userToken) => {
     return (dispatch) => {
+        dispatch({type: CLEAR_PREPARATIONS});
         console.log('getting what to expect');
         fetch(PREPARATION_ENDPOINT, {
             method: 'GET',

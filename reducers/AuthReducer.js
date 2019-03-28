@@ -34,6 +34,7 @@ export default (state = INITIAL_STATE, action) => {
                 ...state, 
                 ...INITIAL_STATE,
                 user: action.payload,
+                valid: true,
                 loading: false
             };
 

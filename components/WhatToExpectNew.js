@@ -27,9 +27,7 @@ const styles = StyleSheet.create({
 
 export const WhatToExpectNew = ({info}) => {
 
-    const {Title,ImageUrl, InformationText} = info;
-
-
+    const {name,expect_image, description, expect} = info;
 
     return (
 
@@ -37,7 +35,12 @@ export const WhatToExpectNew = ({info}) => {
             <View
                 style={{width: '100%', height: '25%', position:'relative'}}
             >
-                <Animatable.Image source={{uri: ImageUrl}} style={{'flex':1}} animation="fadeInDown"/>
+                {
+                    expect_image ? 
+                    <Animatable.Image source={{uri: expect_image}} style={{'flex':1}} animation="fadeInDown"/>
+                    :  <Animatable.View style = {{backgroundColor:'#005EB8'}} animation ="fadeInDown"/>
+                }
+                
                 <Animatable.View
                     animation="fadeInUp"
                     style={{
@@ -55,7 +58,7 @@ export const WhatToExpectNew = ({info}) => {
                         <Text style={{textAlign: 'center', fontSize: 16, color: 'white'}}>Your Appointment:</Text>
                     </View>
                     <View style={{borderColor: '#005EB8', borderWidth: 5, alignItems: 'center', paddingHorizontal: 50, paddingVertical: 10}}>
-                        <Text style={{textAlign: 'center', fontSize: 20, color: 'black'}}>{Title}</Text>
+                        <Text style={{textAlign: 'center', fontSize: 20, color: 'black'}}>{name}</Text>
                     </View>
 
                 </Animatable.View>
@@ -64,11 +67,11 @@ export const WhatToExpectNew = ({info}) => {
             <Animatable.View animation="fadeInUp" style={{paddingTop: 60, paddingLeft: 20, paddingRight: 20, alignItems: 'center'}}>
                 <Text style={{fontSize: 17, fontWeight: 'bold', paddingBottom: 20,
                     paddingTop: 30, color: 'black'}}>What to expect during the appointment ?</Text>
-                {/* <Text style={{fontSize: 15,paddingBottom: 20, color: 'black'}}>{InformationText}</Text> */}
+                {/* <Text style={{fontSize: 15,paddingBottom: 20, color: 'black'}}>{description}</Text> */}
                 <ScrollView style={{fontSize: 15,paddingBottom: 20, color: 'black'}}>
                     <ReactRender 
                     style={{height: undefined, width: undefined}}
-                    data={require('../screens/FoodTESTTemp.json')}
+                    data={expect}
                     />
                 </ScrollView>
             </Animatable.View>

@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 import { ScrollView, View, Text, Image } from 'react-native';
+import { connect } from 'react-redux';
 import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native';
 import { DietTitle, DietContent } from './diet_elements';
 
 class DietList extends Component {
-	state = { diets: [] };
 
-	componentWillMount() {
-		this.setState({ diets });
+	componentDidMount(){
+		console.log('mounting diet' + JSON.stringify(this.props.dietPrep));
 	}
 
 	renderDiets() {
-		return this.state.diets.map(diet =>
-			<View style={{margin: 10}}>
-			<Collapse key={diet.title}>
+		return this.props.dietPrep.map(diet =>
+			<View key={diet.categoryName} style={{margin: 10}}>
+			<Collapse key={diet.categoryName}>
 				<CollapseHeader style={styles.titleStyle}>
-					<DietTitle title={diet.title} image={diet.image}/>
+					<DietTitle title={diet.categoryName}/>
 				</CollapseHeader>
 
 				<CollapseBody style={styles.bodyStyle}>
-					<DietContent allowed={diet.allowed} notAllowed={diet.notAllowed} />
+					<DietContent allowed={diet.isAllowed} notAllowed={diet.notAllowed} />
 				</CollapseBody>
 			</Collapse>
 			</View>
@@ -135,4 +135,9 @@ const diets = [
 	}
 ];
 
-export default DietList;
+const mapStateToProps = ({ prepRed }) => {
+	const { dietPrep } = prepRed;
+	return { dietPrep };
+  }
+  
+  export default connect(mapStateToProps)(DietList);

@@ -71,7 +71,7 @@ export default class AppointmentCard extends React.Component {
                     <View style={{borderTopWidth: 0.5,borderColor: '#d6d7da',paddingTop: 15,paddingBottom:15}}>
                         <EventBar
                             icon_name={'access-time'}
-                            primary_text={appointmentDate.calendar('MMMM Do YYYY, h:mm a')}
+                            primary_text={appointmentDate.format('MMMM Do YYYY, h:mm a')}
                             icons_library={'MaterialIcons'}/>
 
                         <EventBar icon_name={'place'}
@@ -87,7 +87,7 @@ export default class AppointmentCard extends React.Component {
                     <View style={{paddingBottom: 15,alignItems: 'center'}}>
                         <Button paddingLeft={15} borderRadius={5} size={30} width='100%'  color='white' name="ios-information-circle-outline"
                                 backgroundColor='#2481db'
-                                onPress={() => this.props.navigation.navigate('Expect')}>What to Expect </Button>
+                                onPress={() => this.props.navigation.navigate('Expect', this.props.prepInfo)}>What to Expect </Button>
                     </View>
 
                     <Text style={{fontWeight: 'bold', color: '#768692'}}>

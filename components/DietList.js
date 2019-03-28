@@ -28,7 +28,7 @@ class DietList extends Component {
 
 	render() {
 		return (
-			<ScrollView style={{paddingBottom: 5}}>
+			<ScrollView style={{paddingBottom: 5, backgroundColor}}>
 					{this.renderDiets()}
 			</ScrollView>
 		);

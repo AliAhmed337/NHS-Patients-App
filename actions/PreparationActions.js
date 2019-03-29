@@ -48,7 +48,6 @@ export const requestPreparations = (PREPARATION_ENDPOINT, userToken) => {
  */
 export const loadPrepInfo = (preptask) => {
     return (dispatch) => {
-    
         console.log('splitting and sending guidance ' + JSON.stringify(preptask.guidance));
         dispatch({type: GUIDANCE_CREATED, payload: preptask.guidance});
     
@@ -57,8 +56,6 @@ export const loadPrepInfo = (preptask) => {
     
         console.log('splitting and sending menu ' + JSON.stringify(preptask.menu));
         dispatch({type: MENU_CREATED, payload: preptask.menu})
-
-        
     }
 };
 

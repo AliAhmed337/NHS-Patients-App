@@ -10,6 +10,7 @@ import {
 import { Constants } from 'expo';
 import { AsyncStorage } from 'react-native';
 
+// Endpoints
 const VERIFY_ENDPOINT = "https://nhs.hallsy.io/api/v1/subscribe";
 const VALIDATE_ENDPOINT = "https://nhs.hallsy.io/api/v1/validate-patient";
 

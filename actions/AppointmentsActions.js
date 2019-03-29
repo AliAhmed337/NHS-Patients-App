@@ -4,7 +4,7 @@ import {
     CLEAR_APPOINTMENTS
 } from './types';
 import { Permissions, Notifications } from 'expo';
-import {AsyncStorage} from 'react-native';
+import { AsyncStorage } from 'react-native';
 
 // Endpoints
 const APPOINTMENTS_ENDPOINT = "https://nhs.hallsy.io/api/v1/appointments";

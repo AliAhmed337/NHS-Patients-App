@@ -1,20 +1,19 @@
-import React from 'react';
-import { Platform } from 'react-native';
-import { createStackNavigator, createMaterialTopTabNavigator} from 'react-navigation';
-import TabBarIcon from '../components/TabBarIcon';
+import { createStackNavigator, createMaterialTopTabNavigator } from 'react-navigation';
 import PreparationScreen from '../screens/PreparationScreen';
 import HomeScreen from '../screens/HomeScreen';
 import DietScreen from '../screens/DietScreen';
 import TimeLineTestScreen from '../screens/TimeLineTestScreen';
-import Menu from '../screens/Menu';
+import MenuScreen from '../screens/MenuScreen';
 import WhatToExpectScreen from '../screens/WhatToExpectScreen';
-import IndividualMenuItem from '../screens/IndividualMenuItem';
+import IndividualMenuItem from '../components/IndividualMenuItem';
 
-
+/**
+ * The top tabbar for the prepatory tasks: guidance, diet, menu.
+ */
 const DashboardTabNavigator = createMaterialTopTabNavigator({
   PreparationScreen, 
   DietScreen, 
-  Menu,
+  MenuScreen,
 },{
   navigationOptions:({navigation})=>{
     const{routeName} = navigation.state.routes[navigation.state.index]
@@ -44,7 +43,7 @@ const HomeStack = createStackNavigator({
   Timeline: TimeLineTestScreen,
   Preparation: DashboardTabNavigator,
   Expect: WhatToExpectScreen,
-  Menu,
+  MenuScreen,
   IndividualMenuItem,
 }); 
 

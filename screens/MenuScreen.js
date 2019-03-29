@@ -4,7 +4,11 @@ import { connect } from 'react-redux';
 import { FlatGrid } from 'react-native-super-grid';
 import ImageOverlay from "react-native-image-overlay";
 
-class Menu extends Component {
+class MenuScreen extends Component {
+
+  static navigationOptions = {
+    title: 'Menu',
+  };
 
   onPressFunction(item) {
     const {navigation} = this.props;
@@ -63,4 +67,4 @@ const mapStateToProps = ({ prepRed }) => {
   return { menuPrep };
 }
 
-export default connect(mapStateToProps)(Menu);
+export default connect(mapStateToProps)(MenuScreen);

@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Image, ScrollView } from 'react-native';
-import ImageOverlay from "react-native-image-overlay";
 import * as Animatable from 'react-native-animatable';
-import { ReactRender } from '../components/common/ReactRender/ReactRender';
-import FoodTESTTemp from './FoodTESTTemp.json';
 
   export default class IndividualMenuItem extends Component {
 

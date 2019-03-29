@@ -1,30 +1,7 @@
-import React, { Component } from 'react';
-import {StyleSheet, View, Text, Image, ScrollView} from 'react-native';
-import ImageOverlay from "react-native-image-overlay";
+import React from 'react';
+import { View, Text, ScrollView } from 'react-native';
 import * as Animatable from 'react-native-animatable';
-import ReactRender from './common/ReactRender/ReactRender';
-import FoodTESTTemp from '../screens/FoodTESTTemp.json';
 import MarkdownRender from "./common/MarkdownRender";
-
-const styles = StyleSheet.create({
-    gridView: {
-        marginTop: 0,
-        flex: 1,
-    },
-    itemContainer: {
-        justifyContent: 'center',
-        borderRadius: 5,
-        height: 150,
-    },
-    itemName: {
-        fontSize: 16,
-        color: '#fff',
-        fontWeight: '600',
-    },
-    dialogTitleStyle: {
-        width: 340
-    }
-});
 
 export const WhatToExpectNew = ({info}) => {
 

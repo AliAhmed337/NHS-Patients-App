@@ -21,9 +21,6 @@ class AuthLoadingScreen extends React.Component {
     console.log('In our storage, our user is: ' + userToken);
     const { validateUser } = this.props;
     await validateUser(userToken);
-    // Need to make sure token is still valid and hasn't expired -
-    // This will switch to the App screen or Auth screen and this loading
-    // screen will be unmounted and thrown away.
   };
 
   componentDidUpdate () {
@@ -32,6 +29,9 @@ class AuthLoadingScreen extends React.Component {
     }
   }
 
+  // Need to make sure token is still valid and hasn't expired -
+  // This will switch to the App screen or Auth screen and this loading
+  // screen will be unmounted and thrown away.
   _renderPathway() {
     const {valid, navigation} = this.props;
     valid ? navigation.navigate('Main') : navigation.navigate('Auth');

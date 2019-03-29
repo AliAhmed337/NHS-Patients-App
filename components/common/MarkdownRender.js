@@ -6,14 +6,13 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     heading: {},
     heading1: {
-        color: '#345434',
-        fontSize: 32,
+        fontSize: 20, fontWeight: 'bold', color: 'black'
     },
     heading2: {
-        fontSize: 24,
+        fontSize: 16,
     },
     heading3: {
-        fontSize: 18,
+        fontSize: 15,
     },
 });
 

@@ -32,7 +32,6 @@ class WhatToExpectScreen extends React.Component{
     _handleExpectInfoLoad = async () => {
         const {loadExpectInfo} = this.props;
         const userToken = await AsyncStorage.getItem('userToken');
-        console.log('loadingExpectInfo');
         loadExpectInfo(this.props.navigation.state.params, userToken);
       }
 

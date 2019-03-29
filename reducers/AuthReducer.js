@@ -20,7 +20,6 @@ export default (state = INITIAL_STATE, action) => {
 
     switch (action.type) {
         case PASSPHRASE_CHANGED:
-        console.log('passphrase is now: ' + state.passphrase);
             return {...state, passphrase: action.payload};
 
         case CAMERA_PERMISSION_REQUESTED:

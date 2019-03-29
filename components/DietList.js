@@ -10,10 +10,6 @@ import { DietTitle, DietContent } from './diet_elements';
  */
 class DietList extends Component {
 
-	componentDidMount(){
-		console.log('mounting diet' + JSON.stringify(this.props.dietPrep));
-	}
-
 	renderDiets() {
 		return this.props.dietPrep.map(diet =>
 			<View key={diet.categoryName} style={{margin: 10}}>

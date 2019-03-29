@@ -113,6 +113,13 @@ const attemptVerify = (passphrase, dispatch) => {
     .catch((error) => console.error(error));
 }
 
+/**
+ * Upon successful verification, we need to dispatch to update
+ * states and store our users information so that they may log in
+ * automatically upon reopening the application.
+ * @param {dispatch} dispatch 
+ * @param {string} user 
+ */
 const verifySuccess = (dispatch, user) => {
     console.log('successfully verified apparently, user should be: ' + user);
     dispatch({type: CLEAR_APPOINTMENTS})
@@ -124,12 +131,22 @@ const verifySuccess = (dispatch, user) => {
     
 }
 
+/**
+ * Upon failed verification, we must reflect this in state and 
+ * if it exists, delete the token from storage.
+ * @param {dispatch} dispatch 
+ */
 const verifyFail = (dispatch) => {
     console.log('this user has failed verification');
     removeInvalidTokenFromStorage();
     dispatch({type: USER_VERIFY_FAIL});
 }
 
+/**
+ * Wrapped AsyncStorage function to store user token 
+ * outside a dispatch
+ * @param {string} user 
+ */
 const storeData = async (user) => {
     try {
       await AsyncStorage.setItem('userToken', user);
@@ -138,6 +155,10 @@ const storeData = async (user) => {
     }
   };
 
+/**
+ * Removes the token deemed to be invalid if it exists in
+ * storage, otherwise does nothing.
+ */
 const removeInvalidTokenFromStorage = async () => {
     try {
         await AsyncStorage.removeItem('userToken');

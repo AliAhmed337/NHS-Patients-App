@@ -26,17 +26,21 @@ class PreparationScreen extends React.Component {
 
   render() {
     return (
-      <View style={{ margin: 5 }}>
+      <View style={{flex: 1}}>
       <StatusBar barStyle="light-content" />
-        <View>
-          <ScrollView>
+          {/* <ScrollView>
             <GuidanceTopInfo/>
             <MarkdownRender
             style={{height: undefined, width: undefined}}
             data={this.props.guidancePrep}/>
-          </ScrollView>
+          </ScrollView> */}
+          <ScrollView style={{flex: 1, flexDirection: 'column'}}>
+          <GuidanceTopInfo/>
+            <View style={{paddingTop: 60, paddingLeft: 20, paddingRight: 20, alignItems: 'center'}}>
+                    <MarkdownRender style={{flex: 1}}>{this.props.guidancePrep}</MarkdownRender>
+            </View>
+        </ScrollView>
         </View>
-      </View>      
     );
   }
 }

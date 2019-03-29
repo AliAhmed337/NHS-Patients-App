@@ -48,8 +48,8 @@ export default class MarkdownRender extends React.Component {
 
     render(){
         return(
-            <View style={{flexDirection:'column',alignSelf: 'stretch'}}>
-                {this.props.data && <Markdown rules={rules} style={styles}>{this.props.data}</Markdown>}
+            <View style={{flex: 1}}>
+                {this.props.children && <Markdown rules={rules} style={styles}>{this.props.children}</Markdown>}
             </View>
         );
     }

@@ -1,0 +1,214 @@
+<?xml version="1.0" ?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+<coverage lines-valid="29" lines-covered="28" line-rate="0.9655" branches-valid="8" branches-covered="4" branch-rate="0.5" timestamp="1553711171006" complexity="0" version="0.1">
+  <sources>
+    <source>C:\Users\XPS 13\Desktop\react\medapp-nhs</source>
+  </sources>
+  <packages>
+    <package name="medapp-nhs" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="StyleSheet.js" filename="StyleSheet.js" line-rate="1" branch-rate="1">
+          <methods>
+          </methods>
+          <lines>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="medapp-nhs.components.appointment_elements" line-rate="0.9286" branch-rate="1">
+      <classes>
+        <class name="AppointmentBody.js" filename="components\appointment_elements\AppointmentBody.js" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="1" signature="()V">
+              <lines>
+                <line number="5" hits="1"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="1" branch="false"/>
+            <line number="6" hits="1" branch="false"/>
+          </lines>
+        </class>
+        <class name="AppointmentContainer.js" filename="components\appointment_elements\AppointmentContainer.js" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="1" signature="()V">
+              <lines>
+                <line number="5" hits="1"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="1" branch="false"/>
+            <line number="6" hits="1" branch="false"/>
+          </lines>
+        </class>
+        <class name="AppointmentDetail.js" filename="components\appointment_elements\AppointmentDetail.js" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="1" signature="()V">
+              <lines>
+                <line number="5" hits="1"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="1" branch="false"/>
+            <line number="6" hits="1" branch="false"/>
+          </lines>
+        </class>
+        <class name="AppointmentHeader.js" filename="components\appointment_elements\AppointmentHeader.js" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="1" signature="()V">
+              <lines>
+                <line number="6" hits="1"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="6" hits="1" branch="false"/>
+            <line number="7" hits="1" branch="false"/>
+          </lines>
+        </class>
+        <class name="AppointmentImage.js" filename="components\appointment_elements\AppointmentImage.js" line-rate="0.5" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="0" signature="()V">
+              <lines>
+                <line number="4" hits="0"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="4" hits="1" branch="false"/>
+            <line number="5" hits="0" branch="false"/>
+          </lines>
+        </class>
+        <class name="AppointmentTimer.js" filename="components\appointment_elements\AppointmentTimer.js" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="1" signature="()V">
+              <lines>
+                <line number="5" hits="1"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="1" branch="false"/>
+            <line number="6" hits="1" branch="false"/>
+          </lines>
+        </class>
+        <class name="AppointmentTitle.js" filename="components\appointment_elements\AppointmentTitle.js" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="1" signature="()V">
+              <lines>
+                <line number="5" hits="1"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="1" branch="false"/>
+            <line number="6" hits="1" branch="false"/>
+          </lines>
+        </class>
+        <class name="index.js" filename="components\appointment_elements\index.js" line-rate="1" branch-rate="1">
+          <methods>
+          </methods>
+          <lines>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="medapp-nhs.components.common" line-rate="1" branch-rate="0.5">
+      <classes>
+        <class name="Button.js" filename="components\common\Button.js" line-rate="1" branch-rate="0.5">
+          <methods>
+            <method name="(anonymous_0)" hits="2" signature="()V">
+              <lines>
+                <line number="5" hits="2"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="1" branch="false"/>
+            <line number="7" hits="2" branch="false"/>
+            <line number="18" hits="1" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="medapp-nhs.components.diet_elements" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="DietContent.js" filename="components\diet_elements\DietContent.js" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="2" signature="()V">
+              <lines>
+                <line number="5" hits="2"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="2" branch="false"/>
+            <line number="6" hits="2" branch="false"/>
+            <line number="26" hits="2" branch="false"/>
+          </lines>
+        </class>
+        <class name="DietTitle.js" filename="components\diet_elements\DietTitle.js" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="2" signature="()V">
+              <lines>
+                <line number="5" hits="2"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="2" branch="false"/>
+            <line number="6" hits="2" branch="false"/>
+            <line number="16" hits="2" branch="false"/>
+          </lines>
+        </class>
+        <class name="index.js" filename="components\diet_elements\index.js" line-rate="1" branch-rate="1">
+          <methods>
+          </methods>
+          <lines>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="medapp-nhs.components.guidance_elements" line-rate="1" branch-rate="0.5">
+      <classes>
+        <class name="GuidanceContainer.js" filename="components\guidance_elements\GuidanceContainer.js" line-rate="1" branch-rate="0.5">
+          <methods>
+            <method name="(anonymous_0)" hits="2" signature="()V">
+              <lines>
+                <line number="5" hits="2"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="2" branch="false"/>
+            <line number="6" hits="2" branch="false"/>
+            <line number="20" hits="2" branch="false"/>
+          </lines>
+        </class>
+        <class name="GuidanceTopInfo.js" filename="components\guidance_elements\GuidanceTopInfo.js" line-rate="1" branch-rate="0.5">
+          <methods>
+            <method name="(anonymous_0)" hits="1" signature="()V">
+              <lines>
+                <line number="4" hits="1"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="4" hits="2" branch="false"/>
+            <line number="5" hits="1" branch="false"/>
+            <line number="18" hits="2" branch="false"/>
+          </lines>
+        </class>
+        <class name="index.js" filename="components\guidance_elements\index.js" line-rate="1" branch-rate="1">
+          <methods>
+          </methods>
+          <lines>
+          </lines>
+        </class>
+      </classes>
+    </package>
+  </packages>
+</coverage>

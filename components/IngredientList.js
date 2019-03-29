@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-const Test = ({ingredients}) => {
+const IngredientList = ({ingredients}) => {
 
     return (
     <View>
@@ -14,3 +14,5 @@ const Test = ({ingredients}) => {
       ))}
     </View>
   )};
+
+  export default IngredientList;

@@ -4,6 +4,9 @@ import Markdown from 'react-native-markdown-renderer';
 import { StyleSheet } from 'react-native';
 
 const markdownstyles = StyleSheet.create({
+    paragraph: {
+        color:'rgb(15, 44, 67)',
+    },
     heading: {
         color:'rgb(15, 44, 67)',
     },
@@ -24,7 +27,7 @@ export default class MarkdownRender extends React.Component {
     render(){
         return(
             <View style={styles.contentContainer}>
-                <Markdown style={markdownstyles}>{this.props.data}</Markdown>
+                {this.props.data && <Markdown style={markdownstyles}>{this.props.data}</Markdown>}
             </View>
         );
 

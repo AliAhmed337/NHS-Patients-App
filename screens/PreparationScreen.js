@@ -35,7 +35,7 @@ class PreparationScreen extends React.Component {
             data={this.props.guidancePrep}/>
           </ScrollView> */}
           <ScrollView style={{flex: 1, flexDirection: 'column'}}>
-            <View style={{paddingTop: 5, padding: 5, alignItems: 'center'}}>
+            <View style={{paddingTop: 5, padding: 3, alignItems: 'center'}}>
                     <MarkdownRender style={{flex: 1}}>{this.props.guidancePrep}</MarkdownRender>
             </View>
         </ScrollView>

@@ -6,10 +6,10 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     heading: {},
     heading1: {
-        fontSize: 20, fontWeight: 'bold', color: 'black'
+        fontSize: 20, fontWeight: '800', color: 'black', paddingBottom: 5
     },
     heading2: {
-        fontSize: 16,
+        fontSize: 16, paddingBottom: 5, fontWeight: '600',
     },
     heading3: {
         fontSize: 15,

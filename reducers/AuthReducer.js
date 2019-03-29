@@ -3,7 +3,8 @@ import {
     CAMERA_PERMISSION_REQUESTED,
     VERIFY_USER,
     USER_VERIFY_SUCCESS,
-    USER_VERIFY_FAIL
+    USER_VERIFY_FAIL,
+    ISVALID_USER
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -11,7 +12,8 @@ const INITIAL_STATE = {
     hasCameraPermissions: null,
     user: null,
     error: '',
-    loading: false
+    loading: false,
+    valid: undefined
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -32,6 +34,7 @@ export default (state = INITIAL_STATE, action) => {
                 ...state, 
                 ...INITIAL_STATE,
                 user: action.payload,
+                valid: true,
                 loading: false
             };
 
@@ -41,6 +44,12 @@ export default (state = INITIAL_STATE, action) => {
                 error: 'Invalid passphrase, please make sure that you are' + 
                 '\n following the correct format.',
                 loading: false
+            };
+
+        case ISVALID_USER:
+            return {
+                ...state,
+                valid: action.payload
             };
 
         default:

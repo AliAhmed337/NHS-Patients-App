@@ -7,6 +7,7 @@ export const PREPARATIONS_RETRIEVED = 'preparation_retrieved';
 export const GUIDANCE_CREATED = 'guideance_created'; 
 export const DIET_CREATED = 'diet_created';
 export const MENU_CREATED = 'menu_created';
+export const EXPECT_CREATED = 'expect_created';
 export const CLEAR_PREPARATIONS = 'clear_preparations';
 
 export const CAMERA_PERMISSION_REQUESTED = 'camera_permission_requested';
@@ -14,3 +15,4 @@ export const PASSPHRASE_CHANGED = 'passphrase_changed';
 export const VERIFY_USER = 'verify_user';
 export const USER_VERIFY_SUCCESS = 'user_verify_success';
 export const USER_VERIFY_FAIL = 'user_verify_fail';
+export const ISVALID_USER = 'isvalid_user';

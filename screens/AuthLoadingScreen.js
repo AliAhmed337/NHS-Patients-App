@@ -3,7 +3,6 @@ import {
   ActivityIndicator,
   AsyncStorage,
   StatusBar,
-  StyleSheet,
   View,
 } from 'react-native';
 import { connect } from 'react-redux';
@@ -20,12 +19,23 @@ class AuthLoadingScreen extends React.Component {
     console.log('going to fetch our user from async');
     const userToken = await AsyncStorage.getItem('userToken');
     console.log('In our storage, our user is: ' + userToken);
-
-    // Need to make sure token is still valid and hasn't expired -
-    // This will switch to the App screen or Auth screen and this loading
-    // screen will be unmounted and thrown away.
-    this.props.navigation.navigate(validateUser(userToken) ? 'Main' : 'Auth');
+    const { validateUser } = this.props;
+    await validateUser(userToken);
   };
+
+  componentDidUpdate () {
+    if (this.props.valid !== undefined) {
+      this._renderPathway();
+    }
+  }
+
+  // Need to make sure token is still valid and hasn't expired -
+  // This will switch to the App screen or Auth screen and this loading
+  // screen will be unmounted and thrown away.
+  _renderPathway() {
+    const {valid, navigation} = this.props;
+    valid ? navigation.navigate('Main') : navigation.navigate('Auth');
+  }
 
   render() {
     return (
@@ -37,4 +47,9 @@ class AuthLoadingScreen extends React.Component {
   }
 }
 
-export default connect(null, {validateUser})(AuthLoadingScreen);
+const mapStateToProps = ({authRed}) => {
+  const { valid } = authRed 
+  return { valid };
+}
+
+export default connect(mapStateToProps, {validateUser})(AuthLoadingScreen);

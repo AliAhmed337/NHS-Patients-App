@@ -41,7 +41,9 @@
     "react-test-renderer": "latest",
     "redux": "^4.0.1",
     "redux-mock-store": "^1.5.3",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "@expo/vector-icons": "latest",
+    "react-native-markdown-renderer": "latest"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",

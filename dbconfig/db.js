@@ -1,1 +1,0 @@
-// Initializing the database and providing the adequate credentials

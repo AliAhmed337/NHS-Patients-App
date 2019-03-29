@@ -23,10 +23,10 @@ class DialogBox extends Component {
         return (
 
             <View style={{alignItems: 'center',}}>
-                <View style={[{paddingTop: 10},{paddingBottom: 10}]}>
-                <TouchableOpacity style={[styles.buttonBody, {backgroundColor: '#881E2C'}, {padding:10}, {width:'100%'}] }onPress={this.show}>
-                    <Text style={[{color:'#ffffff'},styles.buttonText]}>Cancel or change appointment</Text>
-                </TouchableOpacity>
+                <View style={[{paddingTop: 15},{paddingBottom: 15}]}>
+                    <TouchableOpacity style={[styles.buttonBody, {backgroundColor: '#DA291C'}, {padding:10}, {width:'100%'}, {borderRadius: 5}] }onPress={this.show}>
+                        <Text style={[{color:'#ffffff'},styles.buttonText]}>Cancel or change appointment</Text>
+                    </TouchableOpacity>
                 </View>
                 <Dialog.Container visible={this.state.isVisible}>
                     <Dialog.Title>Contact</Dialog.Title>
@@ -36,7 +36,7 @@ class DialogBox extends Component {
                     </Dialog.Description>
                     <Dialog.Description>
                         Email Address:
-                        {this.props.email} 
+                        {this.props.email}
                     </Dialog.Description>
                     <Dialog.Button label="Close" onPress={this.hide} />
                 </Dialog.Container>
@@ -59,6 +59,7 @@ const styles = ({
     buttonText: {
         fontSize: 18,
         fontWeight: '600',
+        fontFamily: 'Roboto-Regular',
     }
 
 

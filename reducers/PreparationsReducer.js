@@ -1,13 +1,14 @@
 import {
     PREPARATIONS_REQUESTED, PREPARATIONS_RETRIEVED, CLEAR_PREPARATIONS,
-    GUIDANCE_CREATED, DIET_CREATED, MENU_CREATED
+    GUIDANCE_CREATED, DIET_CREATED, MENU_CREATED, EXPECT_CREATED
 } from '../actions/types';
 
 const INITIAL_STATE = {
     preparations: null,
-    guidancePrep: [],
-    dietPrep: [],
-    menuPrep: [],
+    expectPrep: null,
+    guidancePrep: null,
+    dietPrep: null,
+    menuPrep: null,
     loading: false,
 };
 
@@ -33,14 +34,21 @@ export default (state = INITIAL_STATE, action) => {
             };
 
         case MENU_CREATED:
-            console.log('menu has been updated: ' + action.payload);
+            console.log('menu has been updated: ' + JSON.stringify(action.payload));
             return {
                 ...state, 
                 menuPrep: action.payload, 
             };
 
+        case EXPECT_CREATED:
+        console.log('expect has been updated: ' + action.payload);
+        return {
+            ...state, 
+            expectPrep: action.payload, 
+        };
+
         case PREPARATIONS_RETRIEVED:
-            console.log(`preparations have completed: ${JSON.stringify(action.payload)}`);
+            console.log('preparations have completed: ' + action.payload);
             return {...state, loading: false, preparations: action.payload};
 
         case CLEAR_PREPARATIONS:

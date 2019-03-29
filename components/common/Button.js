@@ -1,16 +1,23 @@
 import React from 'react';
-import { Text, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+
+
 
 const Button = (props) => {
 
     return (
 
-        <TouchableOpacity style={[styles.buttonBody, {backgroundColor: props.backgroundColor}, {width: props.width},{height:props.height}, {padding: props.padding}, {flexDirection: 'row',alignItems: 'center',}]} onPress = {props.onPress} >
-            <Ionicons name={props.name} size={props.size} color={props.color} style={[styles.buttonImg]}></Ionicons>
-            {props.loading ? <ActivityIndicator/> : 
-            <Text style={[styles.buttonText,{color: props.color}]}>{props.children}</Text>}
+        <TouchableOpacity style={[styles.buttonBody, {backgroundColor: props.backgroundColor},{borderRadius: props.borderRadius }, {width: props.width},{height:props.height}, {padding: props.padding}, {paddingBottom: props.paddingBottom}, {paddingLeft: props.paddingLeft}, {borderColor: props.borderColor}]} onPress = {props.onPress} >
+
+            <View style={{flexDirection: 'row',alignItems: 'center',justifyContent:'space-between', flex: 1}}>
+                <Ionicons paddingLeft={props.paddingLeft} name={props.name} size={props.size} color={props.color} style={[styles.buttonImg]}/>
+                <Text style={[styles.buttonText,{color: props.color},{fontSize: props.fontSize}]}>{props.children}</Text>
+                <View></View>
+            </View>
+
         </TouchableOpacity>
+
     )
 
 }
@@ -20,17 +27,19 @@ const styles = ({
 
 
         alignItems: 'center',
-        borderRadius: 0,
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-        borderRadius: 10,
+        shadowColor: '#000',
+
+
     },
     buttonText: {
-        fontSize: 16,
         fontWeight: '600',
+        fontFamily: 'Roboto-Regular',
     },
     buttonImg: {
-        marginRight: 17
+
+
     }
 
 

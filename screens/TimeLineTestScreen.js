@@ -8,7 +8,7 @@ import Timeline from 'react-native-timeline-listview';
 class TimeLineTestScreen extends React.Component {
     constructor(props){
         super(props)
-      } 
+      }
     
       static navigationOptions = {
         title: 'Timeline',
@@ -25,6 +25,7 @@ class TimeLineTestScreen extends React.Component {
 
         },
         headerTintColor: '#ffffff',
+        
     };
 
     componentDidMount(){
@@ -50,7 +51,7 @@ class TimeLineTestScreen extends React.Component {
           <View style={styles.container}>
             <Timeline 
               style={styles.list}
-              data={this.props.preparations.preparatoryTasks}
+              data={this.props.preparations}
               circleSize={20}
               circleColor='rgb(45,156,219)'
               lineColor='rgb(45,156,219)'

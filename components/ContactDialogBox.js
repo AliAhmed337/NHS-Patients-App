@@ -33,7 +33,7 @@ class DialogBox extends Component {
                         {this.props.contactNo}
                     </Dialog.Description>
                     <Dialog.Description>
-                        Email Address:
+                         Email Address:{"\n"}
                         {this.props.email}
                     </Dialog.Description>
                     <Dialog.Button label="Close" onPress={this.hide} />
@@ -57,7 +57,6 @@ const styles = ({
     buttonText: {
         fontSize: 18,
         fontWeight: '600',
-        fontFamily: 'Roboto-Regular',
     }
 
 

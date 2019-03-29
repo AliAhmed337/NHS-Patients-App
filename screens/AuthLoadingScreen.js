@@ -8,6 +8,12 @@ import {
 import { connect } from 'react-redux';
 import { validateUser } from '../actions';
 
+/**
+ * This Screen is used predominantly as a preload to determine
+ * routing within the application. They will be sent to the Authentication
+ * page if they do not possess a token that is valid. Otherwise they will
+ * be taken to the Home Screen where they will be shown their appointments.
+ */
 class AuthLoadingScreen extends React.Component {
   constructor(props) {
     super(props);

@@ -4,8 +4,12 @@ import {WhatToExpectNew} from "../components/WhatToExpectNew";
 import { connect } from 'react-redux';
 import { loadExpectInfo } from "../actions";
 
-
-
+/**
+ * The W2E Screen is a way of displaying information
+ * for a given appointment type. It is not meant for 
+ * active preparation, but to provide an understanding
+ * of what happens at the hospital during the appointment.
+ */
 class WhatToExpectScreen extends React.Component{
 
     static navigationOptions = {

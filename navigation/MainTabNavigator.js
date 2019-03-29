@@ -2,7 +2,7 @@ import { createStackNavigator, createMaterialTopTabNavigator } from 'react-navig
 import PreparationScreen from '../screens/PreparationScreen';
 import HomeScreen from '../screens/HomeScreen';
 import DietScreen from '../screens/DietScreen';
-import TimeLineTestScreen from '../screens/TimeLineTestScreen';
+import TimeLineScreen from '../screens/TimeLineScreen';
 import MenuScreen from '../screens/MenuScreen';
 import WhatToExpectScreen from '../screens/WhatToExpectScreen';
 import IndividualMenuItem from '../components/IndividualMenuItem';
@@ -40,7 +40,7 @@ const DashboardTabNavigator = createMaterialTopTabNavigator({
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
-  Timeline: TimeLineTestScreen,
+  Timeline: TimeLineScreen,
   Preparation: DashboardTabNavigator,
   Expect: WhatToExpectScreen,
   MenuScreen,

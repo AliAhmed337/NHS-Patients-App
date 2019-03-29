@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native';
 import { DietTitle, DietContent } from './diet_elements';
 
+/**
+ * Contains all the diets for a given preparatory task given by
+ * the timeline item.
+ */
 class DietList extends Component {
 
 	componentDidMount(){

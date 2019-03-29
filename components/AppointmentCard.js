@@ -11,6 +11,12 @@ import DialogBox from './ContactDialogBox'
 import Button from "./common/Button"
 import EventBar from "./EventBar"
 
+/**
+ * An appointment card is responsible for showcasing a particular
+ * appointment for a user. It has the ability to send the user to
+ * the what to expect screen, or further into preparations should they
+ * need it.
+ */
 export default class AppointmentCard extends React.Component {
 
     constructor(props) {

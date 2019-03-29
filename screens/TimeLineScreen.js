@@ -4,8 +4,11 @@ import { connect } from 'react-redux';
 import { requestPreparations, loadPrepInfo } from "../actions";
 import Timeline from 'react-native-timeline-listview';
 
-
-class TimeLineTestScreen extends React.Component {
+/**
+ * The timeline screen displays all the preparatory tasks a
+ * user will face in their time coming up to an appointment.
+ */
+class TimeLineScreen extends React.Component {
     constructor(props){
         super(props)
       }
@@ -85,4 +88,5 @@ class TimeLineTestScreen extends React.Component {
       return { preparations, loading };
     }
     
-    export default connect(mapStateToProps, { requestPreparations, loadPrepInfo })(TimeLineTestScreen);
+    export default connect(mapStateToProps, { requestPreparations, loadPrepInfo })(TimeLineScreen
+    );

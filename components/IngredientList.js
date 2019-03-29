@@ -1,6 +1,11 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
+/**
+ * Takes a list of ingredient objects and returns
+ * a view that provides info on each ingredient.
+ * @param {list} ingredients
+ */
 const IngredientList = ({ingredients}) => {
 
     return (

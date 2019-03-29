@@ -12,7 +12,11 @@ import { connect } from 'react-redux';
 import { requestAppointments, registerForPushNotificationsAsync } from "../actions";
 import AppointmentCard from '../components/AppointmentCard';
 
-
+/**
+ * The main screen that the user will come across. It will house all their appointments,
+ * showing it to them in the form of appointment cards. There is intended future functionality
+ * for instant chat and this will go at the bottom of the screen.
+ */
 class HomeScreen extends React.Component {
   static navigationOptions = {
       title: 'Upcoming Appointments',
@@ -30,6 +34,8 @@ class HomeScreen extends React.Component {
         },
   };
 
+  // The user will be asked to opt into push notifications
+  // if they have not already decided.
   componentDidMount(){
     this._handleAppointmentRequest();
     registerForPushNotificationsAsync();

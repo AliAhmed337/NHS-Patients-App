@@ -4,6 +4,11 @@ import { connect } from 'react-redux';
 import { FlatGrid } from 'react-native-super-grid';
 import ImageOverlay from "react-native-image-overlay";
 
+/**
+ * The Menu screen provides a grid view of all the recipes available for
+ * a given preparatory task from the timeline. They open up an individual
+ * menu item to view.
+ */
 class MenuScreen extends Component {
 
   static navigationOptions = {

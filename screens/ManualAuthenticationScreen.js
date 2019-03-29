@@ -3,9 +3,14 @@ import {Text,View,TextInput, Keyboard} from 'react-native';
 import { connect } from 'react-redux';
 import { passphraseChanged, verifyUser } from '../actions';
 import Button from '../components/common/Button';
-import { LinearGradient } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 
+/**
+ * The user will have the opportunity to enter in manual details
+ * in an input box which will fire off a request to ask for 
+ * validity by an API. They should be taken to the Home Screen
+ * if successful in their attempt.
+ */
 class ManualAuthenticationScreen extends React.Component {
     static navigationOptions = {
         title: 'Sign in manually',
@@ -20,6 +25,11 @@ class ManualAuthenticationScreen extends React.Component {
         },
         headerTintColor: '#fff',
     };
+    
+    componentDidUpdate(){
+        const {user, navigation} = this.props;
+        if (user) navigation.navigate('Main');
+    }
 
     _onPassphraseChange(text) {
         this.props.passphraseChanged(text);
@@ -73,9 +83,7 @@ class ManualAuthenticationScreen extends React.Component {
     }
 
     render(){
-        const {navigate} = this.props.navigation;
-        console.log(this.props.user ? true : false);
-        return(this.props.user ? navigate('Main') : this._renderForm());
+        this._renderForm();
     }
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, Image, Text} from 'react-native';
-import {MaterialIcons} from "@expo/vector-icons";
+import { View, Text } from 'react-native';
+import { MaterialIcons } from "@expo/vector-icons";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 
 const EventBar = ({icon_name, primary_text, secondary_text, icons_library}) => {

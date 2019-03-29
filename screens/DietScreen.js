@@ -1,7 +1,11 @@
 import React from 'react';
-import {  View } from 'react-native';
+import { View } from 'react-native';
 import DietList from '../components/DietList';
 
+/**
+ * Displays the Diet List providing diet information on a users preparatory task for
+ * a specific timeline event.
+ */
 export default class DietScreen extends React.Component {
 
   static navigationOptions = {

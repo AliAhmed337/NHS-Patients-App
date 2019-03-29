@@ -4,6 +4,11 @@ import { Constants, BarCodeScanner, Permissions } from 'expo';
 import { connect } from 'react-redux';
 import { verifyUser, cameraPermRequested } from '../actions';
 
+/**
+ * The QR Screen allows the user to scan a barcode
+ * instead of writing out the passphrase manually. The user
+ * will have to opt into using the camera.
+ */
 class QRAuthenticationScreen extends Component {
     static navigationOptions = {
         title: 'Scan QR Code',
@@ -22,6 +27,11 @@ class QRAuthenticationScreen extends Component {
     this._requestCameraPermission();
   }
 
+  componentDidUpdate(){
+    const {user, navigation} = this.props;
+    if (user) navigation.navigate('Main');
+}
+
   _requestCameraPermission = async () => {
     const { status } = await Permissions.askAsync(Permissions.CAMERA);
     this.props.cameraPermRequested(status === 'granted');
@@ -32,17 +42,12 @@ class QRAuthenticationScreen extends Component {
     const {verifyUser} = this.props;
 
     try {
-      console.log(resource.data);
       verifyUser(resource.data);
       Vibration.vibrate(100);
     }
     catch (e) {
       console.error(e.message);
     }
-    Alert.alert(
-      'Scan successful!',
-      JSON.stringify(resource)
-    );
   };
 
   _renderCamera() {
@@ -63,9 +68,7 @@ class QRAuthenticationScreen extends Component {
   }
 
   render() {
-    const {navigate} = this.props.navigation;
-        console.log(this.props.user ? true : false);
-        return(this.props.user ? navigate('Main') : this._renderCamera());
+    this._renderCamera();
   }
 }
 

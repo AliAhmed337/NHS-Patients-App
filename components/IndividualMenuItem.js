@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Image, ScrollView } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 
+  /**
+   * A menu item that is desgined to be displayed once a user
+   * clicks on it from the menu tab. It contains information like
+   * ingredients, prep time, and methods on making it.
+   */
   export default class IndividualMenuItem extends Component {
 
     static navigationOptions = {

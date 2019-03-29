@@ -3,7 +3,11 @@ import { View,Image,StatusBar,Text } from 'react-native';
 import Button from '../components/common/Button';
 
 
-
+/**
+ * The user is presented with this screen if they do not currently 
+ * possess a valid token. This will allow them to proceed by scanning
+ * a QR generated code on their appointment letter or manually.
+ */
 export default class AuthenticationScreen extends React.Component  {
 
     static navigationOptions = {

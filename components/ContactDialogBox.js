@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import { Linking,Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import Dialog from "react-native-dialog";
-import Button from "./common/Button";
-
 
 class DialogBox extends Component {
 

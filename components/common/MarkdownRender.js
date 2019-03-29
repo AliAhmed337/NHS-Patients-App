@@ -3,10 +3,10 @@ import {View, Text, Platform} from 'react-native';
 import Markdown, {getUniqueID} from 'react-native-markdown-renderer';
 import { StyleSheet } from 'react-native';
 
-
 const styles = StyleSheet.create({
     heading: {},
     heading1: {
+        color: '#345434',
         fontSize: 32,
     },
     heading2: {

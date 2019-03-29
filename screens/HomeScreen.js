@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Text,
   View,
   Platform,
   StyleSheet,
@@ -18,6 +19,7 @@ import AppointmentCard from '../components/AppointmentCard';
  * for instant chat and this will go at the bottom of the screen.
  */
 class HomeScreen extends React.Component {
+  
   static navigationOptions = {
       title: 'Upcoming Appointments',
     
@@ -52,17 +54,21 @@ class HomeScreen extends React.Component {
             keyExtractor = {item => item.id.toString()}
             refreshing = {false}
             onRefresh = {() => this._handleRefresh()}
-            renderItem = {this._renderAppointment}          
+            renderItem = {this._renderAppointment}    
+            ListEmptyComponent = {this._renderEmpty}      
           />
       </View>
     );
   }
 
-  _renderAppointment = ({item}) => (
+  _renderAppointment = ({item, index}) => (
     <AppointmentCard id = {item.id} appointment = {item} navigation={this.props.navigation} 
-    prepInfo={item.detailedInformation}/>
+    prepInfo={item.detailedInformation} expanded = {index === 0}/>
   )
     
+  _renderEmpty = () => <Text>There are no appointments to be displayed.</Text>
+    
+  
   _handleAppointmentRequest = async () => {
     const {requestAppointments} = this.props;
     const userToken = await AsyncStorage.getItem('userToken');

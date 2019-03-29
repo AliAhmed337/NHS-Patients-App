@@ -21,7 +21,7 @@ export default class AppointmentCard extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { expanded: this.props.expanded || true };
+        this.state = { expanded: this.props.expanded || false };
     }
 
 
@@ -112,7 +112,6 @@ export default class AppointmentCard extends React.Component {
     }
 
     render() {
-        console.log('are we expanded: ' + this.state.expanded);
         return this.state.expanded ? this._renderExpanded() : this._renderCollapsed();
     }
 }

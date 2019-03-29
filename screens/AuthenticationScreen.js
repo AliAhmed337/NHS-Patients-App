@@ -28,7 +28,7 @@ export default class AuthenticationScreen extends React.Component  {
                 </View>
                 <View style={{backgroundColor : '#FFFFFF', flex: 1, alignItems: 'center'}}>
                     <View style={{paddingHorizontal: 20,paddingBottom: 60,paddingTop: 60}}>
-                        <Text style={{fontSize: 30, fontWeight: '  bold', color: '#231f20', paddingBottom: 10}}>
+                        <Text style={{fontSize: 30, fontWeight: 'bold', color: '#231f20', paddingBottom: 10}}>
                             Let's get started
                         </Text>
                         <Text style={{fontSize: 18, fontWeight: 'normal', color: '#231f20'}}>

@@ -30,10 +30,10 @@ class DialogBox extends Component {
                 <Dialog.Container visible={this.state.isVisible}>
                     <Dialog.Title>Contact</Dialog.Title>
                     <Dialog.Description>
-                        {contactNo ? "Department Telephone: " + contactNo : "Department Telephone: Not Available"}
+                        {contactNo ? "Department Telephone: \n" + contactNo : "Department Telephone: \n Not Available"}
                     </Dialog.Description>
                     <Dialog.Description>
-                        {email ? "Email Address: " + email : "Email Address: Not Available"}
+                        {email ? "Email Address: \n" + email : "Email Address: \n Not Available"}
                     </Dialog.Description>
                     <Dialog.Button label="Close" onPress={this.hide} />
                 </Dialog.Container>
@@ -56,7 +56,6 @@ const styles = ({
     buttonText: {
         fontSize: 18,
         fontWeight: '600',
-        fontFamily: 'Roboto-Regular',
     }
 
 

@@ -42,10 +42,10 @@ export const WhatToExpectNew = ({info}) => {
 
             </View>
             <Animatable.View animation="fadeInUp" style={{paddingTop: 60, paddingLeft: 8, paddingRight: 8, alignItems: 'center'}}>
-                <Text style={{fontSize: 17, fontWeight: 'bold', paddingBottom: 5,
-                    paddingTop: 30, color: 'black'}}>What to expect during the appointment ?</Text>
+                <Text style={{fontSize: 17, fontWeight: 'bold', paddingBottom: 15,
+                    paddingTop: 30, color: 'black'}}>What to expect during the appointment</Text>
                 {/* <Text style={{fontSize: 15,paddingBottom: 20, color: 'black'}}>{description}</Text> */}
-                    <MarkdownRender style={{flex: 1}}> {expect}</MarkdownRender>
+                    <MarkdownRender style={{flex: 1,padding:10}}> {expect}</MarkdownRender>
             </Animatable.View>
         </ScrollView>
 

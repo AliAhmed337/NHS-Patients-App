@@ -17,14 +17,14 @@ const IngredientList = ({ingredients}) => {
                 <View style={{flex: 0,
                     width:32,
                     marginRight:20,}}>
-                    <Image style={{height:40,
-                        width:40,
+                    <Image style={{height:30,
+                        width:30,
                         borderRadius:15,}} source={{uri: ingredient.image}}/>
                 </View>
                 <View style={{flexDirection:'column',
                     justifyContent:'flex-start',
                     flex:1,}}>
-                    <Text style={{fontSize:20}}>{ingredient.name}</Text>
+                    <Text style={{fontSize:10}}>{ingredient.name}</Text>
 
                     <View style={{flexDirection:'row',justifyContent:'flex-start',flexWrap:'wrap'}}>
                         <Text style={{color:"#757575",

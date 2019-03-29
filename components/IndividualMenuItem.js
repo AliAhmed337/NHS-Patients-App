@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView } from 'react-native';
+import IngredientList from './IngredientList';
 import * as Animatable from 'react-native-animatable';
 
   /**
@@ -30,6 +31,9 @@ import * as Animatable from 'react-native-animatable';
     headerTintColor: '#ffffff'
     };
 
+    componentDidMount() {
+      console.log(this.props.navigation);
+    }
     render(){
       const recipe = this.props.navigation.state.params;
       return (

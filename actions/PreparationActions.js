@@ -27,7 +27,7 @@ export const requestPreparations = (PREPARATION_ENDPOINT, userToken) => {
             }})
         .then((response) => response.json())
         .then((responseJson) => {
-            console.log('the response from appointment/1: '+ JSON.stringify(responseJson.preparatoryTasks));
+            console.log('the response from : '+ PREPARATION_ENDPOINT + " " + responseJson.preparatoryTasks);
             // We need to format the time from the API to a digestable, presentable time.
             const original = responseJson.preparatoryTasks;
             original.map(task => {
@@ -54,8 +54,8 @@ export const loadPrepInfo = (preptask) => {
         console.log('splitting and sending diet ' + JSON.stringify(preptask.diet));
         dispatch({type: DIET_CREATED, payload: preptask.diet});
     
-        console.log('splitting and sending menu ' + JSON.stringify(preptask.menu));
-        dispatch({type: MENU_CREATED, payload: preptask.menu})
+        console.log('splitting and sending menu ' + JSON.stringify(preptask.menu.map(x => x[0])));
+        dispatch({type: MENU_CREATED, payload: preptask.menu.map(x => x[0])});
     }
 };
 

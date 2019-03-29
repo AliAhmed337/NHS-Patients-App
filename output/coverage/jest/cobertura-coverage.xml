@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="29" lines-covered="28" line-rate="0.9655" branches-valid="8" branches-covered="4" branch-rate="0.5" timestamp="1553711171006" complexity="0" version="0.1">
+<coverage lines-valid="34" lines-covered="29" line-rate="0.8529000000000001" branches-valid="14" branches-covered="3" branch-rate="0.2143" timestamp="1553851602739" complexity="0" version="0.1">
   <sources>
     <source>C:\Users\XPS 13\Desktop\react\medapp-nhs</source>
   </sources>
@@ -60,13 +60,13 @@
           <methods>
             <method name="(anonymous_0)" hits="1" signature="()V">
               <lines>
-                <line number="6" hits="1"/>
+                <line number="5" hits="1"/>
               </lines>
             </method>
           </methods>
           <lines>
+            <line number="5" hits="1" branch="false"/>
             <line number="6" hits="1" branch="false"/>
-            <line number="7" hits="1" branch="false"/>
           </lines>
         </class>
         <class name="AppointmentImage.js" filename="components\appointment_elements\AppointmentImage.js" line-rate="0.5" branch-rate="1">
@@ -116,38 +116,53 @@
         </class>
       </classes>
     </package>
-    <package name="medapp-nhs.components.common" line-rate="1" branch-rate="0.5">
+    <package name="medapp-nhs.components.common" line-rate="1" branch-rate="1">
       <classes>
-        <class name="Button.js" filename="components\common\Button.js" line-rate="1" branch-rate="0.5">
+        <class name="Button.js" filename="components\common\Button.js" line-rate="1" branch-rate="1">
           <methods>
             <method name="(anonymous_0)" hits="2" signature="()V">
               <lines>
-                <line number="5" hits="2"/>
+                <line number="7" hits="2"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="5" hits="1" branch="false"/>
-            <line number="7" hits="2" branch="false"/>
-            <line number="18" hits="1" branch="false"/>
+            <line number="7" hits="1" branch="false"/>
+            <line number="9" hits="2" branch="false"/>
+            <line number="25" hits="1" branch="false"/>
           </lines>
         </class>
       </classes>
     </package>
-    <package name="medapp-nhs.components.diet_elements" line-rate="1" branch-rate="1">
+    <package name="medapp-nhs.components.diet_elements" line-rate="0.6364" branch-rate="0">
       <classes>
-        <class name="DietContent.js" filename="components\diet_elements\DietContent.js" line-rate="1" branch-rate="1">
+        <class name="DietContent.js" filename="components\diet_elements\DietContent.js" line-rate="0.5" branch-rate="0">
           <methods>
-            <method name="(anonymous_0)" hits="2" signature="()V">
+            <method name="(anonymous_0)" hits="1" signature="()V">
               <lines>
-                <line number="5" hits="2"/>
+                <line number="5" hits="1"/>
+              </lines>
+            </method>
+            <method name="(anonymous_1)" hits="0" signature="()V">
+              <lines>
+                <line number="9" hits="0"/>
+              </lines>
+            </method>
+            <method name="(anonymous_2)" hits="0" signature="()V">
+              <lines>
+                <line number="10" hits="0"/>
               </lines>
             </method>
           </methods>
           <lines>
             <line number="5" hits="2" branch="false"/>
-            <line number="6" hits="2" branch="false"/>
-            <line number="26" hits="2" branch="false"/>
+            <line number="6" hits="1" branch="false"/>
+            <line number="7" hits="1" branch="false"/>
+            <line number="8" hits="0" branch="false"/>
+            <line number="9" hits="0" branch="true" condition-coverage="0% (0/4)"/>
+            <line number="10" hits="0" branch="true" condition-coverage="0% (0/4)"/>
+            <line number="12" hits="0" branch="false"/>
+            <line number="32" hits="2" branch="false"/>
           </lines>
         </class>
         <class name="DietTitle.js" filename="components\diet_elements\DietTitle.js" line-rate="1" branch-rate="1">

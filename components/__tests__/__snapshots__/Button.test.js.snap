@@ -7,12 +7,15 @@ exports[`Testing common button component renders correcly 1`] = `
     Array [
       Object {
         "alignItems": "center",
-        "borderRadius": 10,
         "flexDirection": "row",
         "justifyContent": "space-evenly",
+        "shadowColor": "#000",
       },
       Object {
         "backgroundColor": "black",
+      },
+      Object {
+        "borderRadius": undefined,
       },
       Object {
         "width": "100%",
@@ -24,37 +27,55 @@ exports[`Testing common button component renders correcly 1`] = `
         "padding": 10,
       },
       Object {
-        "alignItems": "center",
-        "flexDirection": "row",
+        "paddingBottom": undefined,
+      },
+      Object {
+        "paddingLeft": undefined,
+      },
+      Object {
+        "borderColor": undefined,
       },
     ]
   }
 >
-  <Icon
-    allowFontScaling={false}
-    color="white"
-    name="md-checkbox"
-    size={20}
-    style={
-      Array [
-        Object {
-          "marginRight": 17,
-        },
-      ]
-    }
-  />
   <Component
     style={
-      Array [
-        Object {
-          "fontSize": 16,
-          "fontWeight": "600",
-        },
-        Object {
-          "color": "white",
-        },
-      ]
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+      }
     }
-  />
+  >
+    <Icon
+      allowFontScaling={false}
+      color="white"
+      name="md-checkbox"
+      size={20}
+      style={
+        Array [
+          Object {},
+        ]
+      }
+    />
+    <Component
+      style={
+        Array [
+          Object {
+            "fontFamily": "Roboto-Regular",
+            "fontWeight": "600",
+          },
+          Object {
+            "color": "white",
+          },
+          Object {
+            "fontSize": undefined,
+          },
+        ]
+      }
+    />
+    <Component />
+  </Component>
 </TouchableOpacity>
 `;

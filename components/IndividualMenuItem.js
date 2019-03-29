@@ -46,7 +46,6 @@ import * as Animatable from 'react-native-animatable';
                   animation="fadeInUp"
                   style={{
                     position:'absolute',
-                    position:'absolute',
                     top: '85%',
                     left: 20,
                     right: 20,

@@ -34,7 +34,7 @@ class DialogBox extends Component {
                         {contactNo ? contactNo : "Not Available"}
                     </Dialog.Description>
                     <Dialog.Description>
-                        Email Address:
+                        Email Address:{"\n"}
                         {email ? email : "Not Available"}
                     </Dialog.Description>
                     <Dialog.Button label="Close" onPress={this.hide} />
@@ -58,7 +58,6 @@ const styles = ({
     buttonText: {
         fontSize: 18,
         fontWeight: '600',
-        fontFamily: 'Roboto-Regular',
     }
 
 

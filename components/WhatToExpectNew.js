@@ -27,8 +27,8 @@ const styles = StyleSheet.create({
 
 export const WhatToExpectNew = ({info}) => {
 
-    const {name,expect_image, description, expect} = info;
-
+    const {name,image, description, expect} = info;
+    console.log(expect);
     return (
 
         <ScrollView style={{flex: 1, flexDirection: 'column'}}>
@@ -36,8 +36,8 @@ export const WhatToExpectNew = ({info}) => {
                 style={{width: '100%', height: '25%', position:'relative'}}
             >
                 {
-                    expect_image ? 
-                    <Animatable.Image source={{uri: expect_image}} style={{'flex':1}} animation="fadeInDown"/>
+                    image ? 
+                    <Animatable.Image source={{uri: image}} style={{'flex':1}} animation="fadeInDown"/>
                     :  <Animatable.View style = {{backgroundColor:'#005EB8'}} animation ="fadeInDown"/>
                 }
                 

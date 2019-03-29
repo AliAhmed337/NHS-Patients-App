@@ -30,12 +30,10 @@ class DialogBox extends Component {
                 <Dialog.Container visible={this.state.isVisible}>
                     <Dialog.Title>Contact</Dialog.Title>
                     <Dialog.Description>
-                        Department Telephone:
-                        {contactNo ? contactNo : "Not Available"}
+                        {contactNo ? "Department Telephone: " + contactNo : "Department Telephone: Not Available"}
                     </Dialog.Description>
                     <Dialog.Description>
-                        Email Address:
-                        {email ? email : "Not Available"}
+                        {email ? "Email Address: " + email : "Email Address: Not Available"}
                     </Dialog.Description>
                     <Dialog.Button label="Close" onPress={this.hide} />
                 </Dialog.Container>

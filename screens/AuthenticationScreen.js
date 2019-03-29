@@ -17,22 +17,22 @@ export default class AuthenticationScreen extends React.Component  {
     render(){
         const {navigate} = this.props.navigation;
         return (
-            <ScrollView style={{ backgroundColor: '#005EB8', flex: 1}}>
-                <View style={{ padding: 20, height: 250 }}>
+            <ScrollView style={{ backgroundColor: '#FFFFFF', flex: 1}}>
+                <View style={{ padding: 20, height: 200, backgroundColor: '#005EB8' }}>
 
                     <StatusBar barStyle="light-content"/>
 
                     <View style={{alignItems: 'center'}}>
-                        <Image style={{width: 350, height: 250, resizeMode: 'contain'}} source={require("../assets/images/splash.png")} />
+                        <Image style={{width: 300, height: 200, resizeMode: 'contain'}} source={require("../assets/images/splash.png")} />
                     </View>
                 </View>
-                <View style={{backgroundColor : '#FFFFFF', flex: 1, alignItems: 'center'}}>
-                    <View style={{paddingHorizontal: 20,paddingBottom: 60,paddingTop: 60}}>
+                <View style={{backgroundColor : '#FFFFFF', flex: 2, alignItems: 'center'}}>
+                    <View style={{paddingHorizontal: 20,paddingTop: 35, paddingBottom: 25}}>
                         <Text style={{fontSize: 30, fontWeight: 'bold', color: '#231f20', paddingBottom: 10}}>
                             Let's get started
                         </Text>
-                        <Text style={{fontSize: 18, fontWeight: 'normal', color: '#231f20'}}>
-                            To begin, you'll need an appointment code. You'll find this with your appointment confirmation letter.
+                        <Text style={{fontSize: 18, fontWeight: 'normal', color: '#231f20', paddingBottom: 10}}>
+                        The NHS MyAppointment app is the easiest way to be properly prepared for your appointment. Choose below to begin. 
                         </Text>
                     </View>
                     <View style={{paddingBottom: 30}}>

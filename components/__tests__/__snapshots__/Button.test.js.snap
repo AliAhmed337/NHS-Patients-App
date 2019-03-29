@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing common button component renders correcly 1`] = `
+<TouchableOpacity
+  activeOpacity={0.2}
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 10,
+        "flexDirection": "row",
+        "justifyContent": "space-evenly",
+      },
+      Object {
+        "backgroundColor": "black",
+      },
+      Object {
+        "width": "100%",
+      },
+      Object {
+        "height": "100%",
+      },
+      Object {
+        "padding": 10,
+      },
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+      },
+    ]
+  }
+>
+  <Icon
+    allowFontScaling={false}
+    color="white"
+    name="md-checkbox"
+    size={20}
+    style={
+      Array [
+        Object {
+          "marginRight": 17,
+        },
+      ]
+    }
+  />
+  <Component
+    style={
+      Array [
+        Object {
+          "fontSize": 16,
+          "fontWeight": "600",
+        },
+        Object {
+          "color": "white",
+        },
+      ]
+    }
+  />
+</TouchableOpacity>
+`;

@@ -43,7 +43,6 @@ export const cameraPermRequested = (status) => {
  * @param {string} passphrase The passphrase being verified.
  */
 export const verifyUser = (passphrase) => {
-    console.log('attempting to verify user with passphrase: ' + passphrase);
     return function action(dispatch) {
         dispatch({type: VERIFY_USER}); // Dispatch an update to loading state until we have resolved verification.
         attemptVerify(passphrase, dispatch);
@@ -68,7 +67,6 @@ export const validateUser = (userToken) => {
             .then((response) => {
                 // Will likely experience difference forms of validity,
                 // dispatch allows flexibility with handling this.
-                console.log('validating user' + response.status);
                 if (response.status === 401) {
                     dispatch({type: ISVALID_USER, payload: false})
                     removeInvalidTokenFromStorage();
@@ -104,10 +102,7 @@ const attemptVerify = (passphrase, dispatch) => {
         })
     })
     .then((response) => {
-        console.log('status code: ' + response.status);
-        console.log('response body: ');
         response.status === 200 ? response.json().then(json => {
-            console.log(json);
             verifySuccess(dispatch, json.accessToken)
         }) : verifyFail(dispatch) 
     })
@@ -122,7 +117,6 @@ const attemptVerify = (passphrase, dispatch) => {
  * @param {string} user 
  */
 const verifySuccess = (dispatch, user) => {
-    console.log('successfully verified apparently, user should be: ' + user);
     dispatch({type: CLEAR_APPOINTMENTS})
     storeData(user);
     dispatch({
@@ -138,7 +132,6 @@ const verifySuccess = (dispatch, user) => {
  * @param {dispatch} dispatch 
  */
 const verifyFail = (dispatch) => {
-    console.log('this user has failed verification');
     removeInvalidTokenFromStorage();
     dispatch({type: USER_VERIFY_FAIL});
 }

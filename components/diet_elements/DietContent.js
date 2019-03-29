@@ -3,9 +3,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { View, Text } from 'react-native';
 
 export const DietContent = ({props}) => {
-	console.log('props of diet' + props);
 	const {isAllowed, notAllowed} = props;
-	console.log('rendering diet content'+JSON.stringify(isAllowed));
 	let allowedString = isAllowed ? isAllowed.reduce((acc, o) => acc ? `${acc}, ${o.name}` : o.name, null) : "None";
 	let notAllowedString = notAllowed ? notAllowed.reduce((acc, o) => acc ? `${acc}, ${o.name}` : o.name, null) : "None";
 

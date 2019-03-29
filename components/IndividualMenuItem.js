@@ -31,9 +31,6 @@ import * as Animatable from 'react-native-animatable';
     headerTintColor: '#ffffff'
     };
 
-    componentDidMount() {
-      console.log(this.props.navigation);
-    }
     render(){
       const recipe = this.props.navigation.state.params;
       return (

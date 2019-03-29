@@ -32,9 +32,7 @@ export default class AppointmentCard extends React.Component {
     }
 
     _renderCollapsed() {
-        console.log('rendering the collapsed version');
         const {appointmentType, startTime} = this.props.appointment;
-        console.log(appointmentType.name + ' ' + startTime);
         const appointmentDate = moment(startTime);
         const {appointmentTypeText, appointmentTitleText} = styles;
 
@@ -54,7 +52,6 @@ export default class AppointmentCard extends React.Component {
     }
 
     _renderExpanded() {
-        console.log('Rendering expanded version');
         const {appointmentType, startTime, location, contactPoint} = this.props.appointment;
         const appointmentDate = moment(startTime);
         const {appointmentTypeText, appointmentTitleText, appointmentTimerText} = styles;

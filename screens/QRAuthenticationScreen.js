@@ -68,7 +68,7 @@ class QRAuthenticationScreen extends Component {
   }
 
   render() {
-    this._renderCamera();
+    return this._renderCamera();
   }
 }
 

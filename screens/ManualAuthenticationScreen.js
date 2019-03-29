@@ -83,7 +83,7 @@ class ManualAuthenticationScreen extends React.Component {
     }
 
     render(){
-        this._renderForm();
+        return this._renderForm();
     }
 }
 

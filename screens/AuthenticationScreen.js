@@ -1,5 +1,5 @@
 import React from 'react';
-import { View,Image,StatusBar,Text } from 'react-native';
+import {ScrollView, View,Image,StatusBar,Text } from 'react-native';
 import Button from '../components/common/Button';
 
 
@@ -17,7 +17,7 @@ export default class AuthenticationScreen extends React.Component  {
     render(){
         const {navigate} = this.props.navigation;
         return (
-            <View style={{ backgroundColor: '#005EB8', flex: 1}}>
+            <ScrollView style={{ backgroundColor: '#005EB8', flex: 1}}>
                 <View style={{ padding: 20, height: 250 }}>
 
                     <StatusBar barStyle="light-content"/>
@@ -42,7 +42,7 @@ export default class AuthenticationScreen extends React.Component  {
                         <Button padding={20} width='90%' backgroundColor='#E8EDEE' color= '#231f20' onPress={() => navigate('ManualAuth')} noIcon >Enter your details manually</Button>
                     </View>
                 </View>
-            </View>
+            </ScrollView>
         )
     }
 }

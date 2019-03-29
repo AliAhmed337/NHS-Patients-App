@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing guidance container component renders correcly 1`] = `
+<Component>
+  <Component
+    style={
+      Object {
+        "alignItems": "center",
+        "borderBottomColor": "#647CAA",
+        "borderBottomWidth": 1,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <Icon
+      allowFontScaling={false}
+      color="#00315F"
+      name="bullseye"
+      size={18}
+    />
+    <Component
+      style={
+        Object {
+          "color": "#00315F",
+          "fontFamily": "Arial",
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "margin": 6,
+        }
+      }
+    >
+      title
+    </Component>
+  </Component>
+  <Component>
+    <Component
+      style={
+        Object {
+          "color": "#00315F",
+          "fontFamily": "Arial",
+          "fontSize": 16,
+          "margin": 6,
+        }
+      }
+    >
+      content
+    </Component>
+  </Component>
+</Component>
+`;

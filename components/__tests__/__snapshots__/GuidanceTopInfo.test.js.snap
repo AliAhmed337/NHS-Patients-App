@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing guidance info component renders correctly 1`] = `
+<Component>
+  <Component
+    style={
+      Object {
+        "color": "#00315F",
+        "fontFamily": "Arial",
+        "fontSize": 16,
+        "padding": 5,
+      }
+    }
+  >
+    Dear Patient,
+  </Component>
+  <Component
+    style={
+      Object {
+        "color": "#00315F",
+        "fontFamily": "Arial",
+        "fontSize": 16,
+        "padding": 5,
+      }
+    }
+  >
+    We kindly ask you to follow these important instructions before your appointment:
+  </Component>
+</Component>
+`;

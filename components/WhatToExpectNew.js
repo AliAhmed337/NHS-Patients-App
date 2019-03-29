@@ -4,6 +4,7 @@ import ImageOverlay from "react-native-image-overlay";
 import * as Animatable from 'react-native-animatable';
 import ReactRender from './common/ReactRender/ReactRender';
 import FoodTESTTemp from '../screens/FoodTESTTemp.json';
+import MarkdownRender from "./common/MarkdownRender";
 
 const styles = StyleSheet.create({
     gridView: {
@@ -69,10 +70,9 @@ export const WhatToExpectNew = ({info}) => {
                     paddingTop: 30, color: 'black'}}>What to expect during the appointment ?</Text>
                 {/* <Text style={{fontSize: 15,paddingBottom: 20, color: 'black'}}>{description}</Text> */}
                 <ScrollView style={{fontSize: 15,paddingBottom: 20, color: 'black'}}>
-                    <ReactRender 
-                    style={{height: undefined, width: undefined}}
-                    data={expect}
-                    />
+                    <MarkdownRender
+                        style={{height: undefined, width: undefined}}
+                        data={expect}/>
                 </ScrollView>
             </Animatable.View>
         </ScrollView>

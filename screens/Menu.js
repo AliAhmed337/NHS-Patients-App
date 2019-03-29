@@ -1,41 +1,18 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Button, TouchableOpacity, ScrollView, Image, Animated } from 'react-native';
+import { connect } from 'react-redux';
 import { FlatGrid } from 'react-native-super-grid';
 import ImageOverlay from "react-native-image-overlay";
 
-export default class Menu extends Component {
-  
-  state = {
-    opacity: 1,
-    openProgress: new Animated.Value(0),
-    isAnimating: false
-  };
-
-  constructor(){
-    super()
-    this.state={
-      clicked: false,
-      item: ''
-    }
-  }
-
-  renderMenuContent(item) {
-    if(item !== '') {
-      return item.content.map(row =>
-        <View style={{ flexDirection: 'row' }}>
-            <Text>{'\u2022'}</Text>
-            <Text style={{ flex: 1, paddingLeft: 16, fontSize: 16 }}>{row}</Text>
-          </View>
-        );
-      }
-  }
+class Menu extends Component {
 
   onPressFunction(item) {
+    // make a request to load the individual recipe in state
     this.props.navigation.navigate('IndividualMenuItem')
   }
 
   render() {
-const items = [ 
+  const items = [ 
   { name: 'Chicken and Bacon Salad', content: ['Chop tomato, cucumber, peppers, spring onions and radishes', 'Wash and pat dry some lettuce', 'In a bowl combine the salad ingredients with pieces of cooled cooked chicken and chopped grilled bacon', 'Mix with home-made salad dressing (2 tablespoons of oil, 1 tablespoon of vinegar, salt and pepper, whisked together).'], code: '#1abc9c', image: 'https://www.simplyrecipes.com/wp-content/uploads/2012/06/chicken-salad-square-a-1800.jpg' },
   { name: 'Fried Mushrooms', content: ['Cook some sliced mushrooms in butter and garlic, frying some tomato quarters on the side', 'Serve with fried eggs and bacon, or a lamb chop. Please remember processed meats including sausages are not allowed.'], code: '#2ecc71', image: 'http://totsfamily.com/wp-content/uploads/2016/10/IMG_0028.jpg' },
   { name: 'Fish And Vegetables in a Herb Cream Sauce', content: ['Wrap up a piece of cod, haddock or tilapia topped with lemon zest, crushed garlic, fresh herbs and olive oil in foil to make a sealed parcel', 'Bake the parcel in an oven dish for 20 minutes at 200° C', 'While the fish is cooking, slice plenty of peppers, leeks, mushrooms and courgettes, and sauté in oil for 5-10 minutes until they are cooked how you like them', 'Add 50ml cream and a handful of chopped fresh herbs, warm through, and serve with the fish.  You cannot thicken the sauce with flour or cornflour as these are not permitted'], code: '#3498db', image: 'https://www.lecremedelacrumb.com/wp-content/uploads/2017/07/lemon-dill-salmon-101.jpg'   },
@@ -49,16 +26,16 @@ const items = [
       <View style={{ flex: 1 }}>
       <FlatGrid
         itemDimension={130}
-        items={items}
+        items={this.props.menuPrep}
         style={styles.gridView}
-        renderItem={({ item }) => (
+        renderItem={({ item , index }) => (
             <View style={{flex: 1}}>
             <TouchableOpacity 
                 style={[styles.itemContainer, { backgroundColor: item.code }]}
                 onPress={() => this.onPressFunction(item)}
             >
                 <ImageOverlay 
-                  source={{ uri:item.image}} 
+                  source={{ uri:'https://www.lecremedelacrumb.com/wp-content/uploads/2017/07/lemon-dill-salmon-101.jpg'}} 
                   title={item.name}
                   titleStyle={{fontWeight: 'bold' }}
                   containerStyle={{ flex: 1, width: undefined, height: undefined, borderRadius: 5}} 
@@ -89,3 +66,10 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
 });
+
+const mapStateToProps = ({ prepRed }) => {
+  const { menuPrep } = prepRed;
+  return { menuPrep };
+}
+
+export default connect(mapStateToProps)(Menu);

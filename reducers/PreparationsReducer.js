@@ -34,7 +34,7 @@ export default (state = INITIAL_STATE, action) => {
             };
 
         case MENU_CREATED:
-            console.log('menu has been updated: ' + action.payload);
+            console.log('menu has been updated: ' + JSON.stringify(action.payload));
             return {
                 ...state, 
                 menuPrep: action.payload, 

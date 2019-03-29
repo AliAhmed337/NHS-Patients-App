@@ -6,7 +6,7 @@ import {
   ScrollView
 } from 'react-native';
 import { connect } from 'react-redux';
-import ReactRender from '../components/common/ReactRender/ReactRender';
+import MarkdownRender from '../components/common/MarkdownRender';
 import { GuidanceTopInfo } from '../components/guidance_elements';
 
 class PreparationScreen extends React.Component {
@@ -27,7 +27,7 @@ class PreparationScreen extends React.Component {
           <ScrollView>
             <GuidanceTopInfo/>
             {/* THIS IS WHERE WE BULLET POINT INGREDIENTS IN A FLATLIST */}
-            <ReactRender 
+            <MarkdownRender
             style={{height: undefined, width: undefined}}
             data={this.props.guidancePrep}/>
           </ScrollView>

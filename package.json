@@ -30,7 +30,8 @@
     "react-test-renderer": "latest",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
-    "@expo/vector-icons": "latest"
+    "@expo/vector-icons": "latest",
+    "react-native-markdown-renderer": "latest"
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0",

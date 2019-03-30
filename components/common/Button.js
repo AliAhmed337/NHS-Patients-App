@@ -35,6 +35,8 @@ const styles = ({
     },
     buttonText: {
         fontWeight: '600',
+        fontFamily: 'OpenSans-Regular',
+
     },
     buttonImg: {
 

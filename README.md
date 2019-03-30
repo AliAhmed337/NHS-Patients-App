@@ -4,21 +4,21 @@
 This repository is for the cross-platform mobile application deliverable.
 The web application component can be found at [domswainkcl/med-app-nhs-web-app](https://github.com/domswainekcl/med-app-nhs-web-app).
 
-##Team Members:
+#Team Members:
 
-*Ahmed Ali - K1763447
+* Ahmed Ali - K1763447
 
-*Nour Ataya - K1764150
+* Nour Ataya - K1764150
 
-*Ryan Bate - K1333447
+* Ryan Bate - K1333447
 
-*Rui Liao - rui.liao@kcl.ac.uk
+* Rui Liao - rui.liao@kcl.ac.uk
 
-*Jay Macpherson - K1764023
+* Jay Macpherson - K1764023
 
-*Dominic Swaine - K1763609
+* Dominic Swaine - K1763609
 
-*Firat Tuna - K1763926
+* Firat Tuna - K1763926
 
 Our project uses the react native library to build an application using react and Javascript.
 We also use expo, a toolchain build around react native.
@@ -68,9 +68,9 @@ Since we had a license already the client has a build in Testflight of the appli
 Notable libraries used:
 
 - react-native https://facebook.github.io/react-native/  [MIT License](https://github.com/facebook/react-native/blob/master/README.md) - native mobile applications with javascript
-- react-navigation https://reactnavigation.org/ [MIT License](https://github.com/react-navigation/react-navigation/blob/master/README.md)  navigation through the app
+- react-navigation https://reactnavigation.org/ [BSD 2-clause "Simplified" License](https://github.com/react-navigation/react-navigation/blob/master/README.md)  navigation through the app
 - react-redux https://redux.js.org/basics/usage-with-react [MIT License](https://github.com/reduxjs/react-redux/blob/master/README.md) - state management
-- react-thunk https://github.com/reduxjs/redux-thunk [MIT License] https://github.com/reduxjs/redux-thunk/blob/master/README.md - async state management
+- react-thunk https://github.com/reduxjs/redux-thunk [MIT License](https://github.com/reduxjs/redux-thunk/blob/master/README.md) - async state management
 - enzyme https://airbnb.io/enzyme/ [MIT License](https://github.com/airbnb/enzyme) - testing
-- jest https://jestjs.io/docs/en/tutorial-react-native [MIT License](https://github.com/expo/jest-expo/blob/master/README.md) - testing
-- expo https://expo.io/ [MIT LIcense](https://github.com/expo/expo) - toolchain
+- jest https://jestjs.io/docs/en/tutorial-react-native [MIT License](https://github.com/expo/expo/tree/master/packages/jest-expo) - testing
+- expo https://expo.io/ [MIT License](https://github.com/expo/expo) - toolchain

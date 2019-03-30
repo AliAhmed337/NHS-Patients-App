@@ -40,8 +40,8 @@ export default class App extends React.Component {
   _loadResourcesAsync = async () => {
     return Promise.all([
       Asset.loadAsync([
-        require('./images/care.png'),
-        require('./images/nhs.png'),
+        require('./assets/images/care.png'),
+        require('./assets/images/nhs.png'),
       ]),
       Font.loadAsync({
         // This is the font that we are using for our tab bar

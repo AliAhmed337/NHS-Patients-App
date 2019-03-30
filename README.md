@@ -18,7 +18,21 @@ we have also incorporated third party libraries such as redux and redux-thunck f
 expo: https://expo.io/
 react native: https://facebook.github.io/react-native/
 
-Authentication:
+Methods of demoing:
+Viewing the current version in Testflight:
+Testflight houses our live build, that will be deployed to for as long as the client would like to support it.
+Since we intend to continue maintaining the project, this is a good way of looking at the most up-to-date build.
+This build is subject to change and can be found at: HTTPS://testflight.apple.com/join/k2X3YS3T
+
+Installing our project locally:
+Make sure you have node.js for npm commands
+- install expo cli through the command npm install expo-cli --global
+- travel to the directory in terminal your favourite IDE and run npm install for all dependancies
+- finally, run expo start and this should spin up a development server. 
+- You have the option to download the expo app on your phone to scan the QR code to witness the demo live in device
+- You can also run it in a simulator, given that you have installed the neccesary programs.
+
+Inside the App:
 
 When the application launches you will be presented with 2 types of authentication:
 

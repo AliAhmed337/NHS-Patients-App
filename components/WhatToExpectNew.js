@@ -6,7 +6,6 @@ import MarkdownRender from "./common/MarkdownRender";
 export const WhatToExpectNew = ({info}) => {
 
     const {name,image, description, expect} = info;
-    console.log(expect);
     return (
 
         <ScrollView style={{flex: 1, flexDirection: 'column'}}>

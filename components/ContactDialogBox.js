@@ -18,6 +18,7 @@ class DialogBox extends Component {
     }
 
     render(){
+        const { contactNo, email } = this.props;
         return (
 
             <View style={{alignItems: 'center',}}>
@@ -29,12 +30,10 @@ class DialogBox extends Component {
                 <Dialog.Container visible={this.state.isVisible}>
                     <Dialog.Title>Contact</Dialog.Title>
                     <Dialog.Description>
-                        Department Phone Number:
-                        {this.props.contactNo}
+                        {contactNo ? "Department Telephone: \n" + contactNo : "Department Telephone: \n Not Available"}
                     </Dialog.Description>
                     <Dialog.Description>
-                        Email Address:
-                        {this.props.email}
+                        {email ? "Email Address: \n" + email : "Email Address: \n Not Available"}
                     </Dialog.Description>
                     <Dialog.Button label="Close" onPress={this.hide} />
                 </Dialog.Container>
@@ -57,7 +56,6 @@ const styles = ({
     buttonText: {
         fontSize: 18,
         fontWeight: '600',
-        fontFamily: 'Roboto-Regular',
     }
 
 

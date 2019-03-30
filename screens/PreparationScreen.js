@@ -20,10 +20,6 @@ class PreparationScreen extends React.Component {
     title: 'Guide',
   };
 
-  componentDidMount(){
-		console.log('mounting guidance' + this.props.guidancePrep);
-	}
-
   render() {
     return (
       <View style={{flex: 1}}>

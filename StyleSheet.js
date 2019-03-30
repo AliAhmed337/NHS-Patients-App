@@ -30,6 +30,7 @@ export default styles = StyleSheet.create({
     appointmentTitleContainer: {
         flexDirection: 'column',
         justifyContent: 'space-around',
+        paddingRight: 10,
 
 
     },
@@ -67,6 +68,7 @@ export default styles = StyleSheet.create({
     appointmentTitleText: {
         fontSize: 16,
         color: 'white',
+        paddingRight: 10,
     },
 
     appointmentTypeText: {

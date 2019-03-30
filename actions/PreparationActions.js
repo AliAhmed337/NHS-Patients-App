@@ -14,7 +14,6 @@ export const requestPreparations = (PREPARATION_ENDPOINT, userToken) => {
 
     return (dispatch) => {
         // Notify our state that we are attempting to gather preparations.
-        console.log('getting preparations');
         dispatch({type: CLEAR_PREPARATIONS});
         dispatch({type: PREPARATIONS_REQUESTED});
 
@@ -27,14 +26,12 @@ export const requestPreparations = (PREPARATION_ENDPOINT, userToken) => {
             }})
         .then((response) => response.json())
         .then((responseJson) => {
-            console.log('the response from appointment/1: '+ JSON.stringify(responseJson.preparatoryTasks));
             // We need to format the time from the API to a digestable, presentable time.
             const original = responseJson.preparatoryTasks;
             original.map(task => {
                 const formatTime = moment(task.time).format("MMM Do");
                 task.time = formatTime;
             });
-            console.log('preparations retrieved for endpoint: ' + PREPARATION_ENDPOINT);
             dispatch({type: PREPARATIONS_RETRIEVED, payload: original});
         })
         .catch((error) => console.error(error));
@@ -48,14 +45,11 @@ export const requestPreparations = (PREPARATION_ENDPOINT, userToken) => {
  */
 export const loadPrepInfo = (preptask) => {
     return (dispatch) => {
-        console.log('splitting and sending guidance ' + JSON.stringify(preptask.guidance));
         dispatch({type: GUIDANCE_CREATED, payload: preptask.guidance});
     
-        console.log('splitting and sending diet ' + JSON.stringify(preptask.diet));
         dispatch({type: DIET_CREATED, payload: preptask.diet});
     
-        console.log('splitting and sending menu ' + JSON.stringify(preptask.menu));
-        dispatch({type: MENU_CREATED, payload: preptask.menu})
+        dispatch({type: MENU_CREATED, payload: preptask.menu.map(x => x[0])});
     }
 };
 
@@ -68,7 +62,6 @@ export const loadPrepInfo = (preptask) => {
 export const loadExpectInfo = (PREPARATION_ENDPOINT, userToken) => {
     return (dispatch) => {
         dispatch({type: CLEAR_PREPARATIONS});
-        console.log('getting what to expect');
         fetch(PREPARATION_ENDPOINT, {
             method: 'GET',
             headers: {
@@ -78,7 +71,6 @@ export const loadExpectInfo = (PREPARATION_ENDPOINT, userToken) => {
             }})
         .then((response) => response.json())
         .then((responseJson) => {
-            console.log('the response from appointment/1: '+ JSON.stringify(responseJson.appointment_profile));
             
             dispatch({type: EXPECT_CREATED, payload: responseJson.appointment_profile});
         })

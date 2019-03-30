@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TouchableOpacity, Platform} from 'react-native';
+import { Text, View, TouchableOpacity, Platform, Linking} from 'react-native';
 import moment from 'moment';
 import styles from '../StyleSheet';
 import { Ionicons } from '@expo/vector-icons';
@@ -32,9 +32,7 @@ export default class AppointmentCard extends React.Component {
     }
 
     _renderCollapsed() {
-        console.log('rendering the collapsed version');
         const {appointmentType, startTime} = this.props.appointment;
-        console.log(appointmentType.name + ' ' + startTime);
         const appointmentDate = moment(startTime);
         const {appointmentTypeText, appointmentTitleText} = styles;
 
@@ -54,7 +52,6 @@ export default class AppointmentCard extends React.Component {
     }
 
     _renderExpanded() {
-        console.log('Rendering expanded version');
         const {appointmentType, startTime, location, contactPoint} = this.props.appointment;
         const appointmentDate = moment(startTime);
         const {appointmentTypeText, appointmentTitleText, appointmentTimerText} = styles;
@@ -79,10 +76,11 @@ export default class AppointmentCard extends React.Component {
                             icon_name={'access-time'}
                             primary_text={appointmentDate.format('MMMM Do YYYY, h:mm a')}
                             icons_library={'MaterialIcons'}/>
-
-                        <EventBar icon_name={'place'}
+                        <TouchableOpacity onPress = {() => Linking.openURL(Platform.OS === 'ios' ? location.maps.appleMapsURL : location.maps.googleMapsURL).catch((err) => console.error('An error occured', err))}>
+                            <EventBar icon_name={'place'}
                                   primary_text={location.name}
                                   icons_library={'MaterialIcons'}/>
+                        </TouchableOpacity>
                     </View>
 
                     <View style={{paddingBottom: 15, alignItems: 'center'}}>

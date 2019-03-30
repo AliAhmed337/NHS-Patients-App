@@ -24,8 +24,6 @@ export const requestAppointments = (userToken) => {
     dispatch({type: APPOINTMENTS_REQUESTED});
     
     // Make a GET request to the endpoint using the token as credentials.
-    console.log('this is what we are sending to the api: ');
-    console.log(userToken);
     fetch(APPOINTMENTS_ENDPOINT, {
       method: 'GET',
       headers: {
@@ -33,7 +31,6 @@ export const requestAppointments = (userToken) => {
         'X-API-KEY': userToken
     }})
     .then((response) => {
-      console.log('status code for appointments fetch: ' + response.status);
       response.json().then((responseJson) => {
         dispatch({type: APPOINTMENTS_RETRIEVED, payload: responseJson.appointments});
       })
@@ -46,7 +43,6 @@ export const requestAppointments = (userToken) => {
  * Register for push notifications with expo backend.
  */
 export async function registerForPushNotificationsAsync() {
-  console.log('attempting to get push noti reg');
     const { status: existingStatus } = await Permissions.getAsync(
       Permissions.NOTIFICATIONS
     );

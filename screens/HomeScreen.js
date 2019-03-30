@@ -76,7 +76,6 @@ class HomeScreen extends React.Component {
   }
 
   _handleRefresh() {
-    console.log('we are refreshing');
     this._handleAppointmentRequest();
   }
 }

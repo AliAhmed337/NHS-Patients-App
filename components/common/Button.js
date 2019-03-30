@@ -35,7 +35,6 @@ const styles = ({
     },
     buttonText: {
         fontWeight: '600',
-        fontFamily: 'Roboto-Regular',
     },
     buttonImg: {
 

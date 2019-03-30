@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import {View, Text, ScrollView, StyleSheet} from 'react-native';
+import IngredientList from './IngredientList';
 import * as Animatable from 'react-native-animatable';
 
   /**
@@ -45,7 +46,6 @@ import * as Animatable from 'react-native-animatable';
                   animation="fadeInUp"
                   style={{
                     position:'absolute',
-                    position:'absolute',
                     top: '85%',
                     left: 20,
                     right: 20,
@@ -59,56 +59,40 @@ import * as Animatable from 'react-native-animatable';
                   style={{margin: 10}}
                 >
                   <Text style={{
-                    fontSize: 25, 
-                    paddingLeft: 10, 
-                    paddingBottom: 5, 
-                    paddingTop: 5, 
-                    fontWeight: 'bold', 
+                    fontSize: 25,
+                    paddingLeft: 10,
+                    paddingRight: 10,
+                    padding: 0,
+                    fontWeight: 'bold',
                     color: 'black'}}
                     >{recipe.name}</Text> 
                     {/* ^PUT the title of the dish there */}
 
                     <View style = {{flexDirection: 'row'}}>
-                    <Text style={{
-                    fontSize: 10, 
-                    padding: 10, 
-                    paddingRight: 40,
-                    paddingBottom: 15, 
-                    paddingTop: 10, 
-                    color: 'black'}}
-                  >{recipe.preparation_time.value}</Text>
-                  <Text style={{
-                    fontSize: 10, 
-                    padding: 10, 
-                    paddingBottom: 15, 
-                    paddingTop: 10, 
-                    color: 'black'}}
-                  >{recipe.preparation_time.interval}</Text>
-                  </View>
 
-                  <View style = {{flexDirection: 'row'}}>
-                    <Text style={{
-                    fontSize: 10, 
-                    padding: 10, 
-                    paddingRight: 40,
-                    paddingBottom: 15, 
-                    paddingTop: 10, 
-                    color: 'black'}}
-                  >{recipe.cooking_time.value}</Text>
-                  <Text style={{
-                    fontSize: 10, 
-                    padding: 10, 
-                    paddingBottom: 15, 
-                    paddingTop: 10, 
-                    color: 'black'}}
-                  >{recipe.cooking_time.interval}</Text>
+                      {recipe.preparation_time.value &&
+                      <Text style={{
+                        fontSize: 12,
+                        padding: 10,
+                        color: 'black'
+                      }}
+                      >Prepare: {recipe.preparation_time.value} {recipe.preparation_time.interval}</Text>
+                      }
+
+                      {recipe.cooking_time.value &&
+                        <Text style={{
+                          fontSize: 12,
+                          padding: 10,
+                          color: 'black'
+                        }}>Cook: {recipe.cooking_time.value} {recipe.cooking_time.interval}</Text>
+                      }
+
                   </View>
 
                   <Text style={{
-                    fontSize: 25, 
-                    padding: 10, 
-                    paddingBottom: 15, 
-                    paddingTop: 10, 
+                    fontSize: 20,
+                    padding: 10,
+                    paddingBottom: 2,
                     fontWeight: 'bold', 
                     color: 'black'}}
                   >Ingredients</Text>
@@ -117,17 +101,17 @@ import * as Animatable from 'react-native-animatable';
                   <IngredientList ingredients = {recipe.ingredients}/>
 
                   <Text style={{
-                    fontSize: 25, 
-                    padding: 10, 
-                    paddingBottom: 20, 
-                    paddingTop: 10, 
-                    fontWeight: 'bold', 
+                    fontSize: 20,
+                    padding: 10,
+                    paddingBottom: 2,
+                    fontWeight: 'bold',
                     color: 'black'}}
                   >How to cook</Text>
                     
-                {/* This is where the code for rendering methods is: */}
-                <Text>{recipe.method.content}</Text>
-              </ScrollView>
+                  {/* This is where the code for rendering methods is: */}
+                  <Text style={{padding:10}}>{recipe.method.content}</Text>
+
+                  </ScrollView>
                 </Animatable.View>
             </View>
           </View>
